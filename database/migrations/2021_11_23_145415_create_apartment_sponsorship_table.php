@@ -13,6 +13,7 @@ class CreateApartmentSponsorshipTable extends Migration
      */
     public function up()
     {
+        // COLLEGAMENTO TABELLE PONTE APPARTAMENTI E SPONSORIZZAZIONI (COLLEGAMENTO DELLE FK SUL DATABASE)
         Schema::create('apartment_sponsorship', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('apartment_id');

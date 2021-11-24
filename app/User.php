@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    // COLLEGO ONE TO MANY GLI UTENTI E GLI APPARTAMENTI
+    public function apartments() {
+        return $this->hasMany('App\Apartment');
+    }
 }

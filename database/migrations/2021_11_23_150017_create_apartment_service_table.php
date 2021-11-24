@@ -13,6 +13,7 @@ class CreateApartmentServiceTable extends Migration
      */
     public function up()
     {
+        // COLLEGAMENTO TABELLE PONTE APPARTAMENTI E SERVIZI (COLLEGAMENTO DELLE FK SUL DATABASE)
         Schema::create('apartment_service', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('apartment_id');
