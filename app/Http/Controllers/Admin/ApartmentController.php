@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use App\Apartment;
 use App\Service;
 
@@ -56,7 +58,28 @@ class ApartmentController extends Controller
         $form_data = $request->all();
         $new_apartment = new Apartment();
         $new_apartment->fill($form_data);
+        $new_apartment->latitude = 45.4654219;
+        $new_apartment->longitude = 9.1859243;
+        $new_apartment->user_id = Auth::id();
+        
+        $slug = Str::slug($new_apartment->title,'-');
+        $slug_base = $slug;
+
+        $slug_presente = Apartment::where('slug', $slug)->first();
+
+        $contatore=1;
+
+        while($slug_presente) {
+            $slug = $slug_base . '-' . $contatore;
+            $slug_presente = Apartment::where('slug', $slug)->first();
+            $contatore++;
+        }
+
+        $new_apartment->slug = $slug;
+
+
         $new_apartment->save();
+        return redirect()->route('admin.apartments.index')->with('status', 'Appartamento inserito correttamente');
     }
 
     /**
