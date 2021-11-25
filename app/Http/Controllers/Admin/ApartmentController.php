@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Apartment;
 
 class ApartmentController extends Controller
 {
@@ -14,7 +15,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Apartment::all();
+        return view('admin.apartments.index', compact('apartments'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.apartment.create');
     }
 
     /**
@@ -35,7 +37,22 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+ 
+            'title' => 'required | max: 255',
+            'beds' => 'required',
+            'rooms' => 'required',
+            'bathrooms' => 'required',
+            'square_meters' => 'required',
+            'image' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+ 
+        ]);
+ 
+        $apartment = new Apartment();
+        $apartment->fill($data);
+        $apartment->save();
     }
 
     /**
@@ -46,7 +63,8 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -57,7 +75,8 @@ class ApartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        return view('admin.apartments.edit', compact('apartment'));
     }
 
     /**
@@ -69,7 +88,19 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        $data = $request->validate([
+ 
+            'title' => 'required | max: 255',
+            'beds' => 'required',
+            'rooms' => 'required',
+            'bathrooms' => 'required'
+ 
+        ]);
+ 
+        $apartment->fill($data);
+        $apartment->save();
+        return redirect()->route('admin.apartments.index');
     }
 
     /**
@@ -80,6 +111,8 @@ class ApartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        $apartment->delete();
+        return redirect()->route('admin.apartments.index');
     }
 }
