@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+// ROTTE CHE GESTISCONO IL MECCANISMO DI AUTENTICAZIONE
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// ROTTE PER LA GESTIONE DEL BACKOFFICE
+Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
+->group(function() {
+    // PAGINA DI ATTERRAGGIO DOPO IL LOG IN (PREFISSO SARÁ /ADMIN)
+    Route::get('/', 'HomeController@index')->name('index');
+});
+
