@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Apartment;
+use App\Service;
 
 class ApartmentController extends Controller
 {
@@ -26,7 +27,8 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartment.create');
+        $services = Service::all();
+        return view('admin.apartments.create', compact('services'));
     }
 
     /**
@@ -37,7 +39,8 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        // dd($request);
+        $request->validate([
  
             'title' => 'required | max: 255',
             'beds' => 'required',
@@ -49,10 +52,11 @@ class ApartmentController extends Controller
             'city' => 'required',
  
         ]);
- 
-        $apartment = new Apartment();
-        $apartment->fill($data);
-        $apartment->save();
+        
+        $form_data = $request->all();
+        $new_apartment = new Apartment();
+        $new_apartment->fill($form_data);
+        $new_apartment->save();
     }
 
     /**
