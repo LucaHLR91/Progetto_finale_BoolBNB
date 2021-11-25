@@ -29,5 +29,9 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
 ->group(function() {
     // PAGINA DI ATTERRAGGIO DOPO IL LOG IN (PREFISSO SARÁ /ADMIN)
     Route::get('/', 'HomeController@index')->name('index');
+    // ROTTA CHE RICHIAMA GLI APPARTAMENTI
+    Route::resource('/apartments', 'ApartmentController');
+    // ROTTA PER LE SPONSORIZZAZIONI
+    Route::resource('/sponsorships', 'SponsorshipController');
 });
 
