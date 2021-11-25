@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Faker\Generator as Faker;
 use Faker\Factory as FakerFactory;
 use App\User;
@@ -21,7 +22,7 @@ class UsersTableSeeder extends Seeder
             $new_user->surname= $faker->lastName();
             $new_user->date_of_birth= $faker->dateTimeBetween('-70 years', '-18 years');
             $new_user->email= $faker->safeEmail();
-            $new_user->password= $faker->password(8, 20);
+            $new_user->password= Hash::make($faker->password(8, 20));
             $new_user->save();
         }
     }

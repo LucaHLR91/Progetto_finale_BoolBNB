@@ -1,6 +1,7 @@
 <?php
 
 use App\Apartment;
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
@@ -31,6 +32,7 @@ class ApartmentsTableSeeder extends Seeder
             $new_apartment->latitude= $faker->latitude(45, 46);
             $new_apartment->longitude= $faker->longitude(9, 10);
             $new_apartment->slug= Str::slug($new_apartment->title, '-');
+            $new_apartment->user_id= $faker->numberBetween(1, 3);
             $new_apartment->save();
         }
     }

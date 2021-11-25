@@ -15,7 +15,7 @@ class AddFkApartmentsTable extends Migration
     {
         Schema::table('apartments', function (Blueprint $table) {
             // CREO LA COLONNA USER_ID
-            $table->unsignedBigInteger('user_id')->nullable()->after('slug');
+            $table->unsignedBigInteger('user_id')->after('slug');
             // SETTO LA COLONNA COME CHIAVE ESTERNA
             $table->foreign('user_id')->references('id')->on('users');
         });
