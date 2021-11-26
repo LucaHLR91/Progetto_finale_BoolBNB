@@ -70,7 +70,7 @@
                     @auth
                         <a href="{{ route('admin.dashboard_home') }}">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
