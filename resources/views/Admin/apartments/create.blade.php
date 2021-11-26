@@ -37,7 +37,7 @@
             <input name="image" type="file" class="form-control" id="image">
         </div>
 
-        <div class="mb-3 form-group">
+        {{-- <div class="mb-3 form-group">
             <div class="form-group">
                 <label for="avaliability" class="form-label">Si</label>
                 <input name="avaliability" type="radio" class="form-control" id="avaliability" value="1">
@@ -47,7 +47,22 @@
                 <label for="avaliability" class="form-label">No</label>
                 <input name="avaliability" type="radio" class="form-control" id="avaliability" value="0">
             </div>
+        </div> --}}
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="avaliability" id="available" value="1" checked>
+                <label class="form-check-label" for="available">
+                    Disponibile
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="avaliability" id="no-available" value="0">
+                <label class="form-check-label" for="no-available">
+                    Non disponibile
+                </label>
+            </div>
         </div>
+
 
         <div class="mb-3 form-group" >
             <label for="address" class="form-label">Indirizzo</label>
@@ -64,7 +79,7 @@
             @foreach ($services as $service)
                 <div class="form-check form-check-inline">
                     {{-- services[] coterrà tutti i valori che noi selezioneremo --}}
-                    <input 
+                    <input
                     {{ in_array($service['id'], old('services', [])) ? 'checked' : null }}
                     value="{{ $service['id'] }}" id="{{ 'tag' . $service['id'] }}" type="checkbox" name="services[]" class="form-check-input">
                     <label for="{{ 'service' . $service['id'] }}" class="form-check-label">{{ $service['service_name'] }}</label>
