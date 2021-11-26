@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Apartment;
 use App\Sponsorship;
+use App\Service;
 
 use Illuminate\Support\Str;
 
@@ -32,7 +34,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        return view('admin.apartment.create');
+        $services = Service::all();
+        return view('admin.apartments.create', compact('services'));
+
     }
 
     /**
@@ -44,7 +48,7 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
- 
+
             'title' => 'required | max: 255',
             'beds' => 'required',
             'rooms' => 'required',
@@ -53,11 +57,15 @@ class ApartmentController extends Controller
             'image' => 'required',
             'address' => 'required',
             'city' => 'required',
- 
+
         ]);
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
+        $apartment->latitude = 45.4654219;
+        $apartment->longitude = 9.1859243;
+        $apartment->user_id = Auth::id();
+
         $apartment->save();
 
         $slug = Str::slug($apartment['title'], '-');
@@ -102,7 +110,8 @@ class ApartmentController extends Controller
     public function edit($id)
     {
         $apartment = Apartment::findOrFail($id);
-        return view('admin.apartments.edit', compact('apartment'));
+        $services = Service::all();
+        return view('admin.apartments.edit', compact('apartment', 'services'));
     }
 
     /**
@@ -116,15 +125,15 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::findOrFail($id);
         $request->validate([
- 
+
             'title' => 'required | max: 255',
             'beds' => 'required',
             'rooms' => 'required',
             'bathrooms' => 'required'
- 
+
         ]);
- 
-        
+
+
         /* $apartment->save(); */
         $form_data = $request->all();
 
@@ -133,13 +142,13 @@ class ApartmentController extends Controller
         if ($form_data['title'] != $apartment['title']) {
             // E' STATO MODIFICATO IL TITOLO QUINDI DEVO MODIFICARE LO SLUG
             $slug = Str::slug($form_data['title'], '-');
-        
+
             $slug_presente = Apartment::where('slug', $slug)->first();
-        
+
             $contatore = 1;
             while ($slug_presente) {
                 $slug = $slug . '-' . $contatore;
-            
+
                 $slug_presente = Apartment::where('slug', $slug)->first();
                 $contatore++;
             };
@@ -158,7 +167,7 @@ class ApartmentController extends Controller
         }
         return redirect()->route('admin.apartaments.index')->with('status', 'Appartamento correttamente aggiornato');
 
-        
+
     }
 
     /**
@@ -175,15 +184,15 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index');
     }
 
-    public function createSponsorship()
+    /* public function createSponsorship()
     {
         $sponsorType= Sponsorship::all();
         return view('admin.apartments.sponsorship.create', compact('sponsorType'));
-    }
+    } */
 
    /*  public function storeSponsorship(Request $request, $id){
         $newApartamentSponsored = DB('')
-        
-        
+
+
     } */
 }
