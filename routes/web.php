@@ -15,11 +15,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 // ROTTE CHE GESTISCONO IL MECCANISMO DI AUTENTICAZIONE
 Auth::routes();
