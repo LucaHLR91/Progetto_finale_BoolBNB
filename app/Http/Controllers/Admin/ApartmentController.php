@@ -66,7 +66,6 @@ class ApartmentController extends Controller
         $apartment->longitude = 9.1859243;
         $apartment->user_id = Auth::id();
 
-        $apartment->save();
 
         $slug = Str::slug($apartment['title'], '-');
         // VERIFICO SE LO SLUG SIA UNICO NEL SUO GENERE POICHE NEL DATABASE L HO IMPOSTATO COME UNICO
