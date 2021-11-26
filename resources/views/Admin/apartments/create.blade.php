@@ -37,18 +37,8 @@
             <input name="image" type="file" class="form-control" id="image">
         </div>
 
-        {{-- <div class="mb-3 form-group">
-            <div class="form-group">
-                <label for="avaliability" class="form-label">Si</label>
-                <input name="avaliability" type="radio" class="form-control" id="avaliability" value="1">
-            </div>
-
-            <div class="form-group">
-                <label for="avaliability" class="form-label">No</label>
-                <input name="avaliability" type="radio" class="form-control" id="avaliability" value="0">
-            </div>
-        </div> --}}
         <div class="form-group">
+            <p>Disponibilità:</p>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="avaliability" id="available" value="1" checked>
                 <label class="form-check-label" for="available">
