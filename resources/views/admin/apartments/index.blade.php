@@ -13,13 +13,13 @@
 
             <table class="table">
                 <thead>
-                <tr>
+                  <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Address</th>
                     <th scope="col">City</th>
                     <th scope="col">Action</th>
-                </tr>
+                  </tr>
                 </thead>
                 <tbody>
                     @foreach ($apartments as $apartment)
@@ -41,7 +41,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
+              </table>
         </div>
     </div>
 </div>
