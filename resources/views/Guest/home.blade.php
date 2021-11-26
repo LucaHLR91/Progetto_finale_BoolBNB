@@ -11,8 +11,8 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Styles -->
-    </head> --}}
-    {{-- <body>
+    </head>
+    <body>
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -20,8 +20,8 @@
                 </div>
             </div>
         </div>
-
-        <div class="flex-center position-ref full-height">
+ --}}
+      {{--   <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -48,6 +48,19 @@
 
 @section('content')
     <div class="container">
+        @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ route('admin.dashboard_home') }}">Dashboard</a>
+                    @else
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
         <h1 class="my-test">homepage</h1>
     </div>
 @endsection
