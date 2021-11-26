@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Apartment;
 use App\Sponsorship;
 use App\Service;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Str;
 
@@ -96,6 +97,7 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
+
         $apartment = Apartment::findOrFail($id);
         return view('admin.apartments.show', compact('apartment'));
     }
@@ -189,7 +191,7 @@ class ApartmentController extends Controller
         return view('admin.apartments.sponsorship.create', compact('sponsorType'));
     } */
 
-   /*  public function storeSponsorship(Request $request, $id){
+    /*  public function storeSponsorship(Request $request, $id){
         $newApartamentSponsored = DB('')
 
 
