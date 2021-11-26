@@ -1,4 +1,6 @@
 @extends('layouts.dashboard')
+@section('title', 'Modifica Appartamento')
+
 
 @section('content')
     <h1>Modifica il tuo appartamento</h1>

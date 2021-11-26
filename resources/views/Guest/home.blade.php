@@ -45,22 +45,16 @@
     </body>
 </html> --}}
 @extends('layouts.app')
+@section('title', 'Homepage')
+    
 
 @section('content')
     <div class="container">
         @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ route('admin.dashboard_home') }}">Dashboard</a>
-                    @else
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        <h1 class="my-test">homepage</h1>
+                @auth
+                    <a href="{{ route('admin.dashboard_home') }}">Dashboard</a>
+                @endauth
+        @endif
+        <h1>qui di seguito verranno viste le bellissime case sponsorizzate</h1>
     </div>
 @endsection
