@@ -157,14 +157,14 @@ class ApartmentController extends Controller
         // QUI SE USO L-ATTACH CREA PROBLEMI, IN QUESTO CASO IL METODO SYNC E' MEGLIO, SYNC SI PREOCCUPA DI RIMUOVERE E AGGIUNGERE LE MODIFICHE, NELL UPDATE E' OBBLIGATORIO IL SYNC
         $apartment->update($form_data);
         // UTILIZZO UN METODO PER VERIFICARE SE LA CHIAVE service ESISTE IN FORM DATA PER PREVENIRE UN ERRORE
-        if(array_key_exists('service', $form_data)) {
-            $apartment->service()->sync($form_data['service']);
+        if(array_key_exists('services', $form_data)) {
+            $apartment->services()->sync($form_data['services']);
         }
         else {
             // QUESTO NEL CASO IN CUI DESELEZIONO TUTTO, PASSO UN ARRAY VUOTO ALTRIMENTI LUI SOPRA NON FARA NULLA.
-            $apartment->service()->sync([]);
+            $apartment->services()->sync([]);
         }
-        return redirect()->route('admin.apartaments.index')->with('status', 'Appartamento correttamente aggiornato');
+        return redirect()->route('admin.apartments.index')->with('status', 'Appartamento correttamente aggiornato');
 
 
     }
@@ -178,7 +178,7 @@ class ApartmentController extends Controller
     public function destroy($id)
     {
         $apartment = Apartment::findOrFail($id);
-        $apartment->service()->detach();
+        $apartment->services()->detach();
         $apartment->delete();
         return redirect()->route('admin.apartments.index');
     }
