@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\GeoFunction;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -60,11 +62,21 @@ class ApartmentController extends Controller
             'city' => 'required',
 
         ]);
+
+        $completeAddress = $request->address . ', ' . $request->city;
+        /* $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));  */
+
+        $geocoder = new GeoFunction('yNgX4mXdpmkOXOoS76g8oRrlZcAmGUPm'); 
+        $result = $geocoder->geocodeAddress($completeAddress);
+        $latitude = $result['results'][0]['position']['lat'];
+        $longitude = $result['results'][0]['position']['lon'];
+       
+        
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
-        $apartment->latitude = 45.4654219;
-        $apartment->longitude = 9.1859243;
+        $apartment->latitude = $latitude;
+        $apartment->longitude = $longitude;
         $apartment->user_id = Auth::id();
 
 
