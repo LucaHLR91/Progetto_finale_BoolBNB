@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\GeoFunction;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Apartment;
 use App\Sponsorship;
 use App\Service;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Str;
 
@@ -59,11 +62,21 @@ class ApartmentController extends Controller
             'city' => 'required',
 
         ]);
+
+        $completeAddress = $request->address . ', ' . $request->city;
+        //  $geocoder = new GeoFunction(trim(env('TOMTOM_API_KEY')));  
+
+        $geocoder = new GeoFunction('yNgX4mXdpmkOXOoS76g8oRrlZcAmGUPm'); 
+        $result = $geocoder->geocodeAddress($completeAddress);
+        $latitude = $result['results'][0]['position']['lat'];
+        $longitude = $result['results'][0]['position']['lon'];
+       
+        
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
-        $apartment->latitude = 45.4654219;
-        $apartment->longitude = 9.1859243;
+        $apartment->latitude = $latitude;
+        $apartment->longitude = $longitude;
         $apartment->user_id = Auth::id();
 
 
@@ -96,6 +109,7 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
+
         $apartment = Apartment::findOrFail($id);
         return view('admin.apartments.show', compact('apartment'));
     }
@@ -189,7 +203,7 @@ class ApartmentController extends Controller
         return view('admin.apartments.sponsorship.create', compact('sponsorType'));
     } */
 
-   /*  public function storeSponsorship(Request $request, $id){
+    /*  public function storeSponsorship(Request $request, $id){
         $newApartamentSponsored = DB('')
 
 

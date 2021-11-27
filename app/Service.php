@@ -11,7 +11,7 @@ class Service extends Model
     ];
 
      //COLLEGO MANY TO MANY APPARTAMENTI E SERVIZI
-     public function apartments() {
+    public function apartments() {
         return $this->belongsToMany('App\Apartment');
     }
 }
