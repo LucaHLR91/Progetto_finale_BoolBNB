@@ -64,7 +64,7 @@ class ApartmentController extends Controller
         ]);
 
         $completeAddress = $request->address . ', ' . $request->city;
-        /* $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));  */
+        //  $geocoder = new GeoFunction(trim(env('TOMTOM_API_KEY')));  
 
         $geocoder = new GeoFunction('yNgX4mXdpmkOXOoS76g8oRrlZcAmGUPm'); 
         $result = $geocoder->geocodeAddress($completeAddress);
