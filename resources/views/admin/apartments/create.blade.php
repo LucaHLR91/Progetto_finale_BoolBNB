@@ -1,6 +1,4 @@
 @extends('layouts.dashboard')
-@section('title', 'Aggiungi Appartamento')
-
 
 @section('content')
     <h1>Inserisci il tuo appartamento</h1>
