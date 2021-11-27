@@ -1,4 +1,6 @@
 @extends('layouts.dashboard')
+@section('title', 'Dettaglio Appartamento')
+
 @section('content')
 
     <div class="container ">

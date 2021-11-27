@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Dashboard</title>
+    {{-- <title>Dashboard</title> --}}
+    <title>BoolBnB | @yield('title')</title>
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

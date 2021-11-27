@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Sponsorship;
+use App\Apartment;
 
 class SponsorshipController extends Controller
 {
@@ -17,6 +18,20 @@ class SponsorshipController extends Controller
     {
         $sponsorships = Sponsorship::all();
         return view('admin.sponsorships.index', compact('sponsorships'));
+    }
+
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $sponsorships = Sponsorship::all();
+        $apartment = Apartment::findOrFail('id');
+        // controllare questa rotta 
+        return view('admin.sponsorships.create', compact('sponsorships', 'apartment'));
+
     }
 
     

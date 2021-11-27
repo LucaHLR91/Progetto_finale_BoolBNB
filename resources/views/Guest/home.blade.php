@@ -45,10 +45,11 @@
     </body>
 </html> --}}
 @extends('layouts.app')
+@section('title', 'Homepage')
+    
 
 @section('content')
     <div class="container">
-
-        <h1 class="my-test">homepage</h1>
+        <h1>qui di seguito verranno viste le bellissime case sponsorizzate</h1>
     </div>
 @endsection

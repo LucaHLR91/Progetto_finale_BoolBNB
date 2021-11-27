@@ -1,4 +1,6 @@
 @extends('layouts.dashboard')
+@section('title', 'Sponsorizza Appartamento')
+
 
 @section('content')
     <h1>Sponsorizza  il tuo appartamento</h1>
@@ -12,18 +14,18 @@
             <p>{{$apartment->id}}</p>
         </div>
 
-        
+
 
 
         <div class="form-group">
             <p>Scegli il tipo di sponsorizzazione :</p>
-            @foreach ($sponsors as $sponsor)
+            @foreach ($sponsorships as $sponsorship)
                 <div class="form-check form-check-inline">
                     {{-- services[] coterrà tutti i valori che noi selezioneremo --}}
                     <input
-                    {{ in_array($sponsor['id'] }}
-                    value="{{ $sponsor['id'] }}" id="{{ 'tag' . $sponsor['id'] }}" type="checkbox" name="sponsors[]" class="form-check-input">
-                    <label for="{{ 'sponsor' . $sponsor['id'] }}" class="form-check-label">{{ $sponsor['service_name'] }}</label>
+                    {{ in_array($sponsorship['id']) }}
+                    value="{{ $sponsorship['id'] }}" id="{{ 'tag' . $sponsorship['id'] }}" type="checkbox" name="sponsorship[]" class="form-check-input">
+                    <label for="{{ 'sponsorship' . $sponsorship['id'] }}" class="form-check-label">{{ $sponsorship['service_name'] }}</label>
                 </div>
             @endforeach
         </div>
