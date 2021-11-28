@@ -11,27 +11,27 @@
 
         <div class="mb-3 form-group" >
           <label for="title" class="form-label">Titolo</label>
-          <input name="title" type="text" class="form-control" id="title" placeholder="Inserisci titolo" value="{{ old('title', $apartment['title']) }}">
+          <input name="title" type="text" class="form-control" id="title" placeholder="Inserisci titolo" value="{{ old('title')}}">
         </div>
 
         <div class="mb-3 form-group" >
             <label for="beds" class="form-label">Numero Letti</label>
-            <input name="beds" type="number" class="form-control" id="beds" placeholder="Inserisci il numero dei posti letto" value="{{ old('beds', $apartment['beds']) }}">
+            <input name="beds" type="number" class="form-control" id="beds" placeholder="Inserisci il numero dei posti letto" value="{{ old('beds') }}">
         </div>
 
         <div class="mb-3 form-group" >
             <label for="rooms" class="form-label">Numero Stanze</label>
-            <input name="rooms" type="number" class="form-control" id="rooms" placeholder="Inserisci il numero di stanze" value="{{ old('rooms', $apartment['rooms']) }}">
+            <input name="rooms" type="number" class="form-control" id="rooms" placeholder="Inserisci il numero di stanze" value="{{ old('rooms') }}">
         </div>
 
         <div class="mb-3 form-group" >
             <label for="bathrooms" class="form-label">Numero Bagni</label>
-            <input name="bathrooms" type="number" class="form-control" id="bathrooms" placeholder="Inserisci il numero dei bagni" value="{{ old('bathrooms', $apartment['bathrooms']) }}">
+            <input name="bathrooms" type="number" class="form-control" id="bathrooms" placeholder="Inserisci il numero dei bagni" value="{{ old('bathrooms') }}">
         </div>
 
         <div class="mb-3 form-group" >
             <label for="square_meters" class="form-label">Metri Quadri</label>
-            <input name="square_meters" type="number" class="form-control" id="square_meters" placeholder="Inserisci i metri quadri" value="{{ old('square_meters', $apartment['square_meters']) }}" >
+            <input name="square_meters" type="number" class="form-control" id="square_meters" placeholder="Inserisci i metri quadri" value="{{ old('square_meters') }}" >
         </div>
 
         <div class="mb-3 form-group" >
@@ -58,12 +58,12 @@
 
         <div class="mb-3 form-group" >
             <label for="address" class="form-label">Indirizzo</label>
-            <input name="address" type="text" class="form-control" id="address" placeholder="Inserisci l'indirizzo" value="{{ old('address', $apartment['address']) }}">
+            <input name="address" type="text" class="form-control" id="address" placeholder="Inserisci l'indirizzo" value="{{ old('address') }}">
         </div>
 
         <div class="mb-3 form-group" >
             <label for="city" class="form-label">Città</label>
-            <input name="city" type="text" class="form-control" id="city" placeholder="Inserisci la città" value="{{ old('city', $apartment['city']) }}">
+            <input name="city" type="text" class="form-control" id="city" placeholder="Inserisci la città" value="{{ old('city') }}">
         </div>
 
         <div class="form-group">
