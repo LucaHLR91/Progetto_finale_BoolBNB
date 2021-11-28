@@ -48,7 +48,7 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <nav class="col-md-2 d-none d-md-block my-dashboard sidebar py-4">
+                <nav class="col-md-2 d-none d-md-block my-dashboard  full-height sidebar py-4">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
