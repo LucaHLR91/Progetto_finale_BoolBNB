@@ -32,5 +32,6 @@ const app = new Vue({
     el: '#app',
     components: {
         'empty-map': require('./components/EmptyMap.vue').default,
+        'example-component': require('./components/ExampleComponent.vue').default,
     },
 });
