@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.head')
+@include('layouts.partials.head')
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark my-navbar flex-md-nowrap p-2">
