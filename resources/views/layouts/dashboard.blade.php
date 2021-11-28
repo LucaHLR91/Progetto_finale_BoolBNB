@@ -51,7 +51,7 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <nav class="col-md-2 d-none d-md-block sidebar py-4 px-1 my-dashboard full-height right-border-light">
+                <nav class="col-md-2 d-none d-md-block sidebar py-4 px-1 my-dashboard full-height">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
@@ -73,10 +73,10 @@
                                 </a>
                             </li>
                         </ul>
-    
+
                     </div>
                 </nav>
-    
+
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4 full-height ">
                     @yield('content')
                 </main>
