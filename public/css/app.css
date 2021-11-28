@@ -11003,6 +11003,10 @@ main {
   padding: 10px 10px 0 10px;
 }
 
+footer {
+  background-color: #b3b3b3;
+}
+
 .my-navbar {
   border-bottom: 2px solid #c2c0c0;
 }
