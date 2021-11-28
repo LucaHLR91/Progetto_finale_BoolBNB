@@ -10968,3 +10968,32 @@ a.text-dark:focus {
   box-sizing: border-box;
 }
 
+#app {
+  width: 100%;
+  height: 100vh;
+}
+
+.my-dashboard,
+.my-navbar {
+  background: black;
+}
+
+.my-dashboard a,
+.my-navbar a {
+  color: #e41d59 !important;
+}
+
+main {
+  background-color: black;
+  color: white;
+  height: 100%;
+}
+
+.my-dashboard {
+  height: calc(100vh - 45px);
+}
+
+.my-navbar {
+  border-bottom: 5px solid white;
+}
+
