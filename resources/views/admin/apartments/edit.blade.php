@@ -72,7 +72,7 @@
                 <div class="form-check form-check-inline">
                     {{-- services[] coterrà tutti i valori che noi selezioneremo --}}
                     <input
-                    {{ in_array($service['id'], old('services', [])) ? 'checked' : null }}
+                    {{$apartment->services->contains($service) ? 'checked' : null }}
                     value="{{ $service['id'] }}" id="{{ 'service' . $service['id'] }}" type="checkbox" name="services[]" class="form-check-input">
                     <label for="{{ 'service' . $service['id'] }}" class="form-check-label">{{ $service['service_name'] }}</label>
                 </div>
