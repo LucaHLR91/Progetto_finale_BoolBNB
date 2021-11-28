@@ -10974,8 +10974,7 @@ a.text-dark:focus {
   overflow-y: hidden;
 }
 
-.my-dashboard,
-.my-navbar {
+.my-dashboard {
   background: black;
 }
 
@@ -10990,7 +10989,19 @@ main {
   height: 100%;
 }
 
+.fa-airbnb {
+  font-size: 40px;
+}
+
+.my-navbar {
+  border-bottom: 2px solid #c2c0c0;
+}
+
 .full-height {
   height: calc(100vh - 45px);
+}
+
+.right-border-light {
+  border-right: 2px solid #c2c0c0;
 }
 

@@ -11,8 +11,7 @@
     overflow-y: hidden;
 }
 
-.my-dashboard,
-.my-navbar {
+.my-dashboard {
     background: black;
 }
 
@@ -27,17 +26,29 @@ main {
     color: white;
     height: 100%;
 }
+
+.fa-airbnb {
+    font-size: 40px;
+}
 //FINE LAYOUTS COMMON
 
 
 // LAYOUTS - APP
-.full-height {
-    height: calc(100vh - 45px);
-}
 //FINE LAYOUTS - APP
 
 
 // LAYOUTS - DASHBOARD
-
+.my-navbar {
+    border-bottom: 2px solid rgb(194, 192, 192);
+}
 //FINE LAYOUTS - DASHBOARD
 
+// MY BOOTSTRAP
+.full-height {
+    height: calc(100vh - 45px);
+}
+
+.right-border-light {
+    border-right: 2px solid rgb(194, 192, 192);
+}
+// FINE MY BOOTSTRAP

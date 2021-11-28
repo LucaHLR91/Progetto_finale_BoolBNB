@@ -26,12 +26,15 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark my-navbar flex-md-nowrap p-0">
-            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">BoolBNB</a>
+        <nav class="navbar navbar-expand-md navbar-dark my-navbar flex-md-nowrap p-2">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0 d-flex align-items-center" href="#">
+                <i class="fab fa-airbnb"></i>
+                BoolBNB
+            </a>
             <ul class="navbar-nav px-3 ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/">
-                        Visita il sito
+                        Home
                     </a>
                 </li>
                 <li class="nav-item">
@@ -48,7 +51,7 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <nav class="col-md-2 d-none d-md-block my-dashboard  full-height sidebar py-4">
+                <nav class="col-md-2 d-none d-md-block sidebar py-4 px-1 my-dashboard full-height right-border-light">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
@@ -74,7 +77,7 @@
                     </div>
                 </nav>
     
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4">
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4 full-height ">
                     @yield('content')
                 </main>
             </div>
