@@ -49786,7 +49786,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"], 'empty-map', __webpack_require__(/*! ./components/EmptyMap.vue */ "./resources/js/components/EmptyMap.vue")["default"]); // <example-component></example-component>
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49794,7 +49795,10 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  components: {
+    'empty-map': __webpack_require__(/*! ./components/EmptyMap.vue */ "./resources/js/components/EmptyMap.vue")["default"]
+  }
 });
 
 /***/ }),
@@ -49841,6 +49845,38 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/EmptyMap.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/EmptyMap.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/EmptyMap.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -49931,8 +49967,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/admin/Desktop/Progetto_finale_BoolBNB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/admin/Desktop/Progetto_finale_BoolBNB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

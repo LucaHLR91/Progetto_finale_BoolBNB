@@ -3,7 +3,7 @@
 
 
 @section('content')
-<div class="container">
+<div class="container" id="app">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card bg-dark">
@@ -16,6 +16,15 @@
                     </div>
                 @endif
             </div>
+            
+           <div class="card bg-dark">
+                <div class="card-header text-center">
+                    <h2> Mappa </h2> 
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                        <empty-map></empty-map>
         </div>
     </div>
 </div>
