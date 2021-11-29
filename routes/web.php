@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\SponsorshipController;
+use App\Sponsorship;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,5 +34,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::resource('/apartments', 'ApartmentController');
     // ROTTA PER LE SPONSORIZZAZIONI
     Route::resource('/sponsorships', 'SponsorshipController');
+
+
 });
 
