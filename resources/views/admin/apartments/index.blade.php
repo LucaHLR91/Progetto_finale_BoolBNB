@@ -33,7 +33,8 @@
                             <td>
                                 <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info">Dettagli</a>
                                 <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning">Modifica</a>
-                                <a href="{{ route('admin.sponsorships.index', $apartment['id']) }}" class="btn btn-success">Sponsorizza</a>
+                                <a href="{{ route('admin.sponsorships.index',['id'=> $apartment['id']]) }}" class="btn btn-success">Sponsorizza</a>
+                            
                                 <form action="{{ route('admin.apartments.destroy', $apartment['id']) }}" class="d-inline-block delete-post" method="post">
                                     @csrf
                                     @method('DELETE')

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Sponsorship;
 use App\Apartment;
 
+
+
 class SponsorshipController extends Controller
 {
     /**
@@ -14,8 +16,10 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $id = $request->id;
+        // TODO
         $sponsorships = Sponsorship::all();
         return view('admin.sponsorships.index', compact('sponsorships'));
     }
@@ -25,9 +29,11 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
+        dd($id);
         $sponsorships = Sponsorship::all();
+        dd($sponsorships);
         $apartment = Apartment::findOrFail('id');
         // controllare questa rotta 
         return view('admin.sponsorships.create', compact('sponsorships', 'apartment'));
