@@ -31,16 +31,14 @@ class SponsorshipController extends Controller
      */
     public function create($id)
     {
-        dd($id);
         $sponsorships = Sponsorship::all();
-        dd($sponsorships);
         $apartment = Apartment::findOrFail('id');
-        // controllare questa rotta 
+        // controllare questa rotta
         return view('admin.sponsorships.create', compact('sponsorships', 'apartment'));
 
     }
 
-    
+
 
     /**
      * Store a newly created resource in storage.
