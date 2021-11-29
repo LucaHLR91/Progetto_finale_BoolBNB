@@ -16,6 +16,29 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    /**
+     * Generate token BrainTree
+     *
+     *  
+    */
+    public function generateToken()
+    {
+        $gateway = new \Braintree\Gateway([
+            'environment' => env('BRAINTREE_ENVIRONMENT'),
+            'merchantId' => env("BRAINTREE_MERCHANT_ID"),
+            'publicKey' => env("BRAINTREE_PUBLIC_KEY"),
+            'privateKey' => env("BRAINTREE_PRIVATE_KEY")
+        ]);
+
+        $clientToken = $gateway->clientToken()->generate();
+
+        return $clientToken;
+
+
+    }
+
     public function index(Request $request)
     {
         $id = $request->id;
@@ -29,14 +52,15 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create(Request $request)
     {
-        dd($id);
+        $id_apartment = $request->id;
+        $clientToken = $this->generateToken();
         $sponsorships = Sponsorship::all();
-        dd($sponsorships);
-        $apartment = Apartment::findOrFail('id');
+       
+         $apartment = Apartment::findOrFail($id_apartment);
         // controllare questa rotta 
-        return view('admin.sponsorships.create', compact('sponsorships', 'apartment'));
+        return view('admin.sponsorships.create', compact('sponsorships', 'apartment','clientToken'));
 
     }
 
