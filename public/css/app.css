@@ -11012,10 +11012,14 @@ footer {
 }
 
 .full-height {
-  height: calc(100vh - 45px);
+  height: calc(100vh - 68px);
 }
 
 .right-border-light {
   border-right: 2px solid #c2c0c0;
+}
+
+.overflow {
+  overflow-y: auto;
 }
 

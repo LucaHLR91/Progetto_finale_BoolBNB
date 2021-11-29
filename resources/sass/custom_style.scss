@@ -59,10 +59,14 @@ footer {
 
 // MY BOOTSTRAP
 .full-height {
-    height: calc(100vh - 45px);
+    height: calc(100vh - 68px);
 }
 
 .right-border-light {
     border-right: 2px solid rgb(194, 192, 192);
+}
+
+.overflow {
+    overflow-y: auto;
 }
 // FINE MY BOOTSTRAP
