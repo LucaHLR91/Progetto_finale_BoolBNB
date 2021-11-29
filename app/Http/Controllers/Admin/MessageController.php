@@ -13,9 +13,11 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Message $messages)
+    public function index(Request $request)
     {
-        return view('admin.messages.index', compact('messages'));
+        $messages = Message::all();
+        $apartment_id = $request->id;
+        return view('admin.messages.index', compact('messages', 'apartment_id'));
     }
 
     /**
