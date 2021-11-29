@@ -10,6 +10,7 @@
                     <tr>
                         <th scope="col">Nome Appartamento</th>
                         <th scope="col">Servizi</th>
+                        <th scope="col">Messaggi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +23,9 @@
                                 <p>{!! $service->service_name !!}</p>
                             @endforeach
                         </td>
-
+                        <td>
+                            <a href="{{ route('admin.messages.index', ['id'=> $apartment['id']]) }}" class="btn btn-primary">Visualizza Messaggi</a>
+                        </td>
                     </tr>
 
                 </tbody>
