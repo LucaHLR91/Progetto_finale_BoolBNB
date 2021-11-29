@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 use App\Sponsorship;
 use App\Apartment;
@@ -39,12 +41,20 @@ class SponsorshipController extends Controller
 
     }
 
+    /**
+     * Ritorna le sponsorizzazioni attive
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
-        $id = $request->id;
-        // TODO
-        $sponsorships = Sponsorship::all();
-        return view('admin.sponsorships.index', compact('sponsorships'));
+        $id_apartment = $request->id;
+        $active_sponsorships = DB::table('apartment_sponsorship')
+        ->where('apartment_id', $id_apartment)
+        ->where('end_date', '>', date('Y-m-d'))
+        ->get();
+
+        return view('admin.sponsorships.index', compact('sponsorships', 'active_sponsorships'));
     }
 
      /**
@@ -57,7 +67,6 @@ class SponsorshipController extends Controller
         $id_apartment = $request->id;
         $clientToken = $this->generateToken();
         $sponsorships = Sponsorship::all();
-       
          $apartment = Apartment::findOrFail($id_apartment);
         // controllare questa rotta 
         return view('admin.sponsorships.create', compact('sponsorships', 'apartment','clientToken'));
@@ -74,7 +83,7 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

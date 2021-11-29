@@ -26,8 +26,6 @@ class ApartmentController extends Controller
     public function index()
     {
         
-           
-
         // $apartments = Apartment::all();
         $apartments = Apartment::where('user_id', auth()->user()->id)->get();
         return view('admin.apartments.index', compact('apartments'));
@@ -202,15 +200,5 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index');
     }
 
-    /* public function createSponsorship()
-    {
-        $sponsorType= Sponsorship::all();
-        return view('admin.apartments.sponsorship.create', compact('sponsorType'));
-    } */
 
-    /*  public function storeSponsorship(Request $request, $id){
-        $newApartamentSponsored = DB('')
-
-
-    } */
 }
