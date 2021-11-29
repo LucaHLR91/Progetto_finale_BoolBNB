@@ -29,6 +29,7 @@ class SponsorshipController extends Controller
     {
         $sponsorships = Sponsorship::all();
         $apartment = Apartment::findOrFail('id');
+        dd($apartment);
         // controllare questa rotta 
         return view('admin.sponsorships.create', compact('sponsorships', 'apartment'));
 
