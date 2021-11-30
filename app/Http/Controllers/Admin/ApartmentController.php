@@ -111,7 +111,8 @@ class ApartmentController extends Controller
     {
 
         $apartment = Apartment::findOrFail($id);
-        return view('admin.apartments.show', compact('apartment'));
+        $user = Auth::id();
+        return view('admin.apartments.show', compact('apartment', 'user'));
     }
 
     /**
