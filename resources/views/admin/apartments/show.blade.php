@@ -27,7 +27,7 @@
                             @if ($user == $apartment->user_id)
                                 <a href="{{ route('admin.messages.index', ['id'=> $apartment['id']]) }}" class="btn btn-primary">Visualizza Messaggi</a>    
                             @else
-                                <a href="" class="btn btn-primary">Invia Messaggio</a>
+                                <a href="{{ route('admin.messages.create', ['id' => $apartment['id']]) }}" class="btn btn-primary">Invia Messaggio</a>
                             @endif
                         </td>
                     </tr>

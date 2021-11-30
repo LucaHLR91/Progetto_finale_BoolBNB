@@ -38,8 +38,23 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // VALIDO I DATI INSERITI NEL MESSAGGIO
+        $request->validate([
+            'email' => 'required',
+            'text' => 'required',
+            'date' => 'required'
+        ]);
+        // SALVO I DATI IN UNA VARIABILE
+        $form_data = $request->all();
+
+        //CREO UN NUOVO MESSAGGIO DA SALVARE SUL DATABASE
+
+        $new_message = new Message();
+        $new_message->fill($form_data);
+        $new_message->save();
+        return redirect()->route('admin.apartments.index')->with('success', 'Il messaggio è stato inviato');
     }
+
 
     /**
      * Display the specified resource.
