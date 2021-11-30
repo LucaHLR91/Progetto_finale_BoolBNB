@@ -46,7 +46,7 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <nav class="col-md-2 d-none d-md-block sidebar py-4 px-1 my-dashboard full-height right-border-light">
+                <nav class="col-md-3 col-sm-12 col-lg-2 d-md-block sidebar py-4 px-4 px-1 my-dashboard  right-border-light">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
@@ -72,7 +72,8 @@
                     </div>
                 </nav>
 
-                <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4 py-4 full-height overflow">
+
+                <main role="main" class="col-md-7 ml-sm-auto col-lg-10 px-4 py-4 full-height overflow">
                     @yield('content')
                 </main>
             </div>

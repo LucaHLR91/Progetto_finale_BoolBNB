@@ -10974,7 +10974,7 @@ a.text-dark:focus {
 }
 
 .my-dashboard {
-  background: linear-gradient(180deg, black 50%, white);
+  background: #000;
 }
 
 .my-dashboard a,
