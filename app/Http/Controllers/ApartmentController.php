@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Apartment;
+use Illuminate\Support\Facades\DB;
 
 class ApartmentController extends Controller
 {
@@ -14,8 +15,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
-        return view('guest.home.search', compact('apartments'));
+        // $apartments = Apartment::all();
+        // return view('guest.home.search', compact('apartments'));
     }
 
     /**
@@ -36,14 +37,31 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $apartments = Apartment::all();
+        $beds = $request->beds;
+        $rooms = $request->rooms;
+        $city = $request->city;
 
-        // in questa varriabile passiamo i dati provenienti dal 'cerca' della homapage
-        $form_apartment = $request->all();
-        // dd($form_data);
-        return view('guest.home.search', compact('apartments', 'form_apartment'));
+        // $results = Apartment::where('beds', '=', $beds)
+        //                     ->where('rooms', '=', $rooms)
+        //                     ->where('city', '=', $city)->get();
+
+        
+        // $results = DB::table('apartments')
+        //         ->where('beds', '=', $beds)
+        //         ->where('rooms', '=', $rooms)
+        //         ->where('city', '=', $city)
+        //         ->get();
+
+
+        // $results = DB::table('apartments')->where([
+        //     ['beds', '=', $beds],
+        //     ['rooms', '=', $rooms],
+        //     ['city', '=', $city]
+        // ])->get();
+                
+        // dd($results);
     }
-
+            
     /**
      * Display the specified resource.
      *
@@ -87,5 +105,16 @@ class ApartmentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // la seguente funzione recupera N°stanze e N°letti
+    public function search(Request $request) {
+        // $beds = $request->beds;
+        // $rooms = $request->rooms;
+        // $city = $request->city;
+
+        // $results = Apartment::where('beds', '=', $beds)->where('rooms', '=', $rooms)->where('city', '=', $city)->get();
+
+        // dd($results);
     }
 }

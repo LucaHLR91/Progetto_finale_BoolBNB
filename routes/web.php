@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::resource('/apartments', 'ApartmentController');
+
+// Route::get('/search', 'ApartmentController@search');
+Route::resource('/search', 'ApartmentController');
+
 
 // ROTTE CHE GESTISCONO IL MECCANISMO DI AUTENTICAZIONE
 Auth::routes();

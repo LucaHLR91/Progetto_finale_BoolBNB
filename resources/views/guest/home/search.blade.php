@@ -6,7 +6,7 @@
     <div class="container text-dark">
         <div class="row">
             <div class="col-12">
-                {{ $form_apartment['address'] }}
+                {{ $form_apartment['city'] }}
             </div>
         </div>
     </div>
