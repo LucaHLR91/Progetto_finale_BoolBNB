@@ -83,7 +83,32 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $request->validate([
+            'apartment_id' => 'required',
+            'duration' => 'required',
+            
+        ]);
+        
+        
+        $start_date = date('Y-m-d');
+        $duration = $request["sponsorship"][0]; 
+     
+        $days = $duration/24;
+        $end_date = date('Y-m-d', strtotime('+'.$days.' days'));
+
+        $new_boost = DB::table('apartment_sponsorship')->insert([
+            'apartment_id' => $request["id_appartamento"],
+            'sponsorship_id' => $days,
+            'start_date' => $start_date,
+            'end_date' => $end_date,
+            'duration' => $days,
+          
+        ]);
+
+        return redirect()->route('admin.sponsorships.index', $request["id_appartamento"])
+                        ->with('success','Sponsorship created successfully.');
+
+       
     }
 
     /**
