@@ -6,9 +6,10 @@
     <div class="container">
         {{-- FORM PER INVIO POST SEARCH --}}
         <div class="form">
-            <form class="" {{-- action="{{route('guest.home.search')}}" --}} method="post">
+            <form class="" action="{{route('apartments.store')}}" method="post">
                 @csrf
                 @method('POST')
+
                 <div class="row">
                     {{-- dove andare --}}
                     <div class="col-md-3">

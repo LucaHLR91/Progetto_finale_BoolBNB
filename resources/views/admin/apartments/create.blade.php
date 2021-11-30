@@ -1,68 +1,87 @@
 @extends('layouts.dashboard')
 @section('title', 'Crea Appartamento')
-
-
+ 
+ 
 @section('content')
-    <h1 class="text-dark text-center">Inserisci il tuo appartamento</h1>
-
-    <form action="{{route('admin.apartments.store')}}" method="post" class="text-dark">
-        @csrf
-        @method('POST')
-
-        <div class="mb-3 form-group" >
-          <label for="title" class="form-label"><h4>Titolo</h4></label>
-          <input name="title" type="text" class="form-control" id="title" placeholder="Inserisci titolo" value="{{ old('title')}}">
-        </div>
-
-        <div class="mb-3 form-group" >
-            <label for="beds" class="form-label"><h4>Numero Letti</h4></label>
-            <input name="beds" type="number" class="form-control" id="beds" placeholder="Inserisci il numero dei posti letto" value="{{ old('beds') }}">
-        </div>
-
-        <div class="mb-3 form-group" >
-            <label for="rooms" class="form-label"><h4>Numero Stanze</h4></label>
-            <input name="rooms" type="number" class="form-control" id="rooms" placeholder="Inserisci il numero di stanze" value="{{ old('rooms') }}">
-        </div>
-
-        <div class="mb-3 form-group" >
-            <label for="bathrooms" class="form-label">Numero Bagni <h4></h4> </label>
-            <input name="bathrooms" type="number" class="form-control" id="bathrooms" placeholder="Inserisci il numero dei bagni" value="{{ old('bathrooms') }}">
-        </div>
-
-        <div class="mb-3 form-group" >
-            <label for="square_meters" class="form-label"><h4>Metri Quadri</h4></label>
-            <input name="square_meters" type="number" class="form-control" id="square_meters" placeholder="Inserisci i metri quadri" value="{{ old('square_meters') }}" >
-        </div>
-
-        <div class="mb-3 form-group" >
-            <label for="image" class="form-label"><h4>Foto</h4></label>
-            <input name="image" type="file" class="form-control" id="image">
+<h1>Inserisci il tuo appartamento</h1>
+ 
+<form action="{{route('admin.apartments.store')}}" method="post">
+    @csrf
+    @method('POST')
+ 
+    <div class="mb-3 form-group">
+        <label for="title" class="form-label">Titolo</label>
+        <input name="title" type="text" class="form-control" id="title" class="form-control @error('title') is-invalid @enderror"
+            placeholder="Inserisci titolo" value="{{ old('title')}}">
+        @error('title')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+ 
+    <div class="mb-3 form-group">
+        <label for="beds" class="form-label">Numero Letti</label>
+        <input name="beds" type="number" class="form-control" id="beds" class="form-control @error('beds') is-invalid @enderror"
+            placeholder="Inserisci il numero dei posti letto" value="{{ old('beds') }}">
+        @error('beds')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+ 
+    <div class="mb-3 form-group">
+        <label for="rooms" class="form-label">Numero Stanze</label>
+        <input name="rooms" type="number" class="form-control" id="rooms" placeholder="Inserisci il numero di stanze"
+            class="form-control @error('rooms') is-invalid @enderror" value="{{ old('rooms') }}">
+        @error('rooms')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+ 
+    <div class="mb-3 form-group">
+        <label for="bathrooms" class="form-label">Numero Bagni</label>
+        <input name="bathrooms" type="number" class="form-control" id="bathrooms"
+            placeholder="Inserisci il numero dei bagni" class="form-control @error('bathrooms') is-invalid @enderror" value="{{ old('bathrooms') }}">
+         @error('bathrooms')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+ 
+    <div class="mb-3 form-group">
+        <label for="square_meters" class="form-label">Metri Quadri</label>
+        <input name="square_meters" type="number" class="form-control" id="square_meters"
+            placeholder="Inserisci i metri quadri" class="form-control @error('square_meters') is-invalid @enderror" value="{{ old('square_meters') }}">
+        @error('square_meters')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+ 
+    <div class="mb-3 form-group">
+        <label for="image" class="form-label">Foto</label>
+        <input name="image" type="file" class="form-control" class="form-control @error('image') is-invalid @enderror" id="image">
+        @error('image')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+ 
+    <div class="form-group">
+        <p>Disponibilità:</p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="avaliability" id="available" value="1" checked>
+            <label class="form-check-label" for="available">
+                Disponibile
+            </label>
+ 
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="avaliability" id="no-available" value="0">
             <label class="form-check-label" for="no-available">
                 Non disponibile
             </label>
-
-        <div class="form-group">
-            <h4>Disponibilità:</h4>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="avaliability" id="available" value="1" checked>
-                <label class="form-check-label" for="available">
-                    Disponibile
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="avaliability" id="no-available" value="0">
-                <label class="form-check-label" for="no-available">
-                    Non disponibile
-                </label>
-            </div>
+ 
         </div>
-     
+ 
     </div>
-
-
+ 
+ 
     <div class="mb-3 form-group">
         <label for="address" class="form-label">Indirizzo</label>
         <input name="address" type="text" id="address" placeholder="Inserisci l'indirizzo"
@@ -71,7 +90,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
-
+ 
     <div class="mb-3 form-group">
         <label for="city" class="form-label">Città</label>
         <input name="city" type="text" class="form-control" id="city" placeholder="Inserisci la città"
@@ -80,7 +99,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
-
+ 
     <div class="form-group">
         <p>Scegli i servizi:</p>
         @foreach ($services as $service)
@@ -93,7 +112,7 @@
         </div>
         @endforeach
     </div>
-
+ 
     <button type="submit" class="btn btn-primary form-group">Inserisci Appartamento</button>
 </form>
 @endsection
