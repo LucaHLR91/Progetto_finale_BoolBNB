@@ -18,10 +18,13 @@ class SponsorshipController extends Controller
      */
     public function index(Request $request)
     {
-        $id = $request->id;
-        // TODO
+        $id_apartment = $request->id;
+        $clientToken = $this->generateToken();
         $sponsorships = Sponsorship::all();
-        return view('admin.sponsorships.index', compact('sponsorships'));
+        $apartment = Apartment::findOrFail($id_apartment);
+        // controllare questa rotta 
+        return view('admin.sponsorships.create', compact('sponsorships', 'apartment','clientToken'));
+
     }
 
      /**
@@ -29,12 +32,17 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create(Request $request)
     {
         $sponsorships = Sponsorship::all();
         $apartment = Apartment::findOrFail('id');
+        if( $apartment->canView()) {
+            return view('admin.sponsorships.create', compact('sponsorships', 'apartment'));
+        } else {
+            abort(403, 'Unauthorized action.');
+        }
         // controllare questa rotta
-        return view('admin.sponsorships.create', compact('sponsorships', 'apartment'));
+        
 
     }
 
