@@ -214,7 +214,7 @@
                 </div>
             </div>
             <div class="footer-copyright text-center">© 2021 Copyright:
-                <a href=""> AirBnB</a>
+                <a href=""> BoolBnB</a>
             </div>
         </footer>
     </div>
