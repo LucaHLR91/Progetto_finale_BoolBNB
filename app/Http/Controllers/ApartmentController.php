@@ -40,26 +40,15 @@ class ApartmentController extends Controller
         $beds = $request->beds;
         $rooms = $request->rooms;
         $city = $request->city;
-
-        // $results = Apartment::where('beds', '=', $beds)
-        //                     ->where('rooms', '=', $rooms)
-        //                     ->where('city', '=', $city)->get();
-
         
-        // $results = DB::table('apartments')
-        //         ->where('beds', '=', $beds)
-        //         ->where('rooms', '=', $rooms)
-        //         ->where('city', '=', $city)
-        //         ->get();
+        $results = DB::table('apartments')
+                ->where('beds', '=', $beds)
+                ->where('rooms', '=', $rooms)
+                ->where('city', '=', $city)
+                ->get();
 
-
-        // $results = DB::table('apartments')->where([
-        //     ['beds', '=', $beds],
-        //     ['rooms', '=', $rooms],
-        //     ['city', '=', $city]
-        // ])->get();
-                
         // dd($results);
+        return view('guest.home.search', compact('results'));
     }
             
     /**
