@@ -96,5 +96,16 @@
             </form>
         </div>
 
+        <div>
+            @foreach ($apartments as $apartment)
+            <div>
+                <p style="background: black">{{ $apartment->title }}</p>
+                <a href="{{route('apartment.show', $apartment->id) }}" class="btn btn-info">Dettagli</a>
+            </div>
+
+
+            @endforeach
+        </div>
+
     </div>
 @endsection

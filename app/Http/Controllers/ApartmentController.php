@@ -1,24 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Apartment;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use App\Message;
 
-class MessageController extends Controller
+class ApartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $messages = Message::all();
-        $apartment_id = $request->id;
-        return view('admin.messages.index', compact('messages', 'apartment_id'));
+        //
     }
 
     /**
@@ -39,22 +35,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-
-        $apartment_id = $request->id;
-        $request->validate([
-            'email' => 'required|string|max:100',
-            /* 'message' => 'required|string|max:255' */
-        ]);
-        $form_data = $request->all();
-        $now = Carbon::now()->toDateString();
-
-
-        $new_message = new Message();
-        $new_message->fill($form_data);
-        $new_message->date = $now;
-        $new_message->apartment_id = $form_data['apartment_id'];
-        $new_message->save();
-        return redirect('/')->with('alert','Messaggio inviato');
+        //
     }
 
     /**
@@ -65,7 +46,8 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        return view('guest.apartments.show',compact('apartment'));
     }
 
     /**
@@ -99,6 +81,6 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        return redirect()->back()->with('alert', 'Messaggio cancellato!');
+        //
     }
 }
