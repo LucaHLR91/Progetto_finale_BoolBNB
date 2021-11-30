@@ -12,7 +12,7 @@
 }
 
 .my-dashboard {
-    background: linear-gradient(180deg, rgba(18,18,18,1) 50%,rgb(105, 105, 105));
+    background: linear-gradient(180deg, rgb(0, 0, 0) 50%, rgb(255, 255, 255));
 }
 
 .my-dashboard a,
@@ -22,7 +22,7 @@
 
 
 main {
-    // background-color: black;
+    color: white;
     height: 100%;
 }
 
@@ -33,7 +33,19 @@ main {
 
 
 // LAYOUTS - APP
+.form {
+    border-radius: 20px;
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.digsdigs.com%2Fphotos%2Fsimple-modernistic-suburban-desert-house-5.jpg&f=1&nofb=1');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.575);
+    padding: 10px 10px 0 10px;
+}
 
+footer {
+    background-color: #b3b3b3;
+}
 //FINE LAYOUTS - APP
 
 
@@ -48,23 +60,11 @@ main {
     height: calc(100vh - 68px);
 }
 
-// .right-border-light {
-//     border-right: 2px solid rgb(194, 192, 192);
-// }
+.right-border-light {
+    border-right: 2px solid rgb(194, 192, 192);
+}
 
 .overflow {
     overflow-y: auto;
 }
 // FINE MY BOOTSTRAP
-
-// LAYOUTS - GUEST - HOME
-.form {
-    border-radius: 20px;
-    background-image: url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.digsdigs.com%2Fphotos%2Fsimple-modernistic-suburban-desert-house-5.jpg&f=1&nofb=1');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.575);
-    padding: 10px 10px 0 10px;
-}
-//  FINE LAYOUTS - GUEST - HOME
