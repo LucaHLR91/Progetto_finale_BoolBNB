@@ -110,16 +110,12 @@ class ApartmentController extends Controller
     public function show($id)
     {
         $apartment = Apartment::findOrFail($id);
+        $user = Auth::id();
         if( $apartment->canView()) {
-            return view('admin.apartments.show', compact('apartment'));
+            return view('admin.apartments.show', compact('apartment','user'));
         } else {
             abort(403, 'Unauthorized action.');
         }
-
-
-
-        $user = Auth::id();
-        return view('admin.apartments.show', compact('apartment', 'user'));
     }
 
     /**
