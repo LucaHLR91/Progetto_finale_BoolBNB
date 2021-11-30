@@ -31,4 +31,9 @@ class Apartment extends Model
     public function views() {
         return $this->hasMany('App\View');
     }
+
+    public function canView()
+    {
+        return $this->user_id === auth()->id();
+    }
 }

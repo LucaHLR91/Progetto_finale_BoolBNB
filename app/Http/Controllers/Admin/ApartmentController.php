@@ -64,14 +64,14 @@ class ApartmentController extends Controller
         ]);
 
         $completeAddress = $request->address . ', ' . $request->city;
-        //  $geocoder = new GeoFunction(trim(env('TOMTOM_API_KEY')));  
+        //  $geocoder = new GeoFunction(trim(env('TOMTOM_API_KEY')));
 
-        $geocoder = new GeoFunction('yNgX4mXdpmkOXOoS76g8oRrlZcAmGUPm'); 
+        $geocoder = new GeoFunction('yNgX4mXdpmkOXOoS76g8oRrlZcAmGUPm');
         $result = $geocoder->geocodeAddress($completeAddress);
         $latitude = $result['results'][0]['position']['lat'];
         $longitude = $result['results'][0]['position']['lon'];
-       
-        
+
+
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
@@ -109,9 +109,15 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-
         $apartment = Apartment::findOrFail($id);
-        return view('admin.apartments.show', compact('apartment'));
+        if( $apartment->canView()) {
+            return view('admin.apartments.show', compact('apartment'));
+        } else {
+            abort(403, 'Unauthorized action.');
+        }
+
+
+
     }
 
     /**
@@ -122,9 +128,17 @@ class ApartmentController extends Controller
      */
     public function edit($id)
     {
+
         $apartment = Apartment::findOrFail($id);
         $services = Service::all();
-        return view('admin.apartments.edit', compact('apartment', 'services'));
+        if( $apartment->canView()) {
+            return view('admin.apartments.edit', compact('apartment', 'services'));
+        } else {
+            abort(403, 'Unauthorized action.');
+        }
+
+
+
     }
 
     /**
