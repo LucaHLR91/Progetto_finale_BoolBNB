@@ -32,5 +32,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::resource('/apartments', 'ApartmentController');
     // ROTTA PER LE SPONSORIZZAZIONI
     Route::resource('/sponsorships', 'SponsorshipController');
+    // ROTTA PER I MESSAGGI
+    Route::resource('/messages', 'MessageController');
 });
 

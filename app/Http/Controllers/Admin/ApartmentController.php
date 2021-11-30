@@ -118,6 +118,8 @@ class ApartmentController extends Controller
 
 
 
+        $user = Auth::id();
+        return view('admin.apartments.show', compact('apartment', 'user'));
     }
 
     /**
