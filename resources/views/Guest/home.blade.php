@@ -3,7 +3,7 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container h-600">
         {{-- FORM PER INVIO POST SEARCH --}}
         <div class="form">
             <form class="" action="{{route('search.store')}}" method="post">
@@ -48,9 +48,9 @@
                     </div>
                 </div>
             </form>
-        </div>  
+        </div>
 
-       
+
 
     </div>
 
