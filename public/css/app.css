@@ -10974,7 +10974,7 @@ a.text-dark:focus {
 }
 
 .my-dashboard {
-  background: #000;
+  background: #32383e;
 }
 
 .my-dashboard a,
@@ -11001,8 +11001,8 @@ main {
   padding: 20px 20px 10px 20px;
 }
 
-footer {
-  background-color: #b3b3b3;
+section {
+  background-color: #343a40;
 }
 
 .my-navbar {

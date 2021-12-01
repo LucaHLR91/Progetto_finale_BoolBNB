@@ -26,8 +26,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark my-navbar flex-md-nowrap p-2">
-            <a class="navbar-brand mr-0 d-flex align-items-center" href="/">
+        <nav class="navbar navbar-expand-md navbar-dark my-navbar shadow-sm flex-md-nowrap p-2">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0 d-flex align-items-center" href="/">
                 <i class="fab fa-airbnb"></i>
                 BoolBNB
             </a>
@@ -46,7 +46,7 @@
         </nav>
         <div class="container-fluid">
             <div class="row">
-                <nav class="col-md-3 col-sm-12 col-lg-2 d-md-block sidebar py-4 px-4 px-1 my-dashboard  right-border-light">
+                <nav class="col-md-3 col-sm-12 col-lg-2 d-md-block sidebar py-4 px-4 px-1 my-dashboard">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
