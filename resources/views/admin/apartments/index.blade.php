@@ -13,14 +13,14 @@
                 </div>
             @endif
 
-            <table class="table-responsive text-dark ">
+            <table class="table ">
                 <thead >
                   <tr class="">
-                    <th class="text-center" scope="col">#</th>
-                    <th class="text-center" scope="col">Title</th>
-                    <th class="text-center" scope="col">Address</th>
-                    <th class="text-center" scope="col">City</th>
-                    <th class="text-center" scope="col">Action</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,7 @@
                                 <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info my-1 my-w">Dettagli</a>
                                 <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning my-1 my-w">Modifica</a>
                                 <a href="{{ route('admin.sponsorships.index',['id'=> $apartment['id']]) }}" class="btn btn-success my-1 my-w">Sponsorizza</a>
-                            
+
                                 <form action="{{ route('admin.apartments.destroy', $apartment['id']) }}" class="d-inline-block delete-post" method="post">
                                     @csrf
                                     @method('DELETE')
