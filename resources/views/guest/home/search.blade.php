@@ -12,13 +12,15 @@
                         <p>numero stanze: {{ $result->rooms }}</p>
                         <p>numero letti: {{ $result->beds }}</p>
                         <p>città: {{ $result->city }}</p>
-                        <a href="{{route('search.show', $result->id) }}" class="btn btn-info">Dettagli</a>
+                        {{-- <a href="{{route('search.show', $result->id) }}" class="btn btn-info">Dettagli</a> --}}
                     </div>
                 @endforeach
             </div>
             <all-apartments-map :coordinates="{{ json_encode($coordinates) }}"></all-apartments-map>
 
         </div>
+
+        {{-- Nel form della ricerca avanzata inserire un input nascosto con id_apartments  --}}
 
     </div>
 @endsection

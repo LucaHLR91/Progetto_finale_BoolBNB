@@ -6,7 +6,7 @@
     <div class="container h-600">
         {{-- FORM PER INVIO POST SEARCH --}}
         <div class="form">
-            <form class="" action="{{route('search.store')}}" method="post">
+            <form class="" action="{{route('search')}}" method="post">
                 @csrf
                 @method('POST')
 
