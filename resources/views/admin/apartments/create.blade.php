@@ -5,7 +5,7 @@
 @section('content')
 <h1 class="text-dark">Inserisci il tuo appartamento</h1>
  
-<form action="{{route('admin.apartments.store')}}" method="post" class="text-dark">
+<form action="{{route('admin.apartments.store')}}" method="post" class="text-dark" enctype="multipart/form-data">
     @csrf
     @method('POST')
  
@@ -57,6 +57,7 @@
     <div class="mb-3 form-group">
         <label for="image" class="form-label"><h4>Foto</h4></label>
         <input name="image" type="file" class="form-control" class="form-control @error('image') is-invalid @enderror" id="image">
+        {{-- <input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="file" value="{{ old('file') }}"> --}}
         @error('image')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
