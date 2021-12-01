@@ -25,21 +25,21 @@
                 </thead>
                 <tbody>
                     @foreach ($apartments as $apartment)
-                        <tr class=" ">
-                            <td scope="row" class="align-top px-3 pb-3">{{ $apartment['id'] }}</td>
-                            <td class="align-top px-3 pb-3 text-center">{{ $apartment['title'] }}</td>
-                            <td class="align-top px-3 pb-3 text-center">{{ $apartment['address'] }}</td>
-                            <td class="align-top px-3 pb-3 text-center">{{ $apartment['city'] }}</td>
-                            <td  class="align-top px-3 pb-3 align-start text-center">
-                                <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info mb-2">Dettagli</a>
-                                <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning mb-2">Modifica</a>
-                                <a href="{{ route('admin.sponsorships.index',['id'=> $apartment['id']]) }}" class="btn btn-success mb-2">Sponsorizza</a>
-
-                                <form action="{{ route('admin.apartments.destroy', $apartment['id']) }}" class="d-inline-block mb-2 delete-post" method="post">
+                        <tr>
+                            <td scope="row">{{ $apartment['id'] }}</td>
+                            <td>{{ $apartment['title'] }}</td>
+                            <td>{{ $apartment['address'] }}</td>
+                            <td>{{ $apartment['city'] }}</td>
+                            <td>
+                                <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info my-1 my-w">Dettagli</a>
+                                <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning my-1 my-w">Modifica</a>
+                                <a href="{{ route('admin.sponsorships.index',['id'=> $apartment['id']]) }}" class="btn btn-success my-1 my-w">Sponsorizza</a>
+                            
+                                <form action="{{ route('admin.apartments.destroy', $apartment['id']) }}" class="d-inline-block delete-post" method="post">
                                     @csrf
                                     @method('DELETE')
                                     {{-- LA CLASSE DELETE-POST CI SERVIRA PER RICHIEDERE CONFERMA DI CANCELLAZIONE TRAMITE IL JS, NON AVRA NULLA DI CSS  --}}
-                                    <button type="submit" class="btn btn-danger mb-2">Elimina</button>
+                                    <button type="submit" class="btn btn-danger my-1 my-w">Elimina</button>
                                 </form>
                             </td>
                         </tr>

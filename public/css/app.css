@@ -11005,8 +11005,9 @@ main {
   padding: 20px 20px 10px 20px;
 }
 
-section {
+footer {
   background-color: #343a40;
+  color: white;
 }
 
 .my-navbar {
@@ -11023,5 +11024,13 @@ section {
 
 .overflow {
   overflow-y: auto;
+}
+
+.my-w {
+  width: 100px;
+}
+
+.h-500 {
+  height: 500px;
 }
 
