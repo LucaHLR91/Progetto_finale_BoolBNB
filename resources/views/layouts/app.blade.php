@@ -91,7 +91,7 @@
 
         <main class="pt-4 full-height overflow">
             @yield('content')
-            <section class="fixed-bottom">
+            <section class="">
                 <div class="container text-md-left">
                     <div class="row">
                     <div class="col-md-3 ">
@@ -227,6 +227,6 @@
         {{-- @yield('footer') --}}
 
     </div>
-  
+
 </body>
 </html>

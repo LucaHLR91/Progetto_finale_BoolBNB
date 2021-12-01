@@ -1,14 +1,14 @@
 @extends('layouts.dashboard')
 @section('title', 'Crea Appartamento')
- 
- 
+
+
 @section('content')
-<h1 class="text-dark">Inserisci il tuo appartamento</h1>
- 
-<form action="{{route('admin.apartments.store')}}" method="post" class="text-dark">
+<form action="{{route('admin.apartments.store')}}" class="pl-4 text-dark" method="post" class="text-dark">
     @csrf
     @method('POST')
- 
+    <h1 class="text-dark">Inserisci il tuo appartamento</h1>
+
+
     <div class="mb-3 form-group">
         <label for="title" class="form-label"><h4>Titolo</h4></label>
         <input name="title" type="text" class="form-control" id="title" class="form-control @error('title') is-invalid @enderror"
@@ -17,7 +17,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
- 
+
     <div class="mb-3 form-group">
         <label for="beds" class="form-label"><h4>Numero Letti</h4></label>
         <input name="beds" type="number" class="form-control" id="beds" class="form-control @error('beds') is-invalid @enderror"
@@ -26,7 +26,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
- 
+
     <div class="mb-3 form-group">
         <label for="rooms" class="form-label"><h4>Numero Stanze</h4></label>
         <input name="rooms" type="number" class="form-control" id="rooms" placeholder="Inserisci il numero di stanze"
@@ -35,7 +35,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
- 
+
     <div class="mb-3 form-group">
         <label for="bathrooms" class="form-label"><h4>Numero Bagni</h4></label>
         <input name="bathrooms" type="number" class="form-control" id="bathrooms"
@@ -44,7 +44,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
- 
+
     <div class="mb-3 form-group">
         <label for="square_meters" class="form-label"><h4>Metri Quadri</h4></label>
         <input name="square_meters" type="number" class="form-control" id="square_meters"
@@ -53,7 +53,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
- 
+
     <div class="mb-3 form-group">
         <label for="image" class="form-label"><h4>Foto</h4></label>
         <input name="image" type="file" class="form-control" class="form-control @error('image') is-invalid @enderror" id="image">
@@ -61,7 +61,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
- 
+
     <div class="form-group">
         <h4>Disponibilità:</h4>
         <div class="form-check">
@@ -69,7 +69,7 @@
             <label class="form-check-label" for="available">
                 Disponibile
             </label>
- 
+
         </div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="avaliability" id="no-available" value="0">
@@ -78,7 +78,7 @@
             </label>
         </div>
     </div>
-    
+
     <div class="mb-3 form-group">
         <label for="address" class="form-label"><h4>Indirizzo</h4></label>
         <input name="address" type="text" id="address" placeholder="Inserisci l'indirizzo"
@@ -87,7 +87,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
- 
+
     <div class="mb-3 form-group">
         <label for="city" class="form-label"><h4>Città</h4></label>
         <input name="city" type="text" class="form-control" id="city" placeholder="Inserisci la città"
@@ -96,7 +96,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
     </div>
- 
+
     <div class="form-group">
         <h4>Scegli i servizi:</h4>
         @foreach ($services as $service)
@@ -109,7 +109,7 @@
         </div>
         @endforeach
     </div>
- 
+
     <button type="submit" class="btn btn-primary form-group">Inserisci Appartamento</button>
 </form>
 @endsection
