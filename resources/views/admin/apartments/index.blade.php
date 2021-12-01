@@ -13,14 +13,14 @@
                 </div>
             @endif
 
-            <table class="table-responsive text-dark ">
+            <table class="table text-dark ">
                 <thead >
                   <tr class="">
-                    <th class="text-center" scope="col">#</th>
-                    <th class="text-center" scope="col">Title</th>
-                    <th class="text-center" scope="col">Address</th>
-                    <th class="text-center" scope="col">City</th>
-                    <th class="text-center" scope="col">Action</th>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
