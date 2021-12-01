@@ -40,15 +40,38 @@ class ApartmentController extends Controller
         $beds = $request->beds;
         $rooms = $request->rooms;
         $city = $request->city;
-        
-        $results = DB::table('apartments')
-                ->where('beds', '=', $beds)
-                ->where('rooms', '=', $rooms)
+
+        if (!empty($beds) && !empty($rooms) && !empty($city)) {
+            $apartments = DB::table('apartments')
+                ->where('beds', '>=', $beds)
+                ->where('rooms', '>=', $rooms)
                 ->where('city', '=', $city)
                 ->get();
+        } 
+         elseif (!empty($beds) && !empty($city)) {
+            $apartments = DB::table('apartments')
+                ->where('beds', '>=', $beds)
+                ->where('city', '=', $city)
+                ->get();
+        } elseif (!empty($rooms) && !empty($city)) {
+            $apartments = DB::table('apartments')
+                ->where('rooms', '>=', $rooms)
+                ->where('city', '=', $city)
+                ->get();
+        } 
+         elseif (!empty($city)) {
+            $apartments = DB::table('apartments')
+                ->where('city', '=', $city)
+                ->get();
+        } else {
+            // Inserire app sponsorizzati
+            $apartments = DB::table('apartments')
+                ->get();
+        }
+        
+      
 
-        // dd($results);
-        return view('guest.home.search', compact('results'));
+        return view('guest.home.search', compact('apartments'));
     }
             
     /**
