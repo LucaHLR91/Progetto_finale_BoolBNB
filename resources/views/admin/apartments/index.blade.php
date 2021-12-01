@@ -13,11 +13,7 @@
                 </div>
             @endif
 
-<<<<<<< HEAD
             <table class="table text-dark ">
-=======
-            <table class="table ">
->>>>>>> 516a7e48e61fe99dc08f4e2ac5fbd2a8dfdfc6fa
                 <thead >
                   <tr class="">
                     <th scope="col">#</th>
