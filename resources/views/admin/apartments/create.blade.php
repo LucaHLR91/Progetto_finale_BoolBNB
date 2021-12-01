@@ -76,12 +76,9 @@
             <label class="form-check-label" for="no-available">
                 Non disponibile
             </label>
- 
         </div>
- 
     </div>
- 
- 
+    
     <div class="mb-3 form-group">
         <label for="address" class="form-label"><h4>Indirizzo</h4></label>
         <input name="address" type="text" id="address" placeholder="Inserisci l'indirizzo"
