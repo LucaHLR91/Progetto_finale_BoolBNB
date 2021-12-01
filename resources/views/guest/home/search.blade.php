@@ -20,5 +20,7 @@
 
         </div>
 
+        {{-- Nel form della ricerca avanzata inserire un input nascosto con id_apartments  --}}
+
     </div>
 @endsection
