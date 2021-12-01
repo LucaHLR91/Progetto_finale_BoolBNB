@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Admin\Carbon;
+use Carbon\Carbon;
 use App\Message;
 
 class MessageController extends Controller
