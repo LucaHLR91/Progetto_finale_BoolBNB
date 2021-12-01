@@ -69,9 +69,18 @@ class ApartmentController extends Controller
                 ->get();
         }
         
+            // $coordinates = Apartment::all()->pluck('latitude', 'longitude')->all();
+        
+        // create an array with latidude and longitude from $apartments
+        $coordinates = array();
+        foreach ($apartments as $apartment) {
+            $coordinates[] = array(
+                'latitude' => $apartment->latitude,
+                'longitude' => $apartment->longitude
+            );
+        }
       
-
-        return view('guest.home.search', compact('apartments'));
+        return view('guest.home.search', compact('apartments', 'coordinates'));
     }
             
     /**

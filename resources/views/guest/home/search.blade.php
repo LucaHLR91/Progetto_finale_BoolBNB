@@ -15,6 +15,9 @@
                     </div>
                 @endforeach
             </div>
+            <all-apartments-map :coordinates="{{ json_encode($coordinates) }}"></all-apartments-map>
+
         </div>
+      
     </div>
 @endsection
