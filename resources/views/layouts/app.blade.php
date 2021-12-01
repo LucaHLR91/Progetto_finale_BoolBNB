@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm my-navbar">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm my-navbar sticky-top bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <i class="fab fa-airbnb"></i>
