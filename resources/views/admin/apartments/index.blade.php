@@ -16,11 +16,11 @@
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Action</th>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -31,15 +31,15 @@
                             <td>{{ $apartment['address'] }}</td>
                             <td>{{ $apartment['city'] }}</td>
                             <td>
-                                <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info">Dettagli</a>
-                                <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning">Modifica</a>
-                                <a href="{{ route('admin.sponsorships.index',['id'=> $apartment['id']]) }}" class="btn btn-success">Sponsorizza</a>
+                                <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info my-1 my-w">Dettagli</a>
+                                <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning my-1 my-w">Modifica</a>
+                                <a href="{{ route('admin.sponsorships.index',['id'=> $apartment['id']]) }}" class="btn btn-success my-1 my-w">Sponsorizza</a>
                             
                                 <form action="{{ route('admin.apartments.destroy', $apartment['id']) }}" class="d-inline-block delete-post" method="post">
                                     @csrf
                                     @method('DELETE')
                                     {{-- LA CLASSE DELETE-POST CI SERVIRA PER RICHIEDERE CONFERMA DI CANCELLAZIONE TRAMITE IL JS, NON AVRA NULLA DI CSS  --}}
-                                    <button type="submit" class="btn btn-danger">Elimina</button>
+                                    <button type="submit" class="btn btn-danger my-1 my-w">Elimina</button>
                                 </form>
                             </td>
                         </tr>

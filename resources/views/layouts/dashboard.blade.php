@@ -44,8 +44,10 @@
                 </li>
             </ul>
         </nav>
+
         <div class="container-fluid">
             <div class="row">
+                {{-- inizio dashboard  --}}
                 <nav class="col-md-3 col-sm-12 col-lg-2 d-md-block sidebar py-4 px-4 px-1 my-dashboard">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
@@ -71,11 +73,13 @@
 
                     </div>
                 </nav>
+                {{-- fine dashboard  --}}
 
-
-                <main role="main" class="col-md-7 ml-sm-auto col-lg-10 px-4 py-4 full-height overflow">
+                {{-- inizio main --}}
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4 full-height overflow">
                     @yield('content')
                 </main>
+                {{-- fine main --}}
             </div>
         </div>
     </div>
