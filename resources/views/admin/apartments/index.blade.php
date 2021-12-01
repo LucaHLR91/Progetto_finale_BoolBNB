@@ -39,7 +39,7 @@
                                     @csrf
                                     @method('DELETE')
                                     {{-- LA CLASSE DELETE-POST CI SERVIRA PER RICHIEDERE CONFERMA DI CANCELLAZIONE TRAMITE IL JS, NON AVRA NULLA DI CSS  --}}
-                                    <button type="submit" class="btn btn-danger">Elimina</button>
+                                    <button type="submit" class="btn btn-danger mb-2">Elimina</button>
                                 </form>
                             </td>
                         </tr>
