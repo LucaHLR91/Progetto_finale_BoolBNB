@@ -53,7 +53,7 @@ class MessageController extends Controller
         $new_message->date = $now;
         $new_message->apartment_id = $form_data['apartment_id'];
         $new_message->save();
-        return redirect('/')->with('alert','Messaggio inviato');
+        return redirect('/')->with('success','Messaggio inviato');
     }
 
     /**
