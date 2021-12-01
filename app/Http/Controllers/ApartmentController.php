@@ -47,7 +47,7 @@ class ApartmentController extends Controller
                 ->where('rooms', '>=', $rooms)
                 ->where('city', '=', $city)
                 ->get();
-        } 
+        }
          elseif (!empty($beds) && !empty($city)) {
             $apartments = DB::table('apartments')
                 ->where('beds', '>=', $beds)
@@ -58,7 +58,7 @@ class ApartmentController extends Controller
                 ->where('rooms', '>=', $rooms)
                 ->where('city', '=', $city)
                 ->get();
-        } 
+        }
          elseif (!empty($city)) {
             $apartments = DB::table('apartments')
                 ->where('city', '=', $city)
@@ -68,9 +68,9 @@ class ApartmentController extends Controller
             $apartments = DB::table('apartments')
                 ->get();
         }
-        
+
             // $coordinates = Apartment::all()->pluck('latitude', 'longitude')->all();
-        
+
         // create an array with latidude and longitude from $apartments
         $coordinates = array();
         foreach ($apartments as $apartment) {
@@ -79,10 +79,10 @@ class ApartmentController extends Controller
                 'longitude' => $apartment->longitude
             );
         }
-      
+
         return view('guest.home.search', compact('apartments', 'coordinates'));
     }
-            
+
     /**
      * Display the specified resource.
      *
@@ -91,7 +91,8 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        return view('guest.apartment.show',compact('apartment'));
     }
 
     /**
