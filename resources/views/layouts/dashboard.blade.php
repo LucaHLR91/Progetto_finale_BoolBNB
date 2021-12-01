@@ -73,7 +73,7 @@
                 </nav>
 
 
-                <main role="main" class="col-md-7 ml-sm-auto col-lg-10 px-4 py-4 full-height overflow">
+                <main role="main" class="col-md-9 p-0 col-lg-10 full-height d-flex align-self-center overflow">
                     @yield('content')
                 </main>
             </div>
