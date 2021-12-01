@@ -1908,8 +1908,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -1935,12 +1933,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   props: ['coordinates'],
   mounted: function mounted() {
     // Initialize the map
-    var map = tt.map(_defineProperty({
+    var map = tt.map({
       key: "yNgX4mXdpmkOXOoS76g8oRrlZcAmGUPm",
       container: 'map',
       center: [15.4, 53.0],
-      zoom: 12
-    }, "zoom", 3)); // Add the control to the map
+      zoom: 3
+    }); // Add the control to the map
 
     map.addControl(new tt.FullscreenControl());
     map.addControl(new tt.NavigationControl());
@@ -1950,6 +1948,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var marker = new tt.Marker().setLngLat([lng, lat]).addTo(map);
       console.log(element);
     });
+    map.setCenter([this.coordinates[0].longitude, this.coordinates[0].latitude]);
+    map.setZoom(10);
   }
 });
 
