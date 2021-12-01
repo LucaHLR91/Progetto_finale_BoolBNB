@@ -11027,6 +11027,14 @@ footer {
 }
 
 .h-600 {
-  height: 650px;
+  min-height: 650px;
+}
+
+.max-height {
+  height: 500px !important;
+}
+
+.my-rounded {
+  border-radius: 20px;
 }
 
