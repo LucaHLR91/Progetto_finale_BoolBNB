@@ -58,7 +58,7 @@
                         <li data-target="#house_carousel" data-slide-to="1"></li>
                         <li data-target="#house_carousel" data-slide-to="2"></li>
                     </ol>
-                    <div class="carousel-inner my-rounded d-flex align-items-center">
+                    <div class="carousel-inner my-rounded max-height d-flex align-items-center">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max" alt="First slide">
                         </div>
