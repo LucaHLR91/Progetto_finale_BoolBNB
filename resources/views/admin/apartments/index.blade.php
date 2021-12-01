@@ -13,7 +13,11 @@
                 </div>
             @endif
 
+<<<<<<< HEAD
             <table class="table text-dark ">
+=======
+            <table class="table ">
+>>>>>>> 516a7e48e61fe99dc08f4e2ac5fbd2a8dfdfc6fa
                 <thead >
                   <tr class="">
                     <th scope="col">#</th>
@@ -34,7 +38,7 @@
                                 <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info my-1 my-w">Dettagli</a>
                                 <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning my-1 my-w">Modifica</a>
                                 <a href="{{ route('admin.sponsorships.index',['id'=> $apartment['id']]) }}" class="btn btn-success my-1 my-w">Sponsorizza</a>
-                            
+
                                 <form action="{{ route('admin.apartments.destroy', $apartment['id']) }}" class="d-inline-block delete-post" method="post">
                                     @csrf
                                     @method('DELETE')
