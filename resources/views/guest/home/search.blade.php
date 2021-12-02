@@ -5,7 +5,8 @@
     <div class="container-fluid text-dark mb-4">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <span class="border">qui metteremo la ricerc che l'utente ha fatto</span>
+                {{-- farsi passare la variabile con i dati filtrati --}}
+                <span class="border">qui metteremo la ricerca che l'utente ha fatto</span>
             </div>
         </div>
     </div>
