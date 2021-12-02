@@ -1,7 +1,6 @@
 @extends('layouts.dashboard')
 @section('title', 'Sponsorizza Appartamento')
 
-
 @section('content')
     <h1>Sponsorizza  il tuo appartamento</h1>
 
