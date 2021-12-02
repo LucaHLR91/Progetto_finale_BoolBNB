@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Apartment;
+use App\Service;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class ApartmentController extends Controller
@@ -91,8 +93,9 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
+        $services = Service::all();
         $apartment = Apartment::findOrFail($id);
-        return view('guest.apartment.show',compact('apartment'));
+        return view('guest.apartment.show',compact('apartment','services'));
     }
 
     /**
