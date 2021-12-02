@@ -12,7 +12,7 @@
                         <p>numero stanze: {{ $result->rooms }}</p>
                         <p>numero letti: {{ $result->beds }}</p>
                         <p>città: {{ $result->city }}</p>
-                        <a href="{{route('messages.show', $result->id) }}" class="btn btn-info">Visualizza appartamento</a>
+                        {{-- <a href="{{route('search.show', $result->id) }}" class="btn btn-info">Dettagli</a> --}}
                     </div>
                 @endforeach
             </div>
@@ -21,6 +21,28 @@
         </div>
 
         {{-- Nel form della ricerca avanzata inserire un input nascosto con id_apartments  --}}
-
+        {{-- FORM PER LA RICERCA SERVIZI --}}
+        <form action="{{ route('searchQuery') }}" method="post">
+            @csrf
+            @method('POST')
+            {{-- <input value="{{ json_encode($id_apartments) }}" type="hidden"> --}}
+              {{-- <input type="hidden" id="id_apartments" name="id_apartments[]" value="{{ ($id_apartments) }}"> --}}
+            @foreach($id_apartments as $id_apartment)
+                 <input type="hidden" id="id_apartments" name="id_apartments[]" value="{{ ($id_apartment) }}"> 
+            @endforeach  
+            <div class="form-group">
+                <h4>Filtra per servizi:</h4>
+                @foreach ($services as $service)
+                <div class="form-check form-check-inline">
+                    {{-- services[] coterrà tutti i valori che noi selezioneremo --}}
+                    <input {{ in_array($service['id'], old('services', [])) ? 'checked' : null }} value="{{ $service['id'] }}"
+                        id="{{ 'tag' . $service['id'] }}" type="checkbox" name="services[]" class="form-check-input">
+                    <label for="{{ 'service' . $service['id'] }}"
+                        class="form-check-label">{{ $service['service_name'] }}</label>
+                </div>
+                @endforeach
+            </div>
+            <button type="submit" class="btn btn-primary">Filtra</button>
+        </form>
     </div>
 @endsection

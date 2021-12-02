@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Service;
 use Illuminate\Support\Facades\DB;
 
 class QueryController extends Controller
@@ -22,22 +22,26 @@ class QueryController extends Controller
                 ->where('rooms', '>=', $rooms)
                 ->where('city', '=', $city)
                 ->get();
+            $apartments = $apartments->sortBy('rooms');
         }
          elseif (!empty($beds) && !empty($city)) {
             $apartments = DB::table('apartments')
                 ->where('beds', '>=', $beds)
                 ->where('city', '=', $city)
                 ->get();
+                $apartments = $apartments->sortBy('beds');
         } elseif (!empty($rooms) && !empty($city)) {
             $apartments = DB::table('apartments')
                 ->where('rooms', '>=', $rooms)
                 ->where('city', '=', $city)
                 ->get();
+                $apartments = $apartments->sortBy('rooms');
         }
          elseif (!empty($city)) {
             $apartments = DB::table('apartments')
                 ->where('city', '=', $city)
                 ->get();
+                $apartments = $apartments->sortBy('rooms');
         } else {
             // Inserire app sponsorizzati
             $apartments = DB::table('apartments')
@@ -55,6 +59,65 @@ class QueryController extends Controller
             );
         }
 
-        return view('guest.home.search', compact('apartments', 'coordinates'));
+        $id_apartments = array();
+        foreach ($apartments as $apartment) {
+            $id_apartments[] = $apartment->id;
+        }
+
+        $services = Service::all();
+
+        return view('guest.home.search', compact('apartments', 'coordinates', 'id_apartments', 'services'));
+    }
+
+    public function queryService(Request $request) {
+        $request = ($request->all());
+        // dd($request);
+        $id_apartments = $request['id_apartments'];
+        $id_services = $request['services'];
+        
+        $services = DB::table('services')
+        ->select('id', 'service_name')
+        ->get();
+
+        $results = [];
+        
+        foreach ($id_apartments as $id_apartment) {
+            // for every service
+            foreach ($id_services as $id_service) {
+                // select on table services_apartments
+                $apartments = DB::table('apartment_service')
+                    ->select('apartment_id', 'service_id')
+                    ->where('apartment_id', '=', $id_apartment)
+                    ->where('service_id', '=', $id_service)
+                    ->get();
+                // push the apartment id in the results array
+                foreach ($apartments as $apartment) {
+                    $results[] = $apartment->apartment_id;
+                }
+            }
+                    /* $apartments = DB::table('apartment_service')
+                    ->select('apartment_id', 'service_id')
+                    ->where('apartment_id', '=', 15)
+                    ->where('service_id', '=', 1)
+                    ->get(); */
+        }
+
+        dd($results);
+        $coordinates = array();
+        foreach ($apartments as $apartment) {
+            $coordinates[] = array(
+                'latitude' => $apartment->latitude,
+                'longitude' => $apartment->longitude
+            );
+        }
+
+        $id_apartments = array();
+        foreach ($apartments as $apartment) {
+            $id_apartments[] = $apartment->id;
+        }
+
+        $services = Service::all();
+
+        return view('guest.home.search' , compact('apartments', 'coordinates', 'services', 'id_apartments'));
     }
 }
