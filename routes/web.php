@@ -21,6 +21,8 @@ Route::get('/', 'HomeController@index')->name('home');
 // Rotta ricerca
 Route::post('/search', 'QueryController@index')->name('search');
 Route::resource('/messages', 'ApartmentController');
+// ROTTA PER LA RICERCA AVANZATA
+Route::post('/service', 'QueryController@queryService')->name('searchQuery');
 
 
 // ROTTE CHE GESTISCONO IL MECCANISMO DI AUTENTICAZIONE
