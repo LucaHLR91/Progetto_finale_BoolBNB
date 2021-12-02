@@ -72,15 +72,15 @@
                                 <tr>
                                 <th class="pl-0 w-25" scope="row"><strong>Servizi</strong></th>
                                 <td>
-                                   {{--  @foreach ($services as $service)
-                                        <span>{{$service->service_id}} <span>
-                                    @endforeach --}}
-                                    {{-- @dd($name) --}}
-                                    @if ($apartment->services)
-                                        @foreach ($apartment->services as $service)
 
+
+                                    @if (($apartment->services)->isNotEmpty())
+                                        @foreach ($apartment->services as $service)
                                             {{ $service->service_name . ',' }}
                                         @endforeach
+
+                                    @else
+                                        <p>Non ci sono servizi</p>
                                     @endif
                                 </td>
                               </tr>
