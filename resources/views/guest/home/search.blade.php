@@ -12,7 +12,7 @@
                         <p>numero stanze: {{ $result->rooms }}</p>
                         <p>numero letti: {{ $result->beds }}</p>
                         <p>città: {{ $result->city }}</p>
-                        {{-- <a href="{{route('search.show', $result->id) }}" class="btn btn-info">Dettagli</a> --}}
+                        <a href="{{route('messages.show', $result->id) }}" class="btn btn-info">Dettagli</a>
                     </div>
                 @endforeach
             </div>
