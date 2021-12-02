@@ -8,8 +8,6 @@
 <form action="{{route('admin.apartments.store')}}" method="post" class="text-dark" enctype="multipart/form-data">
     @csrf
     @method('POST')
-    <h1 class="text-dark">Inserisci il tuo appartamento</h1>
-
 
     <div class="mb-3 form-group">
         <label for="title" class="form-label"><h4>Titolo</h4></label>
