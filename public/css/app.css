@@ -11027,7 +11027,11 @@ footer {
 }
 
 .h-600 {
-  min-height: 650px;
+  min-height: 650px !important;
+}
+
+.h-200 {
+  min-height: 200px !important;
 }
 
 .max-height {
