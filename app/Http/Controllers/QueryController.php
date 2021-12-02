@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Apartment;
 use Illuminate\Http\Request;
 use App\Service;
 use Illuminate\Support\Facades\DB;
@@ -90,33 +91,32 @@ class QueryController extends Controller
                     ->where('apartment_id', '=', $id_apartment)
                     ->where('service_id', '=', $id_service)
                     ->get();
-                // push the apartment id in the results array
+                // if the service is present in the apartment
                 foreach ($apartments as $apartment) {
                     $results[] = $apartment->apartment_id;
                 }
             }
-                    /* $apartments = DB::table('apartment_service')
-                    ->select('apartment_id', 'service_id')
-                    ->where('apartment_id', '=', 15)
-                    ->where('service_id', '=', 1)
-                    ->get(); */
+                   
         }
 
-        dd($results);
+        // dd($results);
+
+
         $coordinates = array();
-        foreach ($apartments as $apartment) {
+        $apartments = array();
+        foreach ($results as $apartment_id) {
+            $apartment = Apartment::find($apartment_id);
+            $apartments[] = $apartment;
             $coordinates[] = array(
                 'latitude' => $apartment->latitude,
                 'longitude' => $apartment->longitude
             );
         }
 
-        $id_apartments = array();
-        foreach ($apartments as $apartment) {
-            $id_apartments[] = $apartment->id;
-        }
-
+     
         $services = Service::all();
+
+        $id_apartments = $results;
 
         return view('guest.home.search' , compact('apartments', 'coordinates', 'services', 'id_apartments'));
     }
