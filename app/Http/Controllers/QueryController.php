@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\Service;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\CssSelector\XPath\Extension\FunctionExtension;
 
 class QueryController extends Controller
 {
@@ -57,7 +58,6 @@ class QueryController extends Controller
                 ->get();
         }
 
-            // $coordinates = Apartment::all()->pluck('latitude', 'longitude')->all();
 
         // create an array with latidude and longitude from $apartments
         $coordinates = array();
@@ -80,9 +80,10 @@ class QueryController extends Controller
 
     public function queryService(Request $request) {
         $request = $request->all();
+       
         // RIPULITO IL DATO PASSATO LO DIVIDIAMO
         $id_apartments = $request['id_apartments'];
-        $id_services = $request['id_services'];
+        $id_services = $request['services'];
 
         // PRENDIAMO DALLA TABELLA SERVIZI L'ID E IL NOME DEI SERVIZI
         $services = DB::table('services')
@@ -128,6 +129,18 @@ class QueryController extends Controller
 
         $id_apartments = $results;
 
+
         return view('guest.home.search' , compact('apartments', 'coordinates', 'services', 'id_apartments'));
     }
+
+    // public function queryFilters(Request $request) {
+    //     $request = $request->all();
+
+        
+
+    // }
+
+    // public function queryIndex() {
+
+    // }
 }
