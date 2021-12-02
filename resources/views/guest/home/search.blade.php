@@ -5,8 +5,8 @@
     <div class="container-fluid text-dark mb-4">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                {{-- farsi passare la variabile con i dati filtrati --}}
-                <span class="border">qui metteremo la ricerca che l'utente ha fatto</span>
+                {{-- @dd($parameters) --}}    {{-- farsi passare la variabile con i dati filtrati --}}
+             <h3><i class="fas fa-search"></i> {{ $parameters['city'] }} - N°stanze {{ $parameters['rooms'] }} - N°letti {{ $parameters['beds'] }}</h3>
             </div>
         </div>
     </div>

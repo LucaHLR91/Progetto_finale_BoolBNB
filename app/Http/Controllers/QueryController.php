@@ -14,7 +14,13 @@ class QueryController extends Controller
         
         $beds = $request->beds;
         $rooms = $request->rooms;
-        $city = $request->city;
+        $city = ucfirst($request->city);
+
+        $parameters = [
+            'beds' => $beds,
+            'rooms' => $rooms,
+            'city' => $city
+        ];
 
         if (!empty($beds) && !empty($rooms) && !empty($city)) {
             $apartments = DB::table('apartments')
@@ -55,6 +61,6 @@ class QueryController extends Controller
             );
         }
 
-        return view('guest.home.search', compact('apartments', 'coordinates'));
+        return view('guest.home.search', compact('apartments', 'coordinates', 'parameters'));
     }
 }
