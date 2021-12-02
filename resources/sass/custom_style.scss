@@ -93,13 +93,14 @@ footer {
     border-radius: 20px;
 }
 // SPONSORSHIPS
+
+.card_width{
+    height: 300px;
+}
+
 .gradient-silver{
     background-color: #f1f2f6;
     background-image: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
-}
-
-.card_width{
-    width: 20rem;
 }
 
 .gradient-gold{
@@ -109,5 +110,4 @@ footer {
 .gradient-plat{
     background-color: #d7d7d7;
     background-image: linear-gradient(135deg, #d7d7d7 0%, #353535 74%);
-    
 }
