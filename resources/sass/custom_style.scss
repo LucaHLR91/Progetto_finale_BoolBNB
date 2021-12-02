@@ -89,11 +89,21 @@ footer {
     border-radius: 20px;
 }
 // SPONSORSHIPS
-.price-background {
-    position: absolute;
-    top: -78px;
-    left: 117px;
-    color: rgba(0, 0, 0, 0.08);
-    font-size: 200px;
-    font-weight: bold;
-  }
+.gradient-silver{
+    background-color: #f1f2f6;
+    background-image: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
+}
+
+.card_width{
+    width: 20rem;
+}
+
+.gradient-gold{
+    background:linear-gradient(315deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+}
+
+.gradient-plat{
+    background-color: #d7d7d7;
+    background-image: linear-gradient(135deg, #d7d7d7 0%, #353535 74%);
+    
+}
