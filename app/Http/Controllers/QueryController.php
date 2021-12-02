@@ -17,6 +17,14 @@ class QueryController extends Controller
         $rooms = $request->rooms;
         $city = $request->city;
 
+        // CREO UN ARRAY PER I PARAMETRI DI RICERCA SCELTI DALL'UTENTE
+
+        $parameters = [
+            'beds' => $beds,
+            'rooms' => $rooms,
+            'city' => $city
+        ];
+
         if (!empty($beds) && !empty($rooms) && !empty($city)) {
             $apartments = DB::table('apartments')
                 ->where('beds', '>=', $beds)
