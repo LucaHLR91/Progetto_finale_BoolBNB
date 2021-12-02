@@ -74,12 +74,12 @@ class QueryController extends Controller
         ->select('id', 'service_name')
         ->get();
 
-        dd($request);
-        foreach ($request->id_apartments as $id_apartment) {
+        
+        foreach ($request as $id_apartment) {
             // for every service
             foreach ($services as $service) {
                 // select on table services_apartments
-                $services_apartments = DB::table('services_apartments')
+                $apartments = DB::table('apartment_service')
                     ->select('apartment_id', 'service_id')
                     ->where('apartment_id', '=', $id_apartment)
                     ->where('service_id', '=', $service->id)
@@ -87,6 +87,21 @@ class QueryController extends Controller
             }
         }
 
-        return view('guest.home.search' , compact('services_apartments'));
+        $coordinates = array();
+        foreach ($apartments as $apartment) {
+            $coordinates[] = array(
+                'latitude' => $apartment->latitude,
+                'longitude' => $apartment->longitude
+            );
+        }
+
+        $id_apartments = array();
+        foreach ($apartments as $apartment) {
+            $id_apartments[] = $apartment->id;
+        }
+
+        $services = Service::all();
+
+        return view('guest.home.search' , compact('apartments', 'coordinates', 'services', 'id_apartments'));
     }
 }
