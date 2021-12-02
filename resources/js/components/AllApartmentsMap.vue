@@ -1,10 +1,8 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-10">
                     <div id='map' class='map'></div>
-                </div>
             </div>
         </div>
     </div>
@@ -24,7 +22,7 @@
 
         props: ['coordinates'],
 
-       
+
         mounted() {
              // Initialize the map
             var map = tt.map({
@@ -46,7 +44,7 @@
 
             map.setCenter([this.coordinates[0].longitude, this.coordinates[0].latitude]);
             map.setZoom(10);
-  
+
         }
     }
 </script>

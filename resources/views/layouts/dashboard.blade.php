@@ -76,7 +76,7 @@
                 {{-- fine dashboard  --}}
 
                 {{-- inizio main --}}
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4 full-height overflow">
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-4 full-height overflow">
                     @yield('content')
                 </main>
                 {{-- fine main --}}

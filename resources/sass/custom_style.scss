@@ -5,9 +5,7 @@
 }
 
 // LAYOUTS COMMON
-body{
-    overflow: hidden;
-}
+
 
 #app {
     width: 100%;
@@ -74,12 +72,19 @@ footer {
 }
 
 .my-w {
-    width: 100px;
+    width: 120px;
 }
 
-.h-500 {
-    height: 500px;
+.h-600 {
+    min-height: 650px;
 }
 // FINE MY BOOTSTRAP
 
 
+.max-height {
+    height: 450px !important;
+}
+
+.my-rounded {
+    border-radius: 20px;
+}

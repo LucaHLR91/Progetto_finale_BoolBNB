@@ -10968,10 +10968,6 @@ a.text-dark:focus {
   box-sizing: border-box;
 }
 
-body {
-  overflow: hidden;
-}
-
 #app {
   width: 100%;
   height: 100vh;
@@ -11027,10 +11023,18 @@ footer {
 }
 
 .my-w {
-  width: 100px;
+  width: 120px;
 }
 
-.h-500 {
-  height: 500px;
+.h-600 {
+  min-height: 650px;
+}
+
+.max-height {
+  height: 450px !important;
+}
+
+.my-rounded {
+  border-radius: 20px;
 }
 
