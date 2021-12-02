@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Apartment;
 use App\Service;
 use Illuminate\Support\Facades\DB;
 
@@ -70,25 +71,40 @@ class QueryController extends Controller
     }
 
     public function queryService(Request $request) {
+        $request = $request->all();
+        // RIPULITO IL DATO PASSATO LO DIVIDIAMO
+        $id_apartments = $request['id_apartments'];
+        $id_services = $request['id_services'];
+
+        // PRENDIAMO DALLA TABELLA SERVIZI L'ID E IL NOME DEI SERVIZI
         $services = DB::table('services')
         ->select('id', 'service_name')
         ->get();
 
-        
-        foreach ($request as $id_apartment) {
+        // CREO VARIABILE D'APPOGGIO PER I RISULTATI
+        $results = [];
+
+        foreach ($id_apartments as $id_apartment) {
             // for every service
-            foreach ($services as $service) {
+            foreach ($id_services as $id_service) {
                 // select on table services_apartments
                 $apartments = DB::table('apartment_service')
                     ->select('apartment_id', 'service_id')
                     ->where('apartment_id', '=', $id_apartment)
-                    ->where('service_id', '=', $service->id)
+                    ->where('service_id', '=', $id_service)
                     ->get();
+                
+                foreach ($apartments as $apartment) {
+                    $results[] = $apartment->apartment_id;
+                }
             }
         }
 
         $coordinates = array();
-        foreach ($apartments as $apartment) {
+        $apartments = array();
+        foreach ($results as $apartment_id) {
+            $apartment = Apartment::find($apartment_id);
+            $apartments[] = $apartment;
             $coordinates[] = array(
                 'latitude' => $apartment->latitude,
                 'longitude' => $apartment->longitude
@@ -101,6 +117,8 @@ class QueryController extends Controller
         }
 
         $services = Service::all();
+
+        $id_apartments = $results;
 
         return view('guest.home.search' , compact('apartments', 'coordinates', 'services', 'id_apartments'));
     }
