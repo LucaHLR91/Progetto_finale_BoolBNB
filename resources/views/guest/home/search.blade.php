@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 {{-- @dd($parameters) --}}    {{-- farsi passare la variabile con i dati filtrati --}}
-             <h3><i class="fas fa-search"></i> {{ $parameters['city'] }} - N°stanze {{ $parameters['rooms'] }} - N°letti {{ $parameters['beds'] }}</h3>
+             {{-- <h3><i class="fas fa-search"></i> {{ $parameters['city'] }} - N°stanze {{ $parameters['rooms'] }} - N°letti {{ $parameters['beds'] }}</h3> --}}
             </div>
         </div>
     </div>

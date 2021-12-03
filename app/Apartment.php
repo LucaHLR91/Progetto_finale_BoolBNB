@@ -4,8 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use eloquentFilter\QueryFilter\ModelFilters\Filterable;
+
 class Apartment extends Model
 {
+    use Filterable;
+
+    private static $whiteListFilter = ['*'];
+    
     protected $fillable = [
         'title', 'beds', 'rooms', 'bathrooms', 'square_meters', 'image', 'avaliability', 'address', 'city', 'latitude', 'longitude', 'slug',
     ];
