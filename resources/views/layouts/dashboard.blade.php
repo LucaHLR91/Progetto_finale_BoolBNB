@@ -27,11 +27,11 @@
 <body>
     <div id="app">
         {{-- NAVBAR HEADER --}}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar d-flex justify-content-between">
             <a class="navbar-brand" href="{{ url('/') }}"><i class="fab fa-airbnb"></i>
                 BoolBnB</a>
-
-                <a class="nav-link" href="/"
+                <div>
+                    <a class="nav-link" href="/"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                         Logout
@@ -39,6 +39,8 @@
                     <form id="logout-form" action="/logout" method="POST" style="display: none;">
                         @csrf
                     </form>
+                </div>
+
         </nav>
         {{-- FINE NAVBAR HEADER --}}
 
