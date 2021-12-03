@@ -11046,22 +11046,40 @@ footer {
   border-radius: 20px;
 }
 
-.card_width {
-  min-width: 500px !important;
+.mycard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  min-height: 400px;
 }
 
-.gradient-silver {
+.mycard input[value] {
+  display: none;
+}
+
+.mycard p {
+  font-size: 20px;
+}
+
+.bronze {
+  background: #bd8708;
+  background: linear-gradient(315deg, #bd8708 0%, #cf8838 45%, #997404 100%);
+}
+
+.silver {
   background-color: #f1f2f6;
   background-image: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
 }
 
-.gradient-gold {
+.gold {
   background: linear-gradient(315deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
 }
 
-.gradient-plat {
-  background-color: #d7d7d7;
-  background-image: linear-gradient(135deg, #d7d7d7 0%, #353535 74%);
+.evenly {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .mt-6 {

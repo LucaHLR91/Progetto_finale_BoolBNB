@@ -13,15 +13,18 @@ class SponsorshipsTableSeeder extends Seeder
     public function run()
     {
         $sponsorships = [
-            [
+            [   
+                'name' => 'bronze',
                 'price' => '2,99',
                 'duration' => 24
             ],
             [
+                'name' => 'silver',
                 'price' => '5,99',
                 'duration' => 72
             ],
             [
+                'name' => 'gold',
                 'price' => '9,99',
                 'duration' => 144
             ]
@@ -29,6 +32,7 @@ class SponsorshipsTableSeeder extends Seeder
 
         foreach($sponsorships as $sponsorship) {
             $new_sponsorship = new Sponsorship();
+            $new_sponsorship->name = $sponsorship['name'];
             $new_sponsorship->price = $sponsorship['price'];
             $new_sponsorship->duration = $sponsorship['duration'];
             $new_sponsorship->save();
