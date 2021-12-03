@@ -26,14 +26,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark my-navbar shadow-sm flex-md-nowrap p-2">
-            <a class="navbar-brand col-sm-3 col-md-2 mr-0 d-flex align-items-center" href="/">
-                <i class="fab fa-airbnb"></i>
-                BoolBNB
-            </a>
-            <ul class="navbar-nav px-3 ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/"
+        {{-- NAVBAR HEADER --}}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar">
+            <a class="navbar-brand" href="{{ url('/') }}"><i class="fab fa-airbnb"></i>
+                BoolBnB</a>
+
+                <a class="nav-link" href="/"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                         Logout
@@ -41,9 +39,10 @@
                     <form id="logout-form" action="/logout" method="POST" style="display: none;">
                         @csrf
                     </form>
-                </li>
-            </ul>
         </nav>
+        {{-- FINE NAVBAR HEADER --}}
+
+
 
         <div class="container-fluid">
             <div class="row">

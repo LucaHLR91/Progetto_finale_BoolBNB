@@ -12,7 +12,7 @@
 
     {{-- link carosello --}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+
     {{-- script carosello  --}}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -43,7 +43,92 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm my-navbar sticky-top bg-white">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar">
+            <a class="navbar-brand" href="{{ url('/') }}"><i class="fab fa-airbnb"></i>
+                BoolBnB</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
+
+                <div class="d-flex  ">
+                    @guest
+
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                    @if (Route::has('register'))
+
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+
+                    @endif
+                  @else
+
+                      >
+
+                    <div>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('admin.dashboard_home') }}">
+                                {{ __('Dashboard') }}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+
+                    </div>
+
+
+              @endguest
+
+                  </div>
+            </div>
+          </nav>
+
+
+
+
+
+
+
+
+
+        {{-- <nav class="navbar navbar-light bg-light my-navbar shadow-sm flex-md-nowrap p-2">
+            <div class="container-fluid">
+                <div class="cl-xs-6">
+                    <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                        <i class="fab fa-airbnb"></i>
+                        BoolBnB
+                    </a>
+                </div>
+
+                  <!-- Authentication Links -->
+
+
+
+
+
+            </div>
+          </nav> --}}
+
+
+
+
+
+
+        {{-- nav class="navbar navbar-expand-md navbar-light shadow-sm my-navbar sticky-top bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <i class="fab fa-airbnb"></i>
@@ -97,7 +182,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </> --}}
 
         <main class="pt-4  ">
             @yield('content')
