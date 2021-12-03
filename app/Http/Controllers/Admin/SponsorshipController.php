@@ -48,7 +48,7 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -97,10 +97,10 @@ class SponsorshipController extends Controller
     }
 
     /**
-     * 
+     *
      * Generate token BrainTree
      *
-     *  
+     *
     */
     public function generateToken()
     {

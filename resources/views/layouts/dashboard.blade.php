@@ -69,12 +69,6 @@
                                     Inserisci Appartamento
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">
-                                    <i class="fas fa-search"></i>
-                                    Cerca appartamenti
-                                </a>
-                            </li>
                             {{-- POSSIBILITA' DI VEDERE LE SPOSNSORIZZAZIONI IN CORSO --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
