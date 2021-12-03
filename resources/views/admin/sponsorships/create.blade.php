@@ -31,5 +31,5 @@
         </div>
 
         <button type="submit" class="btn btn-primary form-group">Inserisci Appartamento</button>
-      </form>
+    </form>
 @endsection

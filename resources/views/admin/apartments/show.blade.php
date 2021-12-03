@@ -8,7 +8,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Nome Appartamento</th>
+                        <th scope="col">Titolo</th>
                         <th scope="col">Servizi</th>
                         <th scope="col">Messaggi</th>
                     </tr>
@@ -24,6 +24,7 @@
                             @endforeach
                         </td>
                         <td>
+                            {{-- FARSI SPIEGARE LA SECONDA CASISTICA- NON HA SENSO METTERLA --}}
                             @if ($user == $apartment->user_id)
                                 <a href="{{ route('admin.messages.index', ['id'=> $apartment['id']]) }}" class="btn btn-primary">Visualizza Messaggi</a>    
                             @else
