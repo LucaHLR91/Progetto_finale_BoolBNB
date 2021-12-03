@@ -94,20 +94,50 @@ footer {
 }
 // SPONSORSHIPS
 
-.card_width{
-    min-width: 500px !important;
+.mycard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px;
+    min-height: 400px;
+
+    input[value] {
+        display: none;
+    }
+
+    p {
+        font-size: 20px;
+    }
 }
 
-.gradient-silver{
+// rivedere la seguente classe
+.bronze {
+    background: rgb(189,135,8);
+    background: linear-gradient(315deg, rgba(189,135,8,1) 0%, rgba(207,136,56,1) 45%, rgb(153, 116, 4) 100%);
+        // background-color: #FFD8B1;
+        // // / For WebKit (Safari, Chrome, etc) / 
+        // background: #FFD8B1 -webkit-gradient(linear, left top, left bottom, from(#A75B10), to(#FFD8B1)) no-repeat;
+        // // / Mozilla,Firefox/Gecko /
+        // background: #FFD8B1 -moz-linear-gradient(top, #A75B10, #FFD8B1) no-repeat;
+        // // / IE 5.5 - 7 /
+        // // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#A75B10, endColorstr=#FFD8B1) no-repeat;
+        // -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#A75B10, endColorstr=#A75B10)" no-repeat;
+    
+}
+
+.silver {  
     background-color: #f1f2f6;
     background-image: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
 }
 
-.gradient-gold{
+.gold {
     background:linear-gradient(315deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
 }
 
-.gradient-plat{
-    background-color: #d7d7d7;
-    background-image: linear-gradient(135deg, #d7d7d7 0%, #353535 74%);
+.evenly {
+    display: flex;
+    justify-content: space-evenly;
 }
+
+

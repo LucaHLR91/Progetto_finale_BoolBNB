@@ -24,12 +24,12 @@
                             @endforeach
                         </td>
                         <td>
-                            {{-- FARSI SPIEGARE LA SECONDA CASISTICA- NON HA SENSO METTERLA --}}
-                            @if ($user == $apartment->user_id)
+                            {{-- RIUTILIZZARE IL SEGUENTE CODICE NELLA FINESTRA GUEST --}}
+                            {{-- @if ($user == $apartment->user_id) --}}
                                 <a href="{{ route('admin.messages.index', ['id'=> $apartment['id']]) }}" class="btn btn-primary">Visualizza Messaggi</a>    
-                            @else
+                            {{-- @else
                                 <a href="" class="btn btn-primary">Invia Messaggio</a>
-                            @endif
+                            @endif --}}
                         </td>
                     </tr>
                 </tbody>

@@ -48,7 +48,8 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // qui prenderò il valori delle sponsorizzazioni
+        
     }
 
     /**

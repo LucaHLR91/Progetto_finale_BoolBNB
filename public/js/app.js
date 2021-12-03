@@ -50608,8 +50608,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\ivang\Desktop\Boolean\Progetto_finale_BoolBNB\Progetto_finale_BoolBNB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\ivang\Desktop\Boolean\Progetto_finale_BoolBNB\Progetto_finale_BoolBNB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
