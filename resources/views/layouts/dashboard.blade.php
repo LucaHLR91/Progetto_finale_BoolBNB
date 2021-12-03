@@ -47,43 +47,45 @@
 
         <div class="container-fluid">
             <div class="row">
+
                 {{-- inizio dashboard  --}}
-                <nav class="col-md-3 col-sm-12 col-lg-2 d-md-block sidebar py-4 px-4 px-1 my-dashboard">
-                    <div class="sidebar-sticky">
-                        <ul class="nav flex-column">
+                <div class="col-sm-4 col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark my-dashboard">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.dashboard_home') }}">
+                                <a data-bs-toggle="collapse" class="nav-link px-0 align-middle" href="{{ route('admin.dashboard_home') }}" >
                                     <i class="fas fa-digital-tachograph"></i>
-                                    Dashboard
-                                </a>
+                                    <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.apartments.index') }}">
+                                <a data-bs-toggle="collapse" class="nav-link px-0 align-middle " href="{{ route('admin.apartments.index') }}">
                                     <i class="fas fa-list-ol"></i>
-                                    Miei Appartamenti
-                                </a>
+                                    <span class="ms-1 d-none d-sm-inline">I Miei Appartamenti</span></a>
+
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.apartments.create') }}">
+                                <a data-bs-toggle="collapse" class="nav-link px-0 align-middle" href="{{ route('admin.apartments.create') }}">
                                     <i class="fas fa-plus"></i>
-                                    Inserisci Appartamento
-                                </a>
+                                    <span class="ms-1 d-none d-sm-inline">Inserisci Appartamento</span> </a>
                             </li>
-                            {{-- POSSIBILITA' DI VEDERE LE SPOSNSORIZZAZIONI IN CORSO --}}
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a href="#" class="nav-link px-0 align-middle">
                                     <i class="fas fa-search"></i>
-                                    Sponsorizzazioni Attive
-                                </a>
+                                    <span class="ms-1 d-none d-sm-inline">Sponsorizzazioni Attive</span> </a>
                             </li>
                         </ul>
+                        <hr>
 
                     </div>
-                </nav>
+                </div>
+
                 {{-- fine dashboard  --}}
 
                 {{-- inizio main --}}
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-4 full-height overflow">
+                <main role="main" class="col py-3 full-height overflow">
                     @yield('content')
                 </main>
                 {{-- fine main --}}
