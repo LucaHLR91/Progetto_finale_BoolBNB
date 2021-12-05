@@ -11,6 +11,13 @@ class Apartment extends Model
     use Filterable;
 
     private static $whiteListFilter = ['*'];
+
+    public function serializeRequestFilter($request)
+    {
+       $request['rooms'] = ['<', $request['rooms']];
+       $request['beds'] = ['<', $request['beds']];
+       return $request;
+    }
     
     protected $fillable = [
         'title', 'beds', 'rooms', 'bathrooms', 'square_meters', 'image', 'avaliability', 'address', 'city', 'latitude', 'longitude', 'slug',
