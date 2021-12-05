@@ -26,16 +26,19 @@
             <form action="{{ route('admin.sponsorships.store') }}" method="post" class="w-100 evenly flex-wrap mt-3">
                 @csrf
                 @method('POST')
-    
+
                 @foreach ($sponsorships as $sponsorship)
                         <div class="mycard text-center m-2 @if($sponsorship['name'] == 'bronze') bronze @elseif($sponsorship['name'] == 'silver') silver @else gold @endif ">
                             <h3 class="text-uppercase">{{ $sponsorship['name'] }}</h3>
                             <p>{{ $sponsorship['price'] }} €</p>
                             <p>Per {{ $sponsorship['duration'] }} ore in evidenza</p>
-                            <label class="btn btn-primary"  for="sponsorship">
-                                Acquista ora
-                                <input type="submit" id="sponsorship" name="sponsorship" value="{{ $sponsorship['id'] }}">
-                            </label>
+                            <a href="{{ route('admin.payment.process') }}">
+                                <label class="btn btn-primary"  for="sponsorship">
+                                    Acquista ora
+                                    <input type="submit" id="sponsorship" name="sponsorship" value="{{ $sponsorship['id'] }}">
+                                </label>
+                            </a>
+
                         </div>
                 @endforeach
             </form>
@@ -43,7 +46,7 @@
     </div>
 </div>
 
-        
+
         {{-- <div class="container">
             <div class="row text-dark d-flex justify-content-center ">
                 <div class="col-12 text-center mb-4">
@@ -83,8 +86,8 @@
             </div>
         </div> --}}
     {{-- </form> --}}
-{{-- 
-    @dd($sponsorships)  
+{{--
+    @dd($sponsorships)
 <form action="{{route('admin.apartments.store')}}" method="post">
     @csrf
     @method('POST')

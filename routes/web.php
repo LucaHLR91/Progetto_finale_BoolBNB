@@ -39,5 +39,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::resource('/sponsorships', 'SponsorshipController');
     // ROTTA PER I MESSAGGI
     Route::resource('/messages', 'MessageController');
+    // ROTTA PER PAGAMENTI
+    Route::get('/payment/process/{id}/promo/{id_promo}', 'PaymentsController@process')->name('payment.process');
 });
 
