@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use eloquentFilter\QueryFilter\ModelFilters\Filterable;
+use Akuechler\Geoly;
 
 class Apartment extends Model
 {
     use Filterable;
+    use Geoly;
 
     private static $whiteListFilter = ['*'];
 
