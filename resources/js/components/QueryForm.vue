@@ -78,7 +78,8 @@
                 let url = `/search?rooms[operator]=>&rooms[value]=${this.rooms}&city=${this.city}&beds[operator]=>&beds[value]=${this.beds}`;
                
                 window.location.href = url;
-                            }
+                
+                }
         }
        
 
