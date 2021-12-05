@@ -11,13 +11,19 @@ class QueryController extends Controller
 
     public function index(Request $request)
     {
+        // Ricavo le coordinate 
+        $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
+        $coordinates = $geocoder->geocodeAddress($request->city);
 
-        // Test radius
+        // Filtro gli appartamenti che soddisfano i filtri
+        $apartments = Apartment::filter($request->all())->get();
 
-        $apartments = Apartment::radius(42.56, 12.65, 20)->get();
-        //::filter($request->all())->get();
-        //$apartments = Apartment::filter($request->all())->get();
-        
+        // Trovo gli appartamenti che sono vicini alla posizione
+  
+        $nearby = Apartment::radius($coordinates['latitude'], $coordinates['longitude'], 20)->get();
+     
+        // Filtro gli appartamenti che sono vicini alla posizione e che soddisfano i filtri
+        $apartments = $apartments->intersect($nearby);
 
         $coordinates = array();
         foreach ($apartments as $apartment) {

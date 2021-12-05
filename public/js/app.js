@@ -2014,6 +2014,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'QueryForm',
   data: function data() {
@@ -2029,12 +2031,9 @@ __webpack_require__.r(__webpack_exports__);
         city: this.city,
         rooms: this.rooms,
         beds: this.beds
-      }); // generate the
-
-      var url = "/search?rooms[operator]=>&rooms[value]=".concat(this.rooms, "&city=").concat(this.city, "&beds[operator]=>&beds[value]=").concat(this.beds); // generate url like: search?rooms[operator]=%3E&rooms[value]=2?beds[operator]=%3E&beds[value]=2
-
+      });
+      var url = "/search?rooms[operator]=>&rooms[value]=".concat(this.rooms, "&city=").concat(this.city, "&beds[operator]=>&beds[value]=").concat(this.beds);
       window.location.href = url;
-      /*  */
     }
   }
 }); // 

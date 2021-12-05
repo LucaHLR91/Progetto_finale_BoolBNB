@@ -11,15 +11,17 @@
                         </div>
 
 
-                        <!--      {{-- <div class="col-md-3 d-flex flex-column">
+                        
+                       <!-- <div class="col-md-3 d-flex flex-column">
                         <label for="slider-range" class="form-lable">Raggio di ricerca: </label>
                         <div class="d-felx">
-                            <input id="slider-range" class="mt-2" name="range" type="range" min="0" max="100" value="20" oninput="this.nextElementSibling.value = this.value" />
+                            <input id="slider-range" class="mt-2" v-model="range" name="range" type="range" min="0" max="100" value="20" oninput="this.nextElementSibling.value = this.value" />
                             <output class="ml-2"> 20 </output>
                             <span class="font-weight-bold ml-2">Km</span>
                         </div>
-                    </div> --}} -->
-
+                    </div> 
+ -->
+                        
 
                         <div class="col-md-4">
                             <label for="rooms" class="form-lable">Numero stanze</label>
@@ -58,6 +60,8 @@
                 city: '',
                 rooms: '',
                 beds: '',
+               
+
             }
         },
 
@@ -66,12 +70,13 @@
                 this.$emit('query', {
                     city: this.city,
                     rooms: this.rooms,
-                    beds: this.beds
+                    beds: this.beds,
+                   
                     
                 });
-                // generate the
+              
                 let url = `/search?rooms[operator]=>&rooms[value]=${this.rooms}&city=${this.city}&beds[operator]=>&beds[value]=${this.beds}`;
-                // generate url like: search?rooms[operator]=%3E&rooms[value]=2?beds[operator]=%3E&beds[value]=2
+               
                 window.location.href = url;
                             }
         }
