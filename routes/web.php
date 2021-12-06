@@ -39,5 +39,8 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::resource('/sponsorships', 'SponsorshipController');
     // ROTTA PER I MESSAGGI
     Route::resource('/messages', 'MessageController');
+    // ROTTA PER PAYMENT
+    Route::any('/payment', [BraintreeController::class, 'token'])->name('token')->middleware('auth');
+    
 });
 
