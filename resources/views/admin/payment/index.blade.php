@@ -5,7 +5,7 @@
     @csrf
     <div id="dropin-container" style="display: flex;justify-content: center;align-items: center;"></div>
     <div style="display: flex;justify-content: center;align-items: center; color: white">
-        <a id="submit-button" class="btn btn-sm btn-success">Submit payment</a>
+        <a href="{{route('client_token')}}" id="submit-button" class="btn btn-sm btn-success">Submit payment</a>
     </div>
     <script>
         var button = document.querySelector('#submit-button');
