@@ -2022,7 +2022,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       city: '',
       rooms: '',
-      beds: ''
+      beds: '',
+      radius: ''
     };
   },
   methods: {
@@ -2030,9 +2031,10 @@ __webpack_require__.r(__webpack_exports__);
       this.$emit('query', {
         city: this.city,
         rooms: this.rooms,
-        beds: this.beds
+        beds: this.beds,
+        radius: this.radius
       });
-      var url = "/search?rooms[operator]=>&rooms[value]=".concat(this.rooms, "&city=").concat(this.city, "&beds[operator]=>&beds[value]=").concat(this.beds);
+      var url = "/search?rooms[operator]=>&rooms[value]=".concat(this.rooms, "&city=").concat(this.city, "&beds[operator]=>&beds[value]=").concat(this.beds, "&radius=").concat(this.radius);
       window.location.href = url;
     }
   }
@@ -38359,6 +38361,54 @@ var render = function () {
                     },
                   },
                 }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-lable", attrs: { for: "radius" } },
+                  [_vm._v("Raggio di ricerca")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.radius,
+                        expression: "radius",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "radius", name: "radius" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.radius = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "20" } }, [_vm._v("20km")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "50" } }, [_vm._v("50km")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "100" } }, [
+                      _vm._v("100km"),
+                    ]),
+                  ]
+                ),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-4" }, [

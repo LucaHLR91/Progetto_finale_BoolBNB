@@ -10,17 +10,17 @@
                                 placeholder="Inserisci la Città" />
                         </div>
 
+                        <div class  = "col-md-4">
+                        <label for ="radius" class="form-lable">Raggio di ricerca</label>
+                        <select v-model="radius" id="radius" name="radius" class="form-control">
+                            <option value="20">20km</option>
+                            <option value="50">50km</option>
+                            <option value="100">100km</option>
+                        </select>    
+                            
+                    </div>
 
-                        
-                       <!-- <div class="col-md-3 d-flex flex-column">
-                        <label for="slider-range" class="form-lable">Raggio di ricerca: </label>
-                        <div class="d-felx">
-                            <input id="slider-range" class="mt-2" v-model="range" name="range" type="range" min="0" max="100" value="20" oninput="this.nextElementSibling.value = this.value" />
-                            <output class="ml-2"> 20 </output>
-                            <span class="font-weight-bold ml-2">Km</span>
-                        </div>
-                    </div> 
- -->
+
                         
 
                         <div class="col-md-4">
@@ -60,6 +60,7 @@
                 city: '',
                 rooms: '',
                 beds: '',
+                radius: '',
                
 
             }
@@ -71,11 +72,12 @@
                     city: this.city,
                     rooms: this.rooms,
                     beds: this.beds,
+                    radius: this.radius,
                    
                     
                 });
               
-                let url = `/search?rooms[operator]=>&rooms[value]=${this.rooms}&city=${this.city}&beds[operator]=>&beds[value]=${this.beds}`;
+                let url = `/search?rooms[operator]=>&rooms[value]=${this.rooms}&city=${this.city}&beds[operator]=>&beds[value]=${this.beds}&radius=${this.radius}`;
                
                 window.location.href = url;
                 

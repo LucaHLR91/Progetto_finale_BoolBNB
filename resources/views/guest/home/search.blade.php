@@ -49,9 +49,8 @@
         </div>
         {{-- Nel form della ricerca avanzata inserire un input nascosto con id_apartments  --}}
 
-        <form action="{{ route('searchQuery') }}" method="post">
-            @csrf
-            @method('POST')
+        <form action="{{ route('search') }}" method="get">
+            
             
             <div class="form-group">
                 <h4>Filtra per servizi:</h4>
