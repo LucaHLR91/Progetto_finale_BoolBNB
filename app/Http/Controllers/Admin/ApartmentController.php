@@ -221,15 +221,5 @@ class ApartmentController extends Controller
         return redirect()->route('admin.apartments.index');
     }
 
-    /* public function createSponsorship()
-    {
-        $sponsorType= Sponsorship::all();
-        return view('admin.apartments.sponsorship.create', compact('sponsorType'));
-    } */
-
-    /*  public function storeSponsorship(Request $request, $id){
-        $newApartamentSponsored = DB('')
-
-
-    } */
+    
 }
