@@ -110,7 +110,7 @@ class ApartmentController extends Controller
         // PASSO AL NEW POST LE INFORMAZIONI DEI TAG INSERITI
         $apartment->services()->attach($form_data['services']);
 
-        return redirect()->route('admin.apartments.index')->with('success', 'Appartamento aggiunto correttamente');
+        return redirect()->route('admin.apartments.index')->with('status', 'Appartamento aggiunto correttamente');
     }
 
     /**

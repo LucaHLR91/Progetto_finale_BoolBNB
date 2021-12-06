@@ -31,15 +31,15 @@
                             <td>{{ $apartment['address'] }}</td>
                             <td>{{ $apartment['city'] }}</td>
                             <td>
-                                <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info my-1 my-w">Dettagli</a>
-                                <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning my-1 my-w">Modifica</a>
-                                <a href="{{ route('admin.sponsorships.index',['id'=> $apartment['id']]) }}" class="btn btn-success my-1 my-w">Sponsorizza</a>
-
+                                <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info">Dettagli</a>
+                                <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning">Modifica</a>
+                                <a href="{{ route('admin.sponsorships.create',['id'=> $apartment['id']]) }}" class="btn btn-success">Sponsorizza</a>
+                            
                                 <form action="{{ route('admin.apartments.destroy', $apartment['id']) }}" class="d-inline-block delete-post" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    {{-- LA CLASSE DELETE-POST CI SERVIRA PER RICHIEDERE CONFERMA DI CANCELLAZIONE TRAMITE IL JS, NON AVRA NULLA DI CSS  --}}
-                                    <button type="submit" class="btn btn-danger my-1 my-w">Elimina</button>
+                                    <button type="submit" class="btn btn-danger" onclick="confirm()">Elimina</button>
+                                  
                                 </form>
                             </td>
                         </tr>
@@ -52,3 +52,29 @@
 
     {{-- utente registrato --}}
 @endsection
+
+<script>
+        function confirm() {
+            Swal.fire({
+                title: 'Vuoi eliminare questo annuncio?',
+                text: "L'azione è irreversibile!",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                denyButtonText: `Don't delete`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete('/admin/apartments/' + {{ $apartment->id }})
+                        .then(function (response) {
+                            Swal.fire('Saved!', '', 'success')
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error.response.data);
+                        });
+                } else if (result.isDenied) {
+                    Swal.fire('Changes are not saved', '', 'info')
+                }
+            })
+        }
+    </script>
