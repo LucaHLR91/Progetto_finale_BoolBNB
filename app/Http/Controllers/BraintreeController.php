@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\BraintreeController;
+
 
 class BraintreeController extends Controller
 {
@@ -15,7 +15,20 @@ class BraintreeController extends Controller
             'publicKey' => env("BRAINTREE_PUBLIC_KEY"),
             'privateKey' => env("BRAINTREE_PRIVATE_KEY")
         ]);
-            $clientToken = $gateway->clientToken()->generate();
-            return view ('admin.payment.index',['token' => $clientToken]);
+
+        if($request->input('nonce') != null){
+            $nonceFromTheClient = $request->input('nonce');
+    
+            $gateway->transaction()->sale([
+                'amount' => '10.00',
+                'paymentMethodNonce' => $nonceFromTheClient,
+                'options' => ['submitForSettlement' => True]
+            ]);
+            return view ('dashboard');
+        }
+        else{
+        $clientToken = $gateway->clientToken()->generate();
+        return view ('admin.payment.index',['token' => $clientToken]);
+        }
     }
 }
