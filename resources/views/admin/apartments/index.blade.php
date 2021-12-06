@@ -16,17 +16,15 @@
             <table class="table text-dark ">
                 <thead >
                   <tr class="">
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Titolo</th>
+                    <th scope="col">Via</th>
+                    <th scope="col">Città</th>
+                    <th scope="col">Azioni</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($apartments as $apartment)
                         <tr>
-                            <td scope="row">{{ $apartment['id'] }}</td>
                             <td>{{ $apartment['title'] }}</td>
                             <td>{{ $apartment['address'] }}</td>
                             <td>{{ $apartment['city'] }}</td>

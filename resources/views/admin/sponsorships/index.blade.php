@@ -12,11 +12,7 @@
 <div class="container">
     <div class="row text-dark">
         <div class="col-12 text-center">
-            <h1 class="text-dark">
-                Sponsorizza il tuo
-                <a class="text-decoration-none" href="{{ route('admin.apartments.show', $id)}}">{{$id}}°</a>
-                appartamento
-            </h1>
+            <h1 class="text-dark">Sponsorizza il tuo appartamento</h1>
         </div>
     </div>
 </div>
