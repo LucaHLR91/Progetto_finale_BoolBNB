@@ -4,6 +4,11 @@
 @section('content')
 
     <div class="container ">
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
         <div class="row d-flex flex-column ">
             <div class="col-lg-12 text-dark " >
                 <div class="d-flex align-items-center h-100">
@@ -41,7 +46,9 @@
                       </div>
                       {{-- DETTAGLI DELL'APPARTAMENTO --}}
                       <div class="col-md-6">
+
                         <div class="table-responsive">
+
                           <table class="table table-sm table-borderless mb-0">
                             <tbody>
                                 <tr>

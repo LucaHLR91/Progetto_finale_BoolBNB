@@ -28,7 +28,7 @@
 <body>
     <div id="app">
         {{-- NAVBAR HEADER --}}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar d-flex justify-content-between">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar d-flex justify-content-between fixed-top">
             <a class="navbar-brand" href="{{ url('/') }}"><i class="fab fa-airbnb"></i>
                 BoolBnB</a>
                 <div>
@@ -47,7 +47,7 @@
 
 
 
-        <div class="container-fluid">
+        <div class="container-fluid mt-6">
             <div class="row">
 
                 {{-- inizio dashboard  --}}

@@ -21,7 +21,7 @@ class SponsorshipController extends Controller
         $id = $request->id;
         // TODO
         $sponsorships = Sponsorship::all();
-        return view('admin.sponsorships.index', compact('sponsorships'));
+        return view('admin.sponsorships.index', compact('sponsorships', 'id'));
     }
 
      /**
@@ -48,7 +48,6 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-
     }
 
     /**
