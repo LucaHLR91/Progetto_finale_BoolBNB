@@ -20,7 +20,7 @@ class CreateApartmentsTable extends Migration
             $table->smallInteger('rooms');
             $table->smallInteger('bathrooms');
             $table->smallInteger('square_meters');
-            $table->string('image')->default(NULL);
+            $table->string('image')->nullable();
             $table->tinyInteger('avaliability');
             $table->string('city');
             $table->string('latitude');
