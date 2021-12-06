@@ -17,7 +17,7 @@ class AddFkMessagesTable extends Migration
             // CREO LA COLONNA APARTMENT_ID
             $table->unsignedBigInteger('apartment_id')->nullable()->after('date');
             // SETTO LA COLONNA COME CHIAVE ESTERNA
-            $table->foreign('apartment_id')->references('id')->on('apartments');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
         });
     }
 

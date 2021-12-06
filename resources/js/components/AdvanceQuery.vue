@@ -1,10 +1,11 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-12">
+                <p>ciao</p>
                 <form class="" action="" method="" @submit.prevent="query">
                     <div class="row form">
-                        
+
                         <div class="col-md-4">
                             <label for="city" class="form-lable">Dove vuoi andare?</label>
                             <input type="search" v-model="city" id="city" name="city" class="form-control"
@@ -34,7 +35,7 @@
                         </div>
 
                     </div>
-                    
+
                     <div class="row text-center pt-3">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary form-group" id="query">Cerca</button>
@@ -86,10 +87,10 @@
     }
 
 
-    // 
+    //
 
 
-    // ENDPOINT 
+    // ENDPOINT
     // http://127.0.0.1:8000/search?rooms[operator]=%3E&rooms[value]=2?beds[operator]=%3E&beds[value]=2
 
 </script>

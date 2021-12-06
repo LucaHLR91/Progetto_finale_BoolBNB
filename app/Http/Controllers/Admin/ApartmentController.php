@@ -58,7 +58,6 @@ class ApartmentController extends Controller
             'rooms' => 'required',
             'bathrooms' => 'required',
             'square_meters' => 'required',
-            // 'image' => 'required',
             'address' => 'required',
             'city' => 'required',
 
@@ -78,12 +77,14 @@ class ApartmentController extends Controller
 
         $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
         $coordinates = $geocoder->geocodeAddress($completeAddress);
-        
+
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
         $apartment->latitude = $coordinates['latitude'];
-        $apartment->image = $filename;
+        if ($request->hasFile('image')) {
+            $apartment->image = $filename;
+        }
         $apartment->longitude = $coordinates['longitude'];
         $apartment->user_id = Auth::id();
 

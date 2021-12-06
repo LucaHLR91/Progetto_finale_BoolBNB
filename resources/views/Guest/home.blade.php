@@ -8,7 +8,7 @@
     <query-form></query-form>
 
     <div class="row my-3">
-        <div class="col 12">
+        <div class="col-12">
             <div id="house_carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#house_carousel" data-slide-to="0" class="active"></li>
