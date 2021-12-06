@@ -58,7 +58,6 @@ class ApartmentController extends Controller
             'rooms' => 'required',
             'bathrooms' => 'required',
             'square_meters' => 'required',
-            // 'image' => 'required',
             'address' => 'required',
             'city' => 'required',
 
@@ -72,7 +71,7 @@ class ApartmentController extends Controller
             $path = $image->storeAs('image_apartments', $filename);
         }
         // Generate a file name with extension
-       
+
 
         $completeAddress = $request->address . ', ' . $request->city;
         //  $geocoder = new GeoFunction(trim(env('TOMTOM_API_KEY')));
