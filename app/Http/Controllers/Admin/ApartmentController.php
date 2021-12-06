@@ -72,7 +72,7 @@ class ApartmentController extends Controller
             $path = $image->storeAs('image_apartments', $filename);
         }
         // Generate a file name with extension
-       
+
 
         $completeAddress = $request->address . ', ' . $request->city;
         //  $geocoder = new GeoFunction(trim(env('TOMTOM_API_KEY')));
@@ -218,7 +218,7 @@ class ApartmentController extends Controller
         $apartment = Apartment::findOrFail($id);
         $apartment->services()->detach();
         $apartment->delete();
-        return redirect()->route('admin.apartments.index');
+        return redirect()->route('admin.apartments.index')->with('status', 'Appartamento eliminato');
     }
 
     /* public function createSponsorship()
