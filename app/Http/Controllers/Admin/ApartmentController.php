@@ -219,7 +219,7 @@ class ApartmentController extends Controller
         $apartment = Apartment::findOrFail($id);
         $apartment->services()->detach();
         $apartment->delete();
-        return redirect()->route('admin.apartments.index');
+        return redirect()->route('admin.apartments.index')->with('status', 'Appartamento eliminato');
     }
 
     /* public function createSponsorship()
