@@ -86,7 +86,9 @@ class ApartmentController extends Controller
         $apartment = new Apartment();
         $apartment->fill($form_data);
         $apartment->latitude = $latitude;
-        /* $apartment->image = $filename; */
+        if ($request->hasFile('image')) {
+            $apartment->image = $filename;
+        }
         $apartment->longitude = $longitude;
         $apartment->user_id = Auth::id();
 
