@@ -41,6 +41,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::resource('/apartments', 'ApartmentController');
     // ROTTA PER LE SPONSORIZZAZIONI
     Route::resource('/sponsorships', 'SponsorshipController');
+    Route::get('/activeSponsorship', 'SponsorshipController@activeSponsorship')->name('activeSponsorship');
     // ROTTA PER I MESSAGGI
     Route::resource('/messages', 'MessageController');
 });
