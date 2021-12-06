@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Sponsorship;
 use App\Apartment;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 
@@ -49,12 +50,25 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-       
+      $apartment_id = $request->apartment_id;
+      $sponsorships_id = $request->sponsorship_id;
+      $current_sponsorship = Sponsorship::where('id', $sponsorships_id)->get();
+    //   dd($current_sponsorship);
+      $days_to_add = $current_sponsorship[0]['duration'] / 24;
+    
 
-       
+      $newStartDateTime = Carbon::now();
+      $newEndDateTime = Carbon::now()->addDays($days_to_add);
 
-        
-        
+      $new_ap_sp = DB::table('apartment_sponsorship')->insert(
+          [
+              'apartment_id' => $apartment_id,
+              'sponsorship_id' => $sponsorships_id,
+              'start_date' => $newStartDateTime,
+              'end_date' => $newEndDateTime  
+          ]
+          );
+
         return redirect()->route('admin.apartments.index')->with('status', 'Appartamento sponsorizzato correttamente');
     }
 
