@@ -117,17 +117,17 @@ footer {
     background: rgb(189,135,8);
     background: linear-gradient(315deg, rgba(189,135,8,1) 0%, rgba(207,136,56,1) 45%, rgb(153, 116, 4) 100%);
         // background-color: #FFD8B1;
-        // // / For WebKit (Safari, Chrome, etc) / 
+        // // / For WebKit (Safari, Chrome, etc) /
         // background: #FFD8B1 -webkit-gradient(linear, left top, left bottom, from(#A75B10), to(#FFD8B1)) no-repeat;
         // // / Mozilla,Firefox/Gecko /
         // background: #FFD8B1 -moz-linear-gradient(top, #A75B10, #FFD8B1) no-repeat;
         // // / IE 5.5 - 7 /
         // // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#A75B10, endColorstr=#FFD8B1) no-repeat;
         // -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#A75B10, endColorstr=#A75B10)" no-repeat;
-    
+
 }
 
-.silver {  
+.silver {
     background-color: #f1f2f6;
     background-image: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
 }
@@ -141,5 +141,5 @@ footer {
     justify-content: space-evenly;
 }
 .mt-6 {
-    margin-top: 75px;
+    margin-top: 72px;
 }
