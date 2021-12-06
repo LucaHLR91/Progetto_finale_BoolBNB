@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-12">
+    <div class="row ">
+        <div class="col-12 p-0">
             {{-- COMANDO GENERALE PER STAMPARE IL RISULTATO DI UNA OPERAZIONE DI CREAZIONE, CANCELLAZIONE ECC, POTREI NEI METODI WITH DEFINIRE NOMI DIVERSI E DARE CLASSI DIVERSE PER CAMBIARE COLORE AL MESSAGGIO  --}}
             @if (session('status'))
                 <div class="alert alert-success">
@@ -13,9 +13,9 @@
                 </div>
             @endif
 
-            <table class="table">
-                <thead>
-                  <tr>
+            <table class="table text-dark ">
+                <thead >
+                  <tr class="">
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Address</th>

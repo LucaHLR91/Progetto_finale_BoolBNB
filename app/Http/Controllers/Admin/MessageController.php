@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Message;
 
 class MessageController extends Controller
@@ -38,7 +39,21 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $apartment_id = $request->id;
+        $request->validate([
+            'email' => 'required|string|max:100',
+            /* 'message' => 'required|string|max:255' */
+        ]);
+        $form_data = $request->all();
+        $now = Carbon::now()->toDateString();
+
+
+        $new_message = new Message();
+        $new_message->fill($form_data);
+        $new_message->date = $now;
+        $new_message->apartment_id = $form_data['apartment_id'];
+        $new_message->save();
+        return redirect('/')->with('success','Messaggio inviato');
     }
 
     /**

@@ -8,7 +8,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Nome Appartamento</th>
+                        <th scope="col">Titolo</th>
                         <th scope="col">Servizi</th>
                         <th scope="col">Messaggi</th>
                     </tr>
@@ -24,11 +24,12 @@
                             @endforeach
                         </td>
                         <td>
-                            @if ($user == $apartment->user_id)
+                            {{-- RIUTILIZZARE IL SEGUENTE CODICE NELLA FINESTRA GUEST --}}
+                            {{-- @if ($user == $apartment->user_id) --}}
                                 <a href="{{ route('admin.messages.index', ['id'=> $apartment['id']]) }}" class="btn btn-primary">Visualizza Messaggi</a>    
-                            @else
+                            {{-- @else
                                 <a href="" class="btn btn-primary">Invia Messaggio</a>
-                            @endif
+                            @endif --}}
                         </td>
                     </tr>
                 </tbody>

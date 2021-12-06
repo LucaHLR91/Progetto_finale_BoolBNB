@@ -10968,13 +10968,17 @@ a.text-dark:focus {
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 #app {
   width: 100%;
   height: 100vh;
 }
 
 .my-dashboard {
-  background: #000;
+  background: #32383e;
 }
 
 .my-dashboard a,
@@ -10997,12 +11001,13 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.575);
-  padding: 10px 10px 0 10px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+  padding: 20px 20px 10px 20px;
 }
 
 footer {
-  background-color: #b3b3b3;
+  background-color: #343a40;
+  color: white;
 }
 
 .my-navbar {
@@ -11019,5 +11024,65 @@ footer {
 
 .overflow {
   overflow-y: auto;
+}
+
+.my-w {
+  width: 120px;
+}
+
+.h-600 {
+  min-height: 650px !important;
+}
+
+.h-200 {
+  min-height: 200px !important;
+}
+
+.max-height {
+  height: 450px !important;
+}
+
+.my-rounded {
+  border-radius: 20px;
+}
+
+.mycard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  min-height: 400px;
+}
+
+.mycard input[value] {
+  display: none;
+}
+
+.mycard p {
+  font-size: 20px;
+}
+
+.bronze {
+  background: #bd8708;
+  background: linear-gradient(315deg, #bd8708 0%, #cf8838 45%, #997404 100%);
+}
+
+.silver {
+  background-color: #f1f2f6;
+  background-image: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
+}
+
+.gold {
+  background: linear-gradient(315deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+}
+
+.evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mt-6 {
+  margin-top: 75px;
 }
 

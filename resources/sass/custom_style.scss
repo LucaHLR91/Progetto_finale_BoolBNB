@@ -5,6 +5,9 @@
 }
 
 // LAYOUTS COMMON
+ul {
+    list-style: none
+}
 #app {
     width: 100%;
     height: 100vh;
@@ -12,7 +15,7 @@
 }
 
 .my-dashboard {
-    background: #000;
+    background: #32383e;
 }
 
 .my-dashboard a,
@@ -39,12 +42,13 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.575);
-    padding: 10px 10px 0 10px;
+    box-shadow:inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+    padding: 20px 20px 10px 20px;
 }
 
 footer {
-    background-color: #b3b3b3;
+    background-color: #343a40;
+    color: white;
 }
 //FINE LAYOUTS - APP
 
@@ -67,6 +71,75 @@ footer {
 .overflow {
     overflow-y: auto;
 }
+
+.my-w {
+    width: 120px;
+}
+
+.h-600 {
+    min-height: 650px !important;
+}
+
+.h-200 {
+    min-height: 200px !important;
+}
 // FINE MY BOOTSTRAP
 
 
+.max-height {
+    height: 450px !important;
+}
+
+.my-rounded {
+    border-radius: 20px;
+}
+// SPONSORSHIPS
+
+.mycard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px;
+    min-height: 400px;
+
+    input[value] {
+        display: none;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}
+
+// rivedere la seguente classe
+.bronze {
+    background: rgb(189,135,8);
+    background: linear-gradient(315deg, rgba(189,135,8,1) 0%, rgba(207,136,56,1) 45%, rgb(153, 116, 4) 100%);
+        // background-color: #FFD8B1;
+        // // / For WebKit (Safari, Chrome, etc) / 
+        // background: #FFD8B1 -webkit-gradient(linear, left top, left bottom, from(#A75B10), to(#FFD8B1)) no-repeat;
+        // // / Mozilla,Firefox/Gecko /
+        // background: #FFD8B1 -moz-linear-gradient(top, #A75B10, #FFD8B1) no-repeat;
+        // // / IE 5.5 - 7 /
+        // // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#A75B10, endColorstr=#FFD8B1) no-repeat;
+        // -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#A75B10, endColorstr=#A75B10)" no-repeat;
+    
+}
+
+.silver {  
+    background-color: #f1f2f6;
+    background-image: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
+}
+
+.gold {
+    background:linear-gradient(315deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+}
+
+.evenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+.mt-6 {
+    margin-top: 75px;
+}

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sponsorship extends Model
 {
     protected $fillable = [
-        'price', 'duration'
+        'name', 'price', 'duration'
     ];
 
      //COLLEGO MANY TO MANY APPARTAMENTI E SPONSORIZZAZIONI

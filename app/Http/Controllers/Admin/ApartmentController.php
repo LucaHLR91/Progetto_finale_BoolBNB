@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\GeoFunction;
+use Illuminate\Support\Facades\Storage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -57,11 +58,21 @@ class ApartmentController extends Controller
             'rooms' => 'required',
             'bathrooms' => 'required',
             'square_meters' => 'required',
-            'image' => 'required',
+            // 'image' => 'required',
             'address' => 'required',
             'city' => 'required',
 
         ]);
+
+        // Save image in storage
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('image_apartments', $filename);
+        }
+        // Generate a file name with extension
+       
 
         $completeAddress = $request->address . ', ' . $request->city;
         //  $geocoder = new GeoFunction(trim(env('TOMTOM_API_KEY')));
@@ -76,6 +87,7 @@ class ApartmentController extends Controller
         $apartment = new Apartment();
         $apartment->fill($form_data);
         $apartment->latitude = $latitude;
+        $apartment->image = $filename;
         $apartment->longitude = $longitude;
         $apartment->user_id = Auth::id();
 
@@ -98,7 +110,7 @@ class ApartmentController extends Controller
         // PASSO AL NEW POST LE INFORMAZIONI DEI TAG INSERITI
         $apartment->services()->attach($form_data['services']);
 
-        return redirect()->route('admin.apartments.index')->with('success', 'Appartamento aggiunto correttamente');
+        return redirect()->route('admin.apartments.index')->with('status', 'Appartamento aggiunto correttamente');
     }
 
     /**

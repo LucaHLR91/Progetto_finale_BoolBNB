@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'HomeController@index')->name('home');
 
+// Rotta ricerca
+Route::post('/search', 'QueryController@index')->name('search');
+Route::resource('/messages', 'ApartmentController');
+
+
 // ROTTE CHE GESTISCONO IL MECCANISMO DI AUTENTICAZIONE
 Auth::routes();
 
