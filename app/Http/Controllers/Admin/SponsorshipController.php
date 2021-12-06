@@ -61,7 +61,7 @@ class SponsorshipController extends Controller
       $apartment_id = $request->apartment_id;
       $sponsorships_id = $request->sponsorship_id;
       $current_sponsorship = Sponsorship::where('id', $sponsorships_id)->get();
-    //   dd($current_sponsorship);
+    
       $days_to_add = $current_sponsorship[0]['duration'] / 24;
     
 
