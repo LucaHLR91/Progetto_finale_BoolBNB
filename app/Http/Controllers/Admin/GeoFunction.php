@@ -32,8 +32,14 @@ class GeoFunction extends Controller
            
             $result = file_get_contents($queryUrl);
             $result = json_decode($result, true);
-
-            return $result;
+            $latitude = $result['results'][0]['position']['lat'];
+            $longitude = $result['results'][0]['position']['lon'];
+           
+            return array(
+                'latitude' => $latitude, 
+                'longitude' => $longitude
+            );
+           
 
         }
         

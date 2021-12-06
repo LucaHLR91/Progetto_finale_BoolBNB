@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component(
               'all-apartments-map', require ('./components/AllApartmentsMap.vue').default,
+              'query-form', require ('./components/QueryForm.vue').default,
                  );  
 
 /**
@@ -34,7 +35,57 @@ const app = new Vue({
     components: {
         
         'all-apartments-map': require('./components/AllApartmentsMap.vue').default,
+        'query-form': require('./components/QueryForm.vue').default,
     },
 });
+
+
+
+
+// function generateUrl(city, range, rooms, beds) {
+//     let url = "/search?";
+//     if (city) {
+//         url += "city=" + city;
+//     }
+//     if (range) {
+//         url += "&range=" + range;
+//     }
+//     if (rooms) {
+//         url += "&rooms[" > "]=" + rooms;
+//     }
+//     if (beds) {
+//         url += "&beds[" > "]=" + beds;
+//     }
+//     console.log(url);
+//     return url;
+// }
+
+// // get url from search form
+// function getUrl() {
+//     let city = $("#city").val();
+//     let range = $("#slider-range").val();
+//     let rooms = $("#rooms").val();
+//     let beds = $("#beds").val();
+//     return generateUrl(city, range, rooms, beds);
+// }
+
+// function query() {
+//     let url = getUrl();
+//     console.log(url);
+//     axios.get(url)
+//         .then(function (response) {
+//             console.log(response);
+//             let houses = response.data;
+//         }).catch(function (error) {
+//             console.log(error);
+//         });
+// }
+
+// // event listener for search button after dom laod
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     console.log("DOM loaded");
+//     document.getElementById('query').addEventListener('click', query);
+// });
 
 
