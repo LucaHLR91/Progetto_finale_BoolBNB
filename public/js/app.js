@@ -38325,7 +38325,7 @@ var render = function () {
           },
           [
             _c("div", { staticClass: "row form" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "label",
                   { staticClass: "form-lable", attrs: { for: "city" } },
@@ -38360,7 +38360,7 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "label",
                   { staticClass: "form-lable", attrs: { for: "radius" } },
@@ -38408,7 +38408,7 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "label",
                   { staticClass: "form-lable", attrs: { for: "rooms" } },
@@ -38444,7 +38444,7 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "label",
                   { staticClass: "form-lable", attrs: { for: "beds" } },
@@ -38479,9 +38479,9 @@ var render = function () {
                   },
                 }),
               ]),
+              _vm._v(" "),
+              _vm._m(0),
             ]),
-            _vm._v(" "),
-            _vm._m(0),
           ]
         ),
       ]),
@@ -38493,7 +38493,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-center pt-3" }, [
+    return _c("div", { staticClass: "col-12 text-center pt-3" }, [
       _c("div", { staticClass: "col-12" }, [
         _c(
           "button",
@@ -51025,8 +51025,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mastr\Desktop\Boolean 39\Progetto Finale\Progetto_finale_BoolBNB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\mastr\Desktop\Boolean 39\Progetto Finale\Progetto_finale_BoolBNB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
