@@ -116,11 +116,7 @@ class QueryController extends Controller
         return response()->json($services);
 
 
-        // insert in table services_apartments
         
-        $newDateTime = Carbon::now()->addDays(5);
-
-         DB::table('apartment_sponsorship')->select('*')->get()
     }
 
 }

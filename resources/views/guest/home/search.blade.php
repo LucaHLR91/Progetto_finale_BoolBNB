@@ -36,7 +36,9 @@
                             </div>
                             <div class="col-6 p-0 border border-danger">
                                 {{-- farsi cambiare l'indirizzo dell'immagine | rimuovere le classi dei bordi--}}
-                                <img class="w-100 border border-primary" src="{{asset($result->image)}}" alt="{{ $result->title }}">
+                                {{-- <img class="w-100 border border-primary" src="{{asset($result->image)}}" alt="{{ $result->title }}"> --}}
+
+                                <img class="w-100 border border-primary" src="{{asset('storage/1638454357.jpg')}}" alt="{{ $result->title }}">
                             </div>
                             {{-- <a href="{{route('messages.show', $result->id) }}" class="btn btn-info">Visualizza appartamento</a> --}}
                         </div>
