@@ -21,23 +21,22 @@
     </div>
 </div>
 <div class="container-fluid text-dark">
-    <div class="row">
-        <form action="{{ route('admin.sponsorships.store') }}" method="post" class="w-100 evenly flex-wrap mt-3">
-            @csrf
-            @method('POST')
-    
-            @foreach ($sponsorships as $sponsorship)
+    <div class="row justify-content-center">
+        
+        @foreach ($sponsorships as $sponsorship)
+            <form action="{{ route('admin.sponsorships.store') }}" method="post" class="evenly flex-wrap mt-3">
+                @csrf
+                @method('POST')
                     <div class="mycard text-center m-2 @if($sponsorship['name'] == 'bronze') bronze @elseif($sponsorship['name'] == 'silver') silver @else gold @endif ">
                         <h3 class="text-uppercase">{{ $sponsorship['name'] }}</h3>
                         <p>{{ $sponsorship['price'] }} €</p>
                         <p>Per {{ $sponsorship['duration'] }} ore in evidenza</p>
-                        <label class="btn btn-primary"  for="sponsorship">
-                            Acquista ora
-                            <input type="submit" id="sponsorship" name="sponsorship" value="{{ $sponsorship['id'] }}">
-                        </label>
+                        <input type="hidden" id="apartment_id" name="apartment_id" value="{{ $id }}">
+                        <input type="hidden" id="sponsorship_id" name="sponsorship_id" value="{{ $sponsorship['id'] }}">
+                        <button type="submit" class="btn btn-primary" >Acquista Ora</button>
                     </div>
-            @endforeach
-        </form>
+            </form>
+        @endforeach
     </div>
 </div>
 @endsection
