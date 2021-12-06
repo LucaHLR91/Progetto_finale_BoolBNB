@@ -19,7 +19,11 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'HomeController@index')->name('home');
 
 // Rotta ricerca
-Route::post('/search', 'QueryController@index')->name('search');
+
+Route::get('/search', 'QueryController@searchController')->name('search');
+// Route::post('/service', 'QueryController@queryService')->name('searchQuery');
+
+
 Route::resource('/messages', 'ApartmentController');
 
 
