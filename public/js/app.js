@@ -2013,9 +2013,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'QueryForm',
   data: function data() {
@@ -2038,8 +2035,8 @@ __webpack_require__.r(__webpack_exports__);
       window.location.href = url;
     }
   }
-}); // 
-// ENDPOINT 
+}); //
+// ENDPOINT
 // http://127.0.0.1:8000/search?rooms[operator]=%3E&rooms[value]=2?beds[operator]=%3E&beds[value]=2
 
 /***/ }),
@@ -38314,7 +38311,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "col-12" }, [
         _c(
           "form",
           {
@@ -51028,8 +51025,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/admin/Desktop/Progetto_finale_BoolBNB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/admin/Desktop/Progetto_finale_BoolBNB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\mastr\Desktop\Boolean 39\Progetto Finale\Progetto_finale_BoolBNB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\mastr\Desktop\Boolean 39\Progetto Finale\Progetto_finale_BoolBNB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
