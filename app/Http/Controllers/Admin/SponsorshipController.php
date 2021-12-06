@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Sponsorship;
 use App\Apartment;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -48,6 +49,13 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
+       
+
+       
+
+        
+        
+        return redirect()->route('admin.apartments.index')->with('status', 'Appartamento sponsorizzato correttamente');
     }
 
     /**
