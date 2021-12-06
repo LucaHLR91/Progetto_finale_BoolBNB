@@ -1,7 +1,8 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-12">
+
                     <form class="" action="" method="" @submit.prevent="query">
                     <div class="row form">
                         <div class="col-md-4">
@@ -16,13 +17,9 @@
                             <option value="20">20km</option>
                             <option value="50">50km</option>
                             <option value="100">100km</option>
-                        </select>    
-                            
+                        </select>
+
                     </div>
-
-
-                        
-
                         <div class="col-md-4">
                             <label for="rooms" class="form-lable">Numero stanze</label>
                             <input type="number" v-model="rooms" id="rooms" name="rooms" class="form-control"
@@ -61,7 +58,7 @@
                 rooms: '',
                 beds: '',
                 radius: '',
-               
+
 
             }
         },
@@ -73,25 +70,25 @@
                     rooms: this.rooms,
                     beds: this.beds,
                     radius: this.radius,
-                   
-                    
+
+
                 });
-              
+
                 let url = `/search?rooms[operator]=>&rooms[value]=${this.rooms}&city=${this.city}&beds[operator]=>&beds[value]=${this.beds}&radius=${this.radius}`;
-               
+
                 window.location.href = url;
-                
+
                 }
         }
-       
+
 
     }
 
 
-    // 
+    //
 
 
-    // ENDPOINT 
+    // ENDPOINT
     // http://127.0.0.1:8000/search?rooms[operator]=%3E&rooms[value]=2?beds[operator]=%3E&beds[value]=2
 
 </script>
