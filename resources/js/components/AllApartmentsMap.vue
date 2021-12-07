@@ -10,7 +10,6 @@
 
 <style scoped>
      #map {
-            width: 900px;
             height: 450px;
             margin-top: 30px;
         }

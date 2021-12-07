@@ -47,7 +47,7 @@
                 @endforeach
             @endif
             {{-- IMPORTO LA MAPPA ALL'INTERNO DELLA PAGINA  --}}
-            {{-- <all-apartments-map :coordinates="{{ json_encode($coordinates) }}"></all-apartments-map>  --}}
+            <all-apartments-map :coordinates="{{ json_encode($coordinates) }}"></all-apartments-map> 
         </div>
         {{-- Nel form della ricerca avanzata inserire un input nascosto con id_apartments  --}}
 

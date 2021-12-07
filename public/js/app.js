@@ -1926,7 +1926,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['coordinates'],
   mounted: function mounted() {
@@ -6420,7 +6419,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#map[data-v-00ba0b65] {\n       width: 900px;\n       height: 450px;\n       margin-top: 30px;\n}\n\n", ""]);
+exports.push([module.i, "\n#map[data-v-00ba0b65] {\n       height: 450px;\n       margin-top: 30px;\n}\n\n", ""]);
 
 // exports
 
@@ -51025,8 +51024,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mastr\Desktop\Boolean 39\Progetto Finale\Progetto_finale_BoolBNB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\mastr\Desktop\Boolean 39\Progetto Finale\Progetto_finale_BoolBNB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
