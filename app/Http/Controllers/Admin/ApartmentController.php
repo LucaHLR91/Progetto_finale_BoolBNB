@@ -13,6 +13,8 @@ use App\Sponsorship;
 use App\Service;
 use Illuminate\Support\Facades\DB;
 
+use Carbon\Carbon;
+
 use Illuminate\Support\Str;
 
 
@@ -58,6 +60,7 @@ class ApartmentController extends Controller
             'rooms' => 'required',
             'bathrooms' => 'required',
             'square_meters' => 'required',
+            // 'image' => 'required',
             'address' => 'required',
             'city' => 'required',
 
@@ -68,7 +71,8 @@ class ApartmentController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $path = $image->storeAs('image_apartments', $filename);
+          /*   $path = $image->storeAs('image_apartments', $filename); */
+            Storage::disk('public')->put('image_apartments/' . $filename, file_get_contents($image));
         }
         // Generate a file name with extension
 
@@ -77,14 +81,12 @@ class ApartmentController extends Controller
 
         $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
         $coordinates = $geocoder->geocodeAddress($completeAddress);
-
+        
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
         $apartment->latitude = $coordinates['latitude'];
-        if ($request->hasFile('image')) {
-            $apartment->image = $filename;
-        }
+        $apartment->image = $filename;
         $apartment->longitude = $coordinates['longitude'];
         $apartment->user_id = Auth::id();
 
