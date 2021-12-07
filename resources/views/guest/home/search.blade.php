@@ -51,18 +51,18 @@
                 <div class="col-lg-4 col-12">
                     <a class="text-decoration-none" href="{{route('messages.show', $result->id) }}">
                         {{-- RIMUOVERE LE CLASSI DEI BORDI --}}
-                        <div class="house mb-4 d-flex h-200 border border-dark">
-                            <div class="col-6 text-dark border border-warning">
-                                <h3>{{ $result->title }}</h3>
+                        <div class="house mb-4 d-flex h-200 border ">
+                            <div class="col-6 text-dark py-2 ">
+                                <h2>{{ $result->title }}</h2>
                                 <p>numero stanze: {{ $result->rooms }}</p>
                                 <p>numero letti: {{ $result->beds }}</p>
                                 <p>città: {{ $result->city }}</p>
                             </div>
-                            <div class="col-6 p-0 border border-danger">
-                                {{-- farsi cambiare l'indirizzo dell'immagine | rimuovere le classi dei bordi--}}
+                            <div class="col-6 p-0 border ">
+                                {{-- farsi cambiare l'indirizzo dell'immagine --}}
                                 {{-- <img class="w-100 border border-primary" src="{{asset($result->image)}}" alt="{{ $result->title }}"> --}}
 
-                                <img class="w-100 border border-primary" src="{{asset('storage/1638454357.jpg')}}" alt="{{ $result->title }}">
+                                <img class="w-100 border " src="{{asset('storage/1638454357.jpg')}}" alt="{{ $result->title }}">
                             </div>
                             {{-- <a href="{{route('messages.show', $result->id) }}" class="btn btn-info">Visualizza appartamento</a> --}}
                         </div>

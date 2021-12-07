@@ -5,10 +5,15 @@
 
     <div class="container ">
         @if(session()->has('message'))
-            <div class="alert alert-success">
+            <div class="alert alert-success ">
                 {{ session()->get('message') }}
             </div>
         @endif
+        @if(session()->has('error'))
+        <div class="alert alert-warning">
+            {{ session()->get('error') }}
+        </div>
+    @endif
         <div class="row d-flex flex-column ">
             <div class="col-lg-12 text-dark " >
                 <div class="d-flex align-items-center h-100">
@@ -30,10 +35,10 @@
 
                             <div class="col-12 mb-0">
                               <figure class="view overlay rounded z-depth-1 main-img">
-                                <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+                                {{-- <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
                                   data-size="710x823">
                                   <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
-                                    class="img-fluid z-depth-1">
+                                    class="img-fluid z-depth-1"> --}}
                                 </a>
                               </figure>
 
@@ -83,7 +88,7 @@
 
                                     @if (($apartment->services)->isNotEmpty())
                                         @foreach ($apartment->services as $service)
-                                            {{ $service->service_name . ',' }}
+                                            {{ $service->service_name . ' ' }}
                                         @endforeach
 
                                     @else
@@ -156,6 +161,7 @@
                                             class="btn btn-primary disabled" Style="pointer-events:none;"
                                         @endif
                                         type="submit" class="btn btn-primary">Invia</button>
+
                                 </form>
                             </div>
 
