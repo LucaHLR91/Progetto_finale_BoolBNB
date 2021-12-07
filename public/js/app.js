@@ -38324,7 +38324,7 @@ var render = function () {
           },
           [
             _c("div", { staticClass: "row form" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "label",
                   { staticClass: "form-lable", attrs: { for: "city" } },
@@ -38359,7 +38359,7 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "label",
                   { staticClass: "form-lable", attrs: { for: "radius" } },
@@ -38407,7 +38407,7 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "label",
                   { staticClass: "form-lable", attrs: { for: "rooms" } },
@@ -38443,7 +38443,7 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c(
                   "label",
                   { staticClass: "form-lable", attrs: { for: "beds" } },
@@ -38478,9 +38478,9 @@ var render = function () {
                   },
                 }),
               ]),
+              _vm._v(" "),
+              _vm._m(0),
             ]),
-            _vm._v(" "),
-            _vm._m(0),
           ]
         ),
       ]),
@@ -38492,7 +38492,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-center pt-3" }, [
+    return _c("div", { staticClass: "col-12 text-center pt-3" }, [
       _c("div", { staticClass: "col-12" }, [
         _c(
           "button",

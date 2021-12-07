@@ -3,15 +3,15 @@
         <div class="row justify-content-center">
             <div class="col-12">
 
-                    <form class="" action="" method="" @submit.prevent="query">
+                <form class="" action="" method="" @submit.prevent="query">
                     <div class="row form">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="city" class="form-lable">Dove vuoi andare?</label>
                             <input type="search" v-model="city" id="city" name="city" class="form-control"
                                 placeholder="Inserisci la Città" />
                         </div>
 
-                        <div class  = "col-md-4">
+                        <div class  = "col-md-3">
                         <label for ="radius" class="form-lable">Raggio di ricerca</label>
                         <select v-model="radius" id="radius" name="radius" class="form-control">
                             <option value="20">20km</option>
@@ -20,7 +20,7 @@
                         </select>
 
                     </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="rooms" class="form-lable">Numero stanze</label>
                             <input type="number" v-model="rooms" id="rooms" name="rooms" class="form-control"
                                 placeholder="Inserisci N°stanze" min="0" />
@@ -28,16 +28,16 @@
 
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="beds" class="form-lable">Posti letto</label>
                             <input type="number" v-model="beds" id="beds" name="beds" class="form-control"
                                 placeholder="Inserisci N°letti" min="0" />
                         </div>
 
-                    </div>
-                    <div class="row text-center pt-3">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary form-group" id="query">Cerca</button>
+                        <div class="col-12 text-center pt-3">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary form-group" id="query">Cerca</button>
+                            </div>
                         </div>
                     </div>
                 </form>
