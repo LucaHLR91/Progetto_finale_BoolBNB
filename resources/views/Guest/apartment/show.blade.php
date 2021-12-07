@@ -5,10 +5,15 @@
 
     <div class="container ">
         @if(session()->has('message'))
-            <div class="alert alert-success">
+            <div class="alert alert-success ">
                 {{ session()->get('message') }}
             </div>
         @endif
+        @if(session()->has('error'))
+        <div class="alert alert-warning">
+            {{ session()->get('error') }}
+        </div>
+    @endif
         <div class="row d-flex flex-column ">
             <div class="col-lg-12 text-dark " >
                 <div class="d-flex align-items-center h-100">
@@ -156,6 +161,7 @@
                                             class="btn btn-primary disabled" Style="pointer-events:none;"
                                         @endif
                                         type="submit" class="btn btn-primary">Invia</button>
+
                                 </form>
                             </div>
 
