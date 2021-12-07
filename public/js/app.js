@@ -6419,11 +6419,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-<<<<<<< HEAD
-exports.push([module.i, "\n#map[data-v-00ba0b65] {\n       height: 450px;\n       margin-top: 30px;\n}\n\n", ""]);
-=======
 exports.push([module.i, "\n#map[data-v-00ba0b65] {\n\n       height: 450px;\n}\n\n", ""]);
->>>>>>> master
 
 // exports
 
