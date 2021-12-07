@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Apartment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Message;
+use Illuminate\Support\Facades\Auth;
+
+
+
 
 class MessageController extends Controller
 {
@@ -16,6 +21,10 @@ class MessageController extends Controller
      */
     public function index(Request $request)
     {
+
+        
+        // query message with user id
+
         $messages = Message::all();
         $apartment_id = $request->id;
         return view('admin.messages.index', compact('messages', 'apartment_id'));

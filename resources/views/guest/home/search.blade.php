@@ -11,6 +11,30 @@
         </div>
     </div>
     <div class="container-fluid text-dark h-600">
+        <form action="{{ route('search') }}" method="get">
+
+
+            <div class="form-group">
+                <h4>Filtra per servizi:</h4>
+
+                @foreach ($id_apartments as $id_apartment)
+                    <input name="id_apartments[]" id="id_apartments" value="{{ $id_apartment }}" type="hidden">
+                @endforeach
+
+
+                @foreach ($services as $service)
+                <div class="form-check form-check-inline">
+                    {{-- services[] coterrà tutti i valori che noi selezioneremo --}}
+                    <input {{ in_array($service['id'], old('services', [])) ? 'checked' : null }} value="{{ $service['id'] }}"
+                        id="{{ 'tag' . $service['id'] }}" type="checkbox" name="services[]" class="form-check-input">
+                    <label for="{{ 'service' . $service['id'] }}"
+                        class="form-check-label">{{ $service['service_name'] }}</label>
+                </div>
+                @endforeach
+                <button type="submit" class="btn btn-primary">Filtra</button>
+            </div>
+        </form>
+
         <div class="row ">
 
             @if($apartments->isEmpty())
@@ -47,33 +71,9 @@
                 @endforeach
             @endif
             {{-- IMPORTO LA MAPPA ALL'INTERNO DELLA PAGINA  --}}
-            <all-apartments-map :coordinates="{{ json_encode($coordinates) }}"></all-apartments-map> 
+            <all-apartments-map :coordinates="{{ json_encode($coordinates) }}"></all-apartments-map>
         </div>
         {{-- Nel form della ricerca avanzata inserire un input nascosto con id_apartments  --}}
-
-        <form action="{{ route('search') }}" method="get">
-            
-            
-            <div class="form-group">
-                <h4>Filtra per servizi:</h4>
-                
-                @foreach ($id_apartments as $id_apartment)
-                    <input name="id_apartments[]" id="id_apartments" value="{{ $id_apartment }}" type="hidden">
-                @endforeach
-
-
-                @foreach ($services as $service)
-                <div class="form-check form-check-inline">
-                    {{-- services[] coterrà tutti i valori che noi selezioneremo --}}
-                    <input {{ in_array($service['id'], old('services', [])) ? 'checked' : null }} value="{{ $service['id'] }}"
-                        id="{{ 'tag' . $service['id'] }}" type="checkbox" name="services[]" class="form-check-input">
-                    <label for="{{ 'service' . $service['id'] }}"
-                        class="form-check-label">{{ $service['service_name'] }}</label>
-                </div>
-                @endforeach
-                <button type="submit" class="btn btn-primary">Filtra</button>
-            </div>    
-        </form>
 
     </div>
 @endsection

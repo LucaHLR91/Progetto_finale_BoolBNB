@@ -43,5 +43,7 @@
             </div>
         </div>
     </div>
+                {{-- <img class="img-fluid" src="{{ asset('storage/image_apartments/1638868723.jpg') }}" alt=""> --}}
+
 </div>
 @endsection
