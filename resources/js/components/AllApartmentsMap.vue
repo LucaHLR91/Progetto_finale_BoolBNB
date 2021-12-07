@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
-        <div class="row w-100 justify-content-center">
-            <div class="col-md-10">
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-12 p-0">
                     <div id='map' class='map'></div>
             </div>
         </div>
@@ -10,9 +10,9 @@
 
 <style scoped>
      #map {
-            width: 900px;
+
             height: 450px;
-            margin-top: 30px;
+
         }
 
 </style>
