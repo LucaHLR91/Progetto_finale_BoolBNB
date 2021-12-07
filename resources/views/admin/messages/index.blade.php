@@ -6,23 +6,19 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-
-
-                    @foreach ($messages as $message)
-                        @if (($message->apartment_id == $apartment_id)== true)
-                            <div class="mb-2 p-4 bg-secondary rounded">
-                                <h3>{{ $message->email }}</h3>
-                                <p>{{ $message->text }}</p>
-                                <small>{{ $message->date }}</small>
-                            </div>
-
-                        @else
+                    @if (count($messages)<1)
                         <h3 class="text-dark">Non ci sono messaggi</h3>
 
+                    @else
+                        @foreach ($messages as $message)
+                        <div class="mb-2 p-4 bg-secondary rounded">
+                            <h3>{{ $message->email }}</h3>
+                            <p>{{ $message->text }}</p>
+                            <small>{{ $message->date }}</small>
+                        </div>
+                        @endforeach
 
-                        @endif
-                    @endforeach
-
+                    @endif
 
             </div>
         </div>

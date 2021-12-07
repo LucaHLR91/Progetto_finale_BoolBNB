@@ -24,9 +24,9 @@ class MessageController extends Controller
 
 
         // query message with user id
-
-        $messages = Message::all();
         $apartment_id = $request->id;
+        $messages = Message::where('apartment_id',$apartment_id)->get();
+
         return view('admin.messages.index', compact('messages', 'apartment_id'));
     }
 
