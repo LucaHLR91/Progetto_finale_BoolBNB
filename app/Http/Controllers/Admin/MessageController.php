@@ -22,23 +22,7 @@ class MessageController extends Controller
     public function index(Request $request)
     {
 
-        $apartments = Apartment::where('user_id', auth()->user()->id)->get();
-
-        $messages = Message::whereIn('apartment_id', $apartments->pluck('id'))->get();
-
-        //insert  new messages for id = 18
         
-        $message->push([
-            'apartment_id' => 18,
-            
-            'message' => 'Привет, как дела?',
-            'email' => 'rbizoon',
-         
-        ]);
-
-
-        dd($messages);
-
         // query message with user id
 
         $messages = Message::all();
