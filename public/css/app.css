@@ -10978,6 +10978,7 @@ ul {
 
 .my-dashboard {
   background: #32383e;
+  height: calc(100vh - 70px);
 }
 
 .my-dashboard a,
@@ -11051,8 +11052,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 400px;
-  min-height: 400px;
+  min-width: 350px;
+  min-height: 350px;
 }
 
 .mycard input[value] {
