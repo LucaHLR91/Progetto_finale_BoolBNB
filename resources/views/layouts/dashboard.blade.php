@@ -27,7 +27,7 @@
 <body>
     <div id="app">
         {{-- NAVBAR HEADER --}}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar d-flex justify-content-between fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar d-flex justify-content-between sticky-top">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}"><i class="fab fa-airbnb"></i>
                 BoolBnB</a>
                 <div>
