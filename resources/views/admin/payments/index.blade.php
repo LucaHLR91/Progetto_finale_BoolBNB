@@ -98,7 +98,8 @@
                             <div id="bt-dropin"></div>
                         </div>
                     </section>
-
+                    <input type="hidden" id="apartment_id" name="apartment_id" value="{{ $sponsorship_data['apartment_id'] }}">
+                    <input type="hidden" id="sponsorship_id" name="sponsorship_id" value="{{ $sponsorship_data['sponsorship_id'] }}">
                     <input id="nonce" name="payment_method_nonce" type="hidden" />
                     <button class="button" type="submit"><span>Test Transaction</span></button>
                 </form>

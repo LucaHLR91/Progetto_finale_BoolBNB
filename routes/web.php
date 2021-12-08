@@ -50,22 +50,25 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::resource('/messages', 'MessageController');
 
     // ROTTA PAGAMENTI
-    Route::get('/payments', function () {
+    Route::get('/payments', function (Request $request) {
         $gateway = new Braintree\Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'jhyydtvdfmj4v7pg',
             'publicKey' => '3jz5xvzgc62stk59',
             'privateKey' => '8eec4652dc361871beaf5f71c1ecf7f0'
         ]);
+        $request_data = $request->all();
+        $sponsorship_data = $request_data['sponsorship_data'];
         
         $token = $gateway->ClientToken()->generate();
         
-        return view('admin.payments.index', ['token' => $token]);
+        return view('admin.payments.index', ['token' => $token], compact('sponsorship_data'));
     
     })->name('payments');
 
     // ROTTA PER INVIARE IL PAGAMENTO SU BRAINTREE 
     Route::post('/checkout', function (Request $request) {
+        
         $gateway = new Braintree\Gateway([
             'environment' => 'sandbox',
             'merchantId' => 'jhyydtvdfmj4v7pg',
@@ -93,23 +96,23 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
             $transaction = $result->transaction;
             
 
-            // $apartment_id = $request->apartment_id;
-            // $sponsorship_id = $request->sponsorship_id;
-            // $current_sponsorship = Sponsorship::where('id', $sponsorship_id)->get();
+            $apartment_id = $request->apartment_id;
+            $sponsorship_id = $request->sponsorship_id;
+            $current_sponsorship = Sponsorship::where('id', $sponsorship_id)->get();
 
-            // $days_to_add = $current_sponsorship[0]['duration'] / 24;   
+            $days_to_add = $current_sponsorship[0]['duration'] / 24;   
             
-            // $newStartDateTime = Carbon::now();
-            // $newEndDatetime = Carbon::now()->addDays($days_to_add);
+            $newStartDateTime = Carbon::now();
+            $newEndDatetime = Carbon::now()->addDays($days_to_add);
 
-            // $new_apartment_sponsorship = Db::table('apartment_sponsorship')->insert(
-            //     [
-            //         'apartment_id' => $apartment_id,
-            //         'sponsorship_id' => $sponsorship_id,
-            //         'start_date' => $newStartDateTime,
-            //         'end_date' => $newEndDatetime
-            //     ]
-            // );
+            $new_apartment_sponsorship = Db::table('apartment_sponsorship')->insert(
+                [
+                    'apartment_id' => $apartment_id,
+                    'sponsorship_id' => $sponsorship_id,
+                    'start_date' => $newStartDateTime,
+                    'end_date' => $newEndDatetime
+                ]
+            );
 
 
             return redirect()->route('admin.apartments.index')->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
