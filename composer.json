@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "akuechler/laravel-geoly": "^1.0",
+        "braintree/braintree_php": "^6.5",
         "doctrine/dbal": "^3.2",
         "fakerphp/faker": "^1.16",
         "fideloper/proxy": "^4.2",
