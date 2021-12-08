@@ -50,25 +50,27 @@ class SponsorshipController extends Controller
      */
     public function store(Request $request)
     {
-        $apartment_id = $request->apartment_id;
-        $sponsorship_id = $request->sponsorship_id;
-        $current_sponsorship = Sponsorship::where('id', $sponsorship_id)->get();
+        $sponsorship_data = $request->all();
+        // $apartment_id = $request->apartment_id;
+        // $sponsorship_id = $request->sponsorship_id;
+        // $current_sponsorship = Sponsorship::where('id', $sponsorship_id)->get();
 
-        $days_to_add = $current_sponsorship[0]['duration'] / 24;   
+        // $days_to_add = $current_sponsorship[0]['duration'] / 24;   
         
-        $newStartDateTime = Carbon::now();
-        $newEndDatetime = Carbon::now()->addDays($days_to_add);
+        // $newStartDateTime = Carbon::now();
+        // $newEndDatetime = Carbon::now()->addDays($days_to_add);
 
-        $new_apartment_sponsorship = Db::table('apartment_sponsorship')->insert(
-            [
-                'apartment_id' => $apartment_id,
-                'sponsorship_id' => $sponsorship_id,
-                'start_date' => $newStartDateTime,
-                'end_date' => $newEndDatetime
-            ]
-        );
+        // $new_apartment_sponsorship = Db::table('apartment_sponsorship')->insert(
+        //     [
+        //         'apartment_id' => $apartment_id,
+        //         'sponsorship_id' => $sponsorship_id,
+        //         'start_date' => $newStartDateTime,
+        //         'end_date' => $newEndDatetime
+        //     ]
+        // );
 
-        return redirect()->route('admin.apartments.index')->with('status', 'Appartamento sponsorizzato con successo');
+        // return view('admin.payments.index', compact('sponsorship_data'));
+        return redirect()->route('admin.payments', compact('sponsorship_data'));
     }
     /**
      * Display the specified resource.

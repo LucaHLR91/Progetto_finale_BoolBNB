@@ -3,6 +3,10 @@
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use App\Sponsorship;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +48,97 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::get('/activeSponsorship', 'SponsorshipController@activeSponsorship')->name('activeSponsorship');
     // ROTTA PER I MESSAGGI
     Route::resource('/messages', 'MessageController');
+
+    // ROTTA PAGAMENTI
+    Route::get('/payments', function () {
+        $gateway = new Braintree\Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => 'jhyydtvdfmj4v7pg',
+            'publicKey' => '3jz5xvzgc62stk59',
+            'privateKey' => '8eec4652dc361871beaf5f71c1ecf7f0'
+        ]);
+        
+        $token = $gateway->ClientToken()->generate();
+        
+        return view('admin.payments.index', ['token' => $token]);
+    
+    })->name('payments');
+
+    // ROTTA PER INVIARE IL PAGAMENTO SU BRAINTREE 
+    Route::post('/checkout', function (Request $request) {
+        $gateway = new Braintree\Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => 'jhyydtvdfmj4v7pg',
+            'publicKey' => '3jz5xvzgc62stk59',
+            'privateKey' => '8eec4652dc361871beaf5f71c1ecf7f0'
+        ]);
+        
+        $amount = $request->amount;
+        $nonce = $request->payment_method_nonce;
+
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'customer' => [
+                'firstName' => 'Tony',
+                'lastName' => 'Stark',
+                'email' => 'tony@avengers.com',
+            ],
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
+
+        if ($result->success) {
+            $transaction = $result->transaction;
+            
+
+            // $apartment_id = $request->apartment_id;
+            // $sponsorship_id = $request->sponsorship_id;
+            // $current_sponsorship = Sponsorship::where('id', $sponsorship_id)->get();
+
+            // $days_to_add = $current_sponsorship[0]['duration'] / 24;   
+            
+            // $newStartDateTime = Carbon::now();
+            // $newEndDatetime = Carbon::now()->addDays($days_to_add);
+
+            // $new_apartment_sponsorship = Db::table('apartment_sponsorship')->insert(
+            //     [
+            //         'apartment_id' => $apartment_id,
+            //         'sponsorship_id' => $sponsorship_id,
+            //         'start_date' => $newStartDateTime,
+            //         'end_date' => $newEndDatetime
+            //     ]
+            // );
+
+
+            return redirect()->route('admin.apartments.index')->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+        } else {
+            $errorString = "";
+
+            foreach ($result->errors->deepAll() as $error) {
+                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+            }
+
+            // $_SESSION["errors"] = $errorString;
+            // header("Location: index.php");
+            return back()->withErrors('An error occurred with the message: '.$result->message);
+        }
+    })->name('checkout');
+
+    // Route::get('/hosted', function () {
+    //     $gateway = new Braintree\Gateway([
+    //         'environment' => config('services.braintree.environment'),
+    //         'merchantId' => config('services.braintree.merchantId'),
+    //         'publicKey' => config('services.braintree.publicKey'),
+    //         'privateKey' => config('services.braintree.privateKey')
+    //     ]);
+
+    //     $token = $gateway->ClientToken()->generate();
+
+    //     return view('hosted', [
+    //         'token' => $token
+    //     ]);
+    // });
 });
 
