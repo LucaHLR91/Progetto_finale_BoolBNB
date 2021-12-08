@@ -43,7 +43,7 @@
                         <tr>
                             <td>{{ $apartment['title'] }}</td>
                             <td>{{ $apartment['address'] }}</td>
-                            <td>{{ $apartment['city'] }}</td>
+                            <td>{{ ucfirst($apartment['city']) }}</td>
                             <td>
                                 <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info my-1 my-w">Dettagli</a>
                                 <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning my-1 my-w">Modifica</a>

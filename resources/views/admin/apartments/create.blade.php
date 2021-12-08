@@ -93,7 +93,7 @@
         <div class="mb-3 form-group">
             <label for="city" class="form-label"><h4>Città</h4></label>
             <input name="city" type="text" class="form-control" id="city" placeholder="Inserisci la città"
-                class="form-control  @error('city') is-invalid @enderror" value="{{ old('city') }}">
+                class="form-control  @error('city') is-invalid @enderror" value="{{ ucfirst(old('city')) }}">
             @error('city')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
