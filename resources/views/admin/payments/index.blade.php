@@ -82,15 +82,15 @@
         
         <h1>Aggiungi la tua carta</h1>
         <div class="flex-center position-ref full-height">
-
+            {{-- @dd($sponsorship_data) --}}
             <div class="content">
                 <form method="post" id="payment-form" action="{{ route('admin.checkout') }}">
                     @csrf
                     <section>
                         <label for="amount">
-                            <span class="input-label">Amount</span>
+                            <span class="input-label">Prezzo</span>
                             <div class="input-wrapper amount-wrapper">
-                                <input id="amount" name="amount" type="number" step="any" min="1" placeholder="Amount" value="10">
+                                <input id="amount" name="amount" type="number" step="any" min="1" placeholder="Prezzo"  value="{{ floatval($sponsorship_data['sponsorship_price'])  +  0.99 }}">
                             </div>
                         </label>
 
@@ -101,7 +101,7 @@
                     <input type="hidden" id="apartment_id" name="apartment_id" value="{{ $sponsorship_data['apartment_id'] }}">
                     <input type="hidden" id="sponsorship_id" name="sponsorship_id" value="{{ $sponsorship_data['sponsorship_id'] }}">
                     <input id="nonce" name="payment_method_nonce" type="hidden" />
-                    <button class="button" type="submit"><span>Test Transaction</span></button>
+                    <button class="btn btn-primary" type="submit">Paga ora</button>
                 </form>
             </div>
         </div>

@@ -29,6 +29,8 @@
                         <p>Per {{ $sponsorship['duration'] }} ore in evidenza</p>
                         <input type="hidden" id="apartment_id" name="apartment_id" value="{{ $id }}">
                         <input type="hidden" id="sponsorship_id" name="sponsorship_id" value="{{ $sponsorship['id'] }}">
+                        <input type="hidden" id="sponsorship_price" name="sponsorship_price" value="{{ $sponsorship['price'] }}">
+                        <input type="hidden" id="sponsorship_name" name="sponsorship_name" value="{{ $sponsorship['name'] }}">
                         <button type="submit" class="btn btn-primary" >Acquista Ora</button>
                     </div>
             </form>
