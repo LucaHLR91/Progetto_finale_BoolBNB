@@ -80,12 +80,16 @@
             </div>
         @endif
         
-        <h1>Aggiungi la tua carta</h1>
-        <div class="flex-center position-ref full-height">
+        <header>
+
+        </header>
+        <div class="flex-center flex-column position-ref full-height">
+            <h1>Aggiungi la tua carta</h1>
 
             <div class="content">
                 <form method="post" id="payment-form" action="{{ route('admin.checkout') }}">
                     @csrf
+                    @method('POST')
                     <section>
                         <label for="amount">
                             <span class="input-label">Amount</span>
