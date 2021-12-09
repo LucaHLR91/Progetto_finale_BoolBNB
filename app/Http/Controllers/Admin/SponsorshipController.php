@@ -20,10 +20,14 @@ class SponsorshipController extends Controller
      */
     public function index(Request $request)
     {
+        // PRENDO L'ID DELL'APPARTAMENTO
         $id = $request->id;
-        // TODO
+        // PRENDO TUTTI I TIPI DI SPONSORIZZAZIONI
         $sponsorships = Sponsorship::all();
-        return view('admin.sponsorships.index', compact('sponsorships', 'id'));
+        $apartment = Apartment::findOrFail($id);
+        // PRENDO TUTTI I DATI DELLA TABELLA PONTE E LI PASSO ALLA VISTA DELLE SPONSORIZZAZIONI
+       
+        return view('admin.sponsorships.index', compact('sponsorships', 'id', 'apartment'));
     }
 
      /**
