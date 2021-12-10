@@ -11,49 +11,33 @@ class QueryController extends Controller
 {
 
     public function searchController(Request $request)
-
     {
-        
-       
-        if ($request->has('services')){
-            
-            $id_apartments= $request->id_apartments;
+
+        if ($request->has('services')) {
+
+            $id_apartments = $request->id_apartments;
             $id_services = $request->services;
 
-            // query every id_apartment and id_service
+            $apartments = DB::table('apartment_service')
+                ->select('apartment_id', 'service_id')
+                ->whereIn('apartment_id', $id_apartments)
+                ->whereIn('service_id', $id_services)
+                ->get();
 
-            $results = [];
+            // create ARRAY OF COORDINATES OF APARTMENTS
+            $coordinates = array();
 
-            foreach ($id_apartments as $id_apartment) {
-                // for every service
-                foreach ($id_services as $id_service) {
-                    // select on table services_apartments
-                    $apartments = DB::table('apartment_service')
-                        ->select('apartment_id', 'service_id')
-                        ->where('apartment_id', '=', $id_apartment)
-                        ->where('service_id', '=', $id_service)
-                        ->get();
-                    
-                    foreach ($apartments as $apartment) {
-                        $results[] = $apartment->apartment_id;
-                    }
-
-                }
-            }
-
-            foreach ($results as $apartment_id) {
-                $apartment = Apartment::find($apartment_id);
-                $apartments[] = $apartment;
+            foreach ($apartments as $apartment) {
+                $apartment = Apartment::find($apartment->apartment_id);
                 $coordinates[] = array(
-                    'latitude' => $apartment->latitude,
-                    'longitude' => $apartment->longitude
+                    'latitude' => $apartment["latitude"],
+                    'longitude' => $apartment["longitude"],
                 );
             }
 
-        }
-
-        else{
-            $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
+        } else {
+            // $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
+            $geocoder = new GeoFunction('6y2OQWGA2Mzh58h8WsuNYObnNsRijOlr');
             $coordinates = $geocoder->geocodeAddress($request->city);
             $geoapartments = Apartment::radius($coordinates['latitude'], $coordinates['longitude'], $request->radius)->get();
             // Filtro gli appartamenti che soddisfano i filtri
@@ -61,36 +45,31 @@ class QueryController extends Controller
             $apartments = Apartment::ignoreRequest(['radius'])->filter($data)->get();
             // save common apartments in $apartments
             $apartments = $apartments->intersect($geoapartments);
+            $coordinates = array();
+            foreach ($apartments as $apartment) {
+                $coordinates[] = array(
+                    'latitude' => $apartment->latitude,
+                    'longitude' => $apartment->longitude,
+                );
+            }
 
+            $id_apartments = array();
+            foreach ($apartments as $apartment) {
+                $id_apartments[] = $apartment->id;
+            }
 
-           
 
         }
-        $coordinates = array();
-        foreach ($apartments as $apartment) {
-            $coordinates[] = array(
-                'latitude' => $apartment->latitude,
-                'longitude' => $apartment->longitude,
-            );
-        }
-
-
-        $id_apartments = array();
-        foreach ($apartments as $apartment) {
-            $id_apartments[] = $apartment->id;
-        }
-
         $services = Service::all();
 
-        return view('guest.home.search', compact('apartments', 'coordinates', 'id_apartments', 'services'));
 
+        return view('guest.home.search', compact('apartments', 'coordinates', 'id_apartments', 'services'));
 
     }
 
     // function to filter apartments_id  by services
 
-
-    public function getApartmentByServices($apartments_id,$id_service)
+    public function getApartmentByServices($apartments_id, $id_service)
     {
 
         $apartmentByServices = DB::table('apartment_service')
@@ -115,8 +94,6 @@ class QueryController extends Controller
             ->get();
         return response()->json($services);
 
-
-        
     }
 
 }
