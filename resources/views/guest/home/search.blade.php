@@ -59,11 +59,9 @@
                                 <p>città: {{ $result->city }}</p>
                             </div>
                             <div class="col-6 p-0 border ">
-                                {{-- farsi cambiare l'indirizzo dell'immagine --}}
-                                {{-- <img class="w-100 border border-primary" src="{{asset($result->image)}}" alt="{{ $result->title }}"> --}}
-
-                                <img class="w-100 border " src="{{asset('storage/1638454357.jpg')}}" alt="{{ $result->title }}">
-                            </div>
+                               
+                                <img src="{{ asset('storage/image_apartments/' . $result->image) }}" alt="" title="" style="width:200px; height:200px">
+                            </div>\
                             {{-- <a href="{{route('messages.show', $result->id) }}" class="btn btn-info">Visualizza appartamento</a> --}}
                         </div>
                     </a>

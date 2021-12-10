@@ -71,13 +71,11 @@ class ApartmentController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-          /*   $path = $image->storeAs('image_apartments', $filename); */
             Storage::disk('public')->put('image_apartments/' . $filename, file_get_contents($image));
         }
         // Generate a file name with extension
 
-
-        $completeAddress = $request->address . ', ' . $request->city;
+        $completeAddress = $request->address . ', ' . $request->city . ',' . 'Italia';
 
         $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
         $coordinates = $geocoder->geocodeAddress($completeAddress);

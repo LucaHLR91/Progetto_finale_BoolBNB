@@ -11,7 +11,7 @@ class GeoFunction extends Controller
         private $language;
         const URL_SINGLE = "https://api.tomtom.com/search/2/geocode/";
         
-        public function __construct($apiKey, $language = 'en') {
+        public function __construct($apiKey, $language = 'it') {
             $this->apiKey = $apiKey;
             $this->language = $language;
         }
