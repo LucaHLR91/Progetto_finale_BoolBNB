@@ -49,7 +49,7 @@
             @else
                 @foreach ($apartments as $result)
                 <div class="col-lg-4 col-12">
-                    <a class="text-decoration-none" href="{{route('messages.show', $result->id) }}">
+                    {{-- <a class="text-decoration-none" href="{{route('messages.show', $result->id) }}"> --}}
                         {{-- RIMUOVERE LE CLASSI DEI BORDI --}}
                         <div class="house mb-4 d-flex h-200 border ">
                             <div class="col-6 text-dark py-2 ">
