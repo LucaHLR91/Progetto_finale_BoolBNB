@@ -12,26 +12,22 @@
                         </div>
 
                         <div class  = "col-md-3">
-                        <label for ="radius" class="form-lable">Raggio di ricerca</label>
-                        <select v-model="radius" id="radius" name="radius" class="form-control">
-                            <option value="20">20km</option>
-                            <option value="50">50km</option>
-                            <option value="100">100km</option>
-                        </select>
+                            <label for ="radius" class="form-lable">Raggio di ricerca</label>
+                            <select v-model="radius" id="radius" name="radius" class="form-control">
+                                <option value="20">20km</option>
+                                <option value="50">50km</option>
+                                <option value="100">100km</option>
+                            </select>
+                        </div>
 
-                    </div>
                         <div class="col-md-3">
                             <label for="rooms" class="form-lable">Numero stanze</label>
-                            <input type="number" v-model="rooms" id="rooms" name="rooms" class="form-control"
-                                placeholder="Inserisci N°stanze" min="0" />
-
-
+                            <input type="number" v-model="rooms" id="rooms" name="rooms" class="form-control" placeholder="Inserisci N°stanze" min="0" />
                         </div>
 
                         <div class="col-md-3">
                             <label for="beds" class="form-lable">Posti letto</label>
-                            <input type="number" v-model="beds" id="beds" name="beds" class="form-control"
-                                placeholder="Inserisci N°letti" min="0" />
+                            <input type="number" v-model="beds" id="beds" name="beds" class="form-control" placeholder="Inserisci N°letti" min="0" />
                         </div>
 
                         <div class="col-12 text-center pt-3">
