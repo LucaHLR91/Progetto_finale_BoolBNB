@@ -24,6 +24,7 @@ class SponsorshipController extends Controller
         $id = $request->id;
         // PRENDO TUTTI I TIPI DI SPONSORIZZAZIONI
         $sponsorships = Sponsorship::all();
+
         $apartment = Apartment::findOrFail($id);
         // PRENDO TUTTI I DATI DELLA TABELLA PONTE E LI PASSO ALLA VISTA DELLE SPONSORIZZAZIONI
        
@@ -35,12 +36,25 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+   
     public function create($id)
     {
         $sponsorships = Sponsorship::all();
-        $apartment = Apartment::findOrFail('id');
-        // controllare questa rotta
-        return view('admin.sponsorships.create', compact('sponsorships', 'apartment'));
+        
+        $apartment = Apartment::findOrFail($id);
+        $date = Carbon::now()->addDays(3);
+        $apartment_sponsorship = DB::table('apartment_sponsorship')
+                                ->where('apartment_id', $id)
+                                ->where('end_date', '>', $date)
+        ->get();
+
+        if(count($apartment_sponsorship) > 0){
+            return redirect()->route('admin.sponsorships.index', $id)->with('error', 'Questo appartamento è già sponsorizzato');
+        }
+        else{
+            return view('admin.sponsorships.create', compact('sponsorships', 'id', 'apartment'));
+        }
+        
 
     }
 
