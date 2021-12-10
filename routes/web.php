@@ -26,8 +26,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 // Rotta ricerca
 
-Route::get('/search', 'QueryController@searchController')->name('search');
-// Route::post('/service', 'QueryController@queryService')->name('searchQuery');
+Route::get('/search', 'QueryController@index')->name('search');
+Route::get('/advancesearch', 'QueryController@search')->name('searchQuery');
 
 
 Route::resource('/messages', 'ApartmentController');

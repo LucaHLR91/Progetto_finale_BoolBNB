@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="container-fluid text-dark h-600">
-        <form action="{{ route('search') }}" method="get">
+        <form action="{{ route('searchQuery') }}" method="get">
 
 
             <div class="form-group">
