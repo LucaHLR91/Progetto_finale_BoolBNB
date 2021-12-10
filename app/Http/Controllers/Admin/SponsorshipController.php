@@ -137,4 +137,75 @@ class SponsorshipController extends Controller
         return $clientToken;
 
     }
+
+    public function payment(Request $request)
+    {
+        $token = $this->generateToken();
+        $sponsorship_data = $request->all();
+        return view('admin.payments.index', ['token' => $token], compact('sponsorship_data'));
+
+    }
+
+    public function checkout(Request $request){
+        $gateway = new \Braintree\Gateway([
+            'environment' => env('BRAINTREE_ENVIRONMENT'),
+            'merchantId' => env("BRAINTREE_MERCHANT_ID"),
+            'publicKey' => env("BRAINTREE_PUBLIC_KEY"),
+            'privateKey' => env("BRAINTREE_PRIVATE_KEY")
+        ]);
+
+        $amount = $request->amount;
+        $nonce = $request->payment_method_nonce;
+
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'customer' => [
+                'firstName' => 'Tony',
+                'lastName' => 'Stark',
+                'email' => 'tony@avengers.com',
+            ],
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
+
+        if ($result->success) {
+            $transaction = $result->transaction;
+            
+
+            $apartment_id = $request->apartment_id;
+            $sponsorship_id = $request->sponsorship_id;
+            $current_sponsorship = Sponsorship::where('id', $sponsorship_id)->get();
+
+            $days_to_add = $current_sponsorship[0]['duration'] / 24;   
+            
+            $newStartDateTime = Carbon::now();
+            $newEndDatetime = Carbon::now()->addDays($days_to_add);
+
+            $new_apartment_sponsorship = Db::table('apartment_sponsorship')->insert(
+                [
+                    'apartment_id' => $apartment_id,
+                    'sponsorship_id' => $sponsorship_id,
+                    'start_date' => $newStartDateTime,
+                    'end_date' => $newEndDatetime
+                ]
+            );
+
+
+            return redirect()->route('admin.apartments.index')->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+        } else {
+            $errorString = "";
+
+            foreach ($result->errors->deepAll() as $error) {
+                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+            }
+
+            // $_SESSION["errors"] = $errorString;
+            // header("Location: index.php");
+            return back()->withErrors('An error occurred with the message: '.$result->message);
+        }
+
+        
+    }
 }
