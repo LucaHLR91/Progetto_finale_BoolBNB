@@ -45,7 +45,7 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::resource('/apartments', 'ApartmentController');
     // ROTTA PER LE SPONSORIZZAZIONI
     Route::resource('/sponsorships', 'SponsorshipController');
-    Route::get('/activeSponsorship', 'SponsorshipController@activeSponsorship')->name('activeSponsorship');
+    
     // ROTTA PER I MESSAGGI
     Route::resource('/messages', 'MessageController');
 
@@ -129,19 +129,6 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
         }
     })->name('checkout');
 
-    // Route::get('/hosted', function () {
-    //     $gateway = new Braintree\Gateway([
-    //         'environment' => config('services.braintree.environment'),
-    //         'merchantId' => config('services.braintree.merchantId'),
-    //         'publicKey' => config('services.braintree.publicKey'),
-    //         'privateKey' => config('services.braintree.privateKey')
-    //     ]);
-
-    //     $token = $gateway->ClientToken()->generate();
-
-    //     return view('hosted', [
-    //         'token' => $token
-    //     ]);
-    // });
+    
 });
 
