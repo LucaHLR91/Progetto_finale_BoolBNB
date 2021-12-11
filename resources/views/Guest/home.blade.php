@@ -4,11 +4,15 @@
 
 @section('content')
 <div class="container h-600">
+                <insert-address-form></insert-address-form>
 
     <query-form></query-form>
 
+
     <div class="row my-3">
+
         <div class="col-12">
+
             <div id="house_carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#house_carousel" data-slide-to="0" class="active"></li>
@@ -41,6 +45,7 @@
                     </a>
                 </div>
             </div>
+
         </div>
     </div>
                 {{-- <img class="img-fluid" src="{{ asset('storage/image_apartments/1638868723.jpg') }}" alt=""> --}}

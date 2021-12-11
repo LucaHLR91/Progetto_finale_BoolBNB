@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-
 window.Vue = require('vue');
 
 /**
@@ -22,6 +21,7 @@ window.Vue = require('vue');
 Vue.component(
               'all-apartments-map', require ('./components/AllApartmentsMap.vue').default,
               'query-form', require ('./components/QueryForm.vue').default,
+              'insert-address-form', require ('./components/InsertAddress.vue').default,
                  );  
 
 /**
@@ -36,6 +36,7 @@ const app = new Vue({
         
         'all-apartments-map': require('./components/AllApartmentsMap.vue').default,
         'query-form': require('./components/QueryForm.vue').default,
+        'insert-address-form': require('./components/InsertAddress.vue').default,    
     },
 });
 

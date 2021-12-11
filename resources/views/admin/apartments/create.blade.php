@@ -3,7 +3,7 @@
 
 
 @section('content')
-<div class="container">
+<div class="container" >
     <h1 class="text-dark">Inserisci il tuo appartamento</h1>
     
     <form action="{{route('admin.apartments.store')}}" method="post" class="text-dark" enctype="multipart/form-data">
@@ -83,8 +83,13 @@
 
         <div class="mb-3 form-group">
             <label for="address" class="form-label"><h4>Indirizzo</h4></label>
-            <input name="address" type="text" id="address" placeholder="Inserisci l'indirizzo"
-            class="form-control  @error('address') is-invalid @enderror" value="{{ old('address') }}">
+
+              <div class="mb-3">
+                        <label for="address">Indirizzo*</label>
+                        <insert-address-form></insert-address-form>
+            </div>
+          {{--   <input name="address" type="text" id="address" placeholder="Inserisci l'indirizzo"
+            class="form-control  @error('address') is-invalid @enderror" value="{{ old('address') }}"> --}}
             @error('address')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
