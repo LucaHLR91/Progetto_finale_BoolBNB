@@ -2,39 +2,31 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <p>ciao</p>
+              
                 <form class="" action="" method="" @submit.prevent="query">
-                    <div class="row form">
+                    
 
-                        <div class="col-md-4">
-                            <label for="city" class="form-lable">Dove vuoi andare?</label>
-                            <input type="search" v-model="city" id="city" name="city" class="form-control"
-                                placeholder="Inserisci la Città" />
-                        </div>
+            <div class="form-group">
+                <h4>Filtra per servizi:</h4>
 
-                        <div class="col-md-4">
-                            <label for="radius" class="form-lable">Raggio di ricerca</label>
-                            <select v-model="radius" id="radius" name="radius" class="form-control">
-                                <option value="20">20km</option>
-                                <option value="50">50km</option>
-                                <option value="100">100km</option>
-                            </select>
+                
 
-                        </div>
+                @foreach ($id_apartments as $id_apartment)
+                    <input name="id_apartments[]" id="id_apartments" value="{{ $id_apartment }}" type="hidden">
+                @endforeach
 
-                        <div class="col-md-4">
-                            <label for="rooms" class="form-lable">Numero stanze</label>
-                            <input type="number" v-model="rooms" id="rooms" name="rooms" class="form-control"
-                                placeholder="Inserisci N°stanze" min="0" />
-                        </div>
 
-                        <div class="col-md-4">
-                            <label for="beds" class="form-lable">Posti letto</label>
-                            <input type="number" v-model="beds" id="beds" name="beds" class="form-control"
-                                placeholder="Inserisci N°letti" min="0" />
-                        </div>
-
-                    </div>
+                @foreach ($services as $service)
+                <div class="form-check form-check-inline">
+                    {{-- services[] coterrà tutti i valori che noi selezioneremo --}}
+                    <input {{ in_array($service['id'], old('services', [])) ? 'checked' : null }} value="{{ $service['id'] }}"
+                        id="{{ 'tag' . $service['id'] }}" type="checkbox" name="services[]" class="form-check-input">
+                    <label for="{{ 'service' . $service['id'] }}"
+                        class="form-check-label">{{ $service['service_name'] }}</label>
+                </div>
+                @endforeach
+                <button type="submit" class="btn btn-primary">Filtra</button>
+            </div>
 
                     <div class="row text-center pt-3">
                         <div class="col-12">

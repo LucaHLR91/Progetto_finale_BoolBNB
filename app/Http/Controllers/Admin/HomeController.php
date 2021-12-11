@@ -30,13 +30,7 @@ class HomeController extends Controller
     public function index()
     {
 
-      $apartments = Apartment::where('user_id', auth()->user()->id)->get();
-      $number_of_apartments = count($apartments);
-      $date = Carbon::now()->addDays(3);
-        $apartment_sponsorship = DB::table('apartment_sponsorship')
-                                ->where('apartment_id', $id)
-                                ->where('end_date', '>', $date)
-        ->get();
+      
 
     return view('admin.home');
     }
