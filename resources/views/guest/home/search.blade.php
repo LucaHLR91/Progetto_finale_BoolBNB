@@ -61,7 +61,7 @@
                             <div class="col-6 p-0 border ">
                                
                                 <img src="{{ asset('storage/image_apartments/' . $result->image) }}" alt="" title="" style="width:200px; height:200px">
-                            </div>\
+                            </div>
                             {{-- <a href="{{route('messages.show', $result->id) }}" class="btn btn-info">Visualizza appartamento</a> --}}
                         </div>
                     </a>
