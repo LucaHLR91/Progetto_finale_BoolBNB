@@ -2,14 +2,16 @@
 @section('title', 'Pagina di Ricerca')
 
 @section('content')
-    <div class="container-fluid text-dark mb-4">
+
+    {{-- il seguente link serve per vedere cosa si è cercato --}}
+    {{-- <div class="container-fluid text-dark mb-4">
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                {{-- @dd($parameters) --}}    {{-- farsi passare la variabile con i dati filtrati --}}
-             {{-- <h3><i class="fas fa-search"></i> {{ $parameters['city'] }} - N°stanze {{ $parameters['rooms'] }} - N°letti {{ $parameters['beds'] }}</h3> --}}
+                @dd($parameters) 
+             <h3><i class="fas fa-search"></i> {{ $parameters['city'] }} - N°stanze {{ $parameters['rooms'] }} - N°letti {{ $parameters['beds'] }}</h3>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="container-fluid text-dark h-600">
         <form action="{{ route('searchQuery') }}" method="get">
 
@@ -51,16 +53,20 @@
                 <div class="col-lg-4 col-12">
                     {{-- <a class="text-decoration-none" href="{{route('messages.show', $result->id) }}"> --}}
                         {{-- RIMUOVERE LE CLASSI DEI BORDI --}}
-                        <div class="house mb-4 d-flex h-200 border ">
+                        {{-- @dd($result) --}}
+                        <div class="house h-250 mb-4 d-flex border ">
                             <div class="col-6 text-dark py-2 ">
-                                <h2>{{ $result->title }}</h2>
-                                <p>numero stanze: {{ $result->rooms }}</p>
-                                <p>numero letti: {{ $result->beds }}</p>
-                                <p>città: {{ $result->city }}</p>
+                                <h3 class="m-0">{{ $result->title }}</h3>
+                                <p class="m-0">N° Stanze: {{ $result->rooms }}</p>
+                                <p class="m-0">N° Letti:{{ $result->beds }}</p>
+                                <p class="m-0">N° Bagni:{{ $result->bathrooms }}</p>
+                                <p class="m-0">MQ:{{ $result->square_meters }}</p>
+                                <p class="m-0">Città:{{ $result->city }}</p>
+                                <p class="m-0">Indirizzo:{{ $result->address }}</p>
                             </div>
                             <div class="col-6 p-0 border ">
-                               
-                                <img src="{{ asset('storage/image_apartments/' . $result->image) }}" alt="" title="" style="width:200px; height:200px">
+                                {{-- <img src="{{ asset('storage/image_apartments/1638871398.jpeg') }}" alt="" title="" style="width:200px; height:200px"> --}}
+                                <img src="{{ asset('storage/image_apartments/' . $result->image) }}" alt="" class="w-100 h-100">
                             </div>
                             {{-- <a href="{{route('messages.show', $result->id) }}" class="btn btn-info">Visualizza appartamento</a> --}}
                         </div>
