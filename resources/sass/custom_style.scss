@@ -83,8 +83,12 @@ footer {
     min-height: 650px !important;
 }
 
-.h-200 {
-    min-height: 200px !important;
+.h-250 {
+    height: 300px !important;
+}
+
+.w-350 {
+    min-width: 350px !important;
 }
 // FINE MY BOOTSTRAP
 
@@ -159,4 +163,9 @@ footer {
 .wrapper {
     height: 100vh;
     width: 100%;
+}
+
+// SPAZIO
+.spazio4 {
+    width: calc(100% / 4);
 }
