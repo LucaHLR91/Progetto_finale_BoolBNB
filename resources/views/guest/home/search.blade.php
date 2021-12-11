@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="container-fluid text-dark h-600">
-        <form action="{{ route('search') }}" method="get">
+        <form action="{{ route('searchQuery') }}" method="get">
 
 
             <div class="form-group">
@@ -49,7 +49,7 @@
             @else
                 @foreach ($apartments as $result)
                 <div class="col-lg-4 col-12">
-                    <a class="text-decoration-none" href="{{route('messages.show', $result->id) }}">
+                    {{-- <a class="text-decoration-none" href="{{route('messages.show', $result->id) }}"> --}}
                         {{-- RIMUOVERE LE CLASSI DEI BORDI --}}
                         <div class="house mb-4 d-flex h-200 border ">
                             <div class="col-6 text-dark py-2 ">
@@ -59,11 +59,9 @@
                                 <p>città: {{ $result->city }}</p>
                             </div>
                             <div class="col-6 p-0 border ">
-                                {{-- farsi cambiare l'indirizzo dell'immagine --}}
-                                {{-- <img class="w-100 border border-primary" src="{{asset($result->image)}}" alt="{{ $result->title }}"> --}}
-
-                                <img class="w-100 border " src="{{asset('storage/1638454357.jpg')}}" alt="{{ $result->title }}">
-                            </div>
+                               
+                                <img src="{{ asset('storage/image_apartments/' . $result->image) }}" alt="" title="" style="width:200px; height:200px">
+                            </div>\
                             {{-- <a href="{{route('messages.show', $result->id) }}" class="btn btn-info">Visualizza appartamento</a> --}}
                         </div>
                     </a>
