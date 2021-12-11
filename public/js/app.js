@@ -1926,7 +1926,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['coordinates'],
   mounted: function mounted() {
@@ -1950,6 +1949,94 @@ __webpack_require__.r(__webpack_exports__);
     map.setZoom(10);
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/QueryForm.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/QueryForm.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'QueryForm',
+  data: function data() {
+    return {
+      city: '',
+      rooms: '',
+      beds: '',
+      radius: ''
+    };
+  },
+  methods: {
+    query: function query() {
+      this.$emit('query', {
+        city: this.city,
+        rooms: this.rooms,
+        beds: this.beds,
+        radius: this.radius
+      });
+      var url = "/search?rooms[operator]=>&rooms[value]=".concat(this.rooms, "&city=").concat(this.city, "&beds[operator]=>&beds[value]=").concat(this.beds, "&radius=").concat(this.radius);
+      window.location.href = url;
+    }
+  }
+}); //
+// ENDPOINT
+// http://127.0.0.1:8000/search?rooms[operator]=%3E&rooms[value]=2?beds[operator]=%3E&beds[value]=2
 
 /***/ }),
 
@@ -6332,7 +6419,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#map[data-v-00ba0b65] {\n       width: 900px;\n       height: 450px;\n       margin-top: 30px;\n}\n\n", ""]);
+exports.push([module.i, "\n#map[data-v-00ba0b65] {\n       height: 450px;\n}\n\n", ""]);
 
 // exports
 
@@ -38191,11 +38278,230 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row w-100 justify-content-center" }, [
-        _c("div", { staticClass: "col-md-10" }, [
+    return _c("div", { staticClass: "container-fluid p-0" }, [
+      _c("div", { staticClass: "row m-0" }, [
+        _c("div", { staticClass: "col-12 p-0" }, [
           _c("div", { staticClass: "map", attrs: { id: "map" } }),
         ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/QueryForm.vue?vue&type=template&id=95c22c5e&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/QueryForm.vue?vue&type=template&id=95c22c5e& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c(
+          "form",
+          {
+            attrs: { action: "", method: "" },
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.query.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "row form" }, [
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-lable", attrs: { for: "city" } },
+                  [_vm._v("Dove vuoi andare?")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.city,
+                      expression: "city",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "search",
+                    id: "city",
+                    name: "city",
+                    placeholder: "Inserisci la Città",
+                  },
+                  domProps: { value: _vm.city },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.city = $event.target.value
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-lable", attrs: { for: "radius" } },
+                  [_vm._v("Raggio di ricerca")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.radius,
+                        expression: "radius",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "radius", name: "radius" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.radius = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "20" } }, [_vm._v("20km")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "50" } }, [_vm._v("50km")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "100" } }, [
+                      _vm._v("100km"),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-lable", attrs: { for: "rooms" } },
+                  [_vm._v("Numero stanze")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.rooms,
+                      expression: "rooms",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "number",
+                    id: "rooms",
+                    name: "rooms",
+                    placeholder: "Inserisci N°stanze",
+                    min: "0",
+                  },
+                  domProps: { value: _vm.rooms },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.rooms = $event.target.value
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-lable", attrs: { for: "beds" } },
+                  [_vm._v("Posti letto")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.beds,
+                      expression: "beds",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "number",
+                    id: "beds",
+                    name: "beds",
+                    placeholder: "Inserisci N°letti",
+                    min: "0",
+                  },
+                  domProps: { value: _vm.beds },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.beds = $event.target.value
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _vm._m(0),
+            ]),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 text-center pt-3" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary form-group",
+            attrs: { type: "submit", id: "query" },
+          },
+          [_vm._v("Cerca")]
+        ),
       ]),
     ])
   },
@@ -50442,7 +50748,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('all-apartments-map', __webpack_require__(/*! ./components/AllApartmentsMap.vue */ "./resources/js/components/AllApartmentsMap.vue")["default"]);
+Vue.component('all-apartments-map', __webpack_require__(/*! ./components/AllApartmentsMap.vue */ "./resources/js/components/AllApartmentsMap.vue")["default"], 'query-form', __webpack_require__(/*! ./components/QueryForm.vue */ "./resources/js/components/QueryForm.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50452,9 +50758,50 @@ Vue.component('all-apartments-map', __webpack_require__(/*! ./components/AllApar
 var app = new Vue({
   el: '#app',
   components: {
-    'all-apartments-map': __webpack_require__(/*! ./components/AllApartmentsMap.vue */ "./resources/js/components/AllApartmentsMap.vue")["default"]
+    'all-apartments-map': __webpack_require__(/*! ./components/AllApartmentsMap.vue */ "./resources/js/components/AllApartmentsMap.vue")["default"],
+    'query-form': __webpack_require__(/*! ./components/QueryForm.vue */ "./resources/js/components/QueryForm.vue")["default"]
   }
-});
+}); // function generateUrl(city, range, rooms, beds) {
+//     let url = "/search?";
+//     if (city) {
+//         url += "city=" + city;
+//     }
+//     if (range) {
+//         url += "&range=" + range;
+//     }
+//     if (rooms) {
+//         url += "&rooms[" > "]=" + rooms;
+//     }
+//     if (beds) {
+//         url += "&beds[" > "]=" + beds;
+//     }
+//     console.log(url);
+//     return url;
+// }
+// // get url from search form
+// function getUrl() {
+//     let city = $("#city").val();
+//     let range = $("#slider-range").val();
+//     let rooms = $("#rooms").val();
+//     let beds = $("#beds").val();
+//     return generateUrl(city, range, rooms, beds);
+// }
+// function query() {
+//     let url = getUrl();
+//     console.log(url);
+//     axios.get(url)
+//         .then(function (response) {
+//             console.log(response);
+//             let houses = response.data;
+//         }).catch(function (error) {
+//             console.log(error);
+//         });
+// }
+// // event listener for search button after dom laod
+// document.addEventListener('DOMContentLoaded', function () {
+//     console.log("DOM loaded");
+//     document.getElementById('query').addEventListener('click', query);
+// });
 
 /***/ }),
 
@@ -50585,6 +50932,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllApartmentsMap_vue_vue_type_template_id_00ba0b65_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllApartmentsMap_vue_vue_type_template_id_00ba0b65_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/QueryForm.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/QueryForm.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _QueryForm_vue_vue_type_template_id_95c22c5e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./QueryForm.vue?vue&type=template&id=95c22c5e& */ "./resources/js/components/QueryForm.vue?vue&type=template&id=95c22c5e&");
+/* harmony import */ var _QueryForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QueryForm.vue?vue&type=script&lang=js& */ "./resources/js/components/QueryForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _QueryForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _QueryForm_vue_vue_type_template_id_95c22c5e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _QueryForm_vue_vue_type_template_id_95c22c5e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/QueryForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/QueryForm.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/QueryForm.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_QueryForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./QueryForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/QueryForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_QueryForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/QueryForm.vue?vue&type=template&id=95c22c5e&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/QueryForm.vue?vue&type=template&id=95c22c5e& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_QueryForm_vue_vue_type_template_id_95c22c5e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./QueryForm.vue?vue&type=template&id=95c22c5e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/QueryForm.vue?vue&type=template&id=95c22c5e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_QueryForm_vue_vue_type_template_id_95c22c5e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_QueryForm_vue_vue_type_template_id_95c22c5e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

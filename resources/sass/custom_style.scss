@@ -8,14 +8,16 @@
 ul {
     list-style: none
 }
+
 #app {
     width: 100%;
-    height: 100vh;
+    // height: calc(100vh - 70px);
 
 }
 
 .my-dashboard {
     background: #32383e;
+    height: calc(100vh - 70px);
 }
 
 .my-dashboard a,
@@ -56,6 +58,7 @@ footer {
 // LAYOUTS - DASHBOARD
 .my-navbar {
     border-bottom: 2px solid rgb(194, 192, 192);
+    height: 70px;
 }
 //FINE LAYOUTS - DASHBOARD
 
@@ -100,8 +103,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 400px;
-    min-height: 400px;
+    min-width: 350px;
+    min-height: 350px;
 
     input[value] {
         display: none;
@@ -140,6 +143,20 @@ footer {
     display: flex;
     justify-content: space-evenly;
 }
+
+// La seguente classe la utilizzo per dare altezza e barra, rinominarla per renderla piu parlante
 .mt-6 {
-    margin-top: 72px;
+    // margin-top: 68px;
+    height: calc(100vh - 70px);
+    overflow-y: overlay;
+}
+
+.map {
+    width: 100%;
+}
+
+// PAGAMENTO 
+.wrapper {
+    height: 100vh;
+    width: 100%;
 }

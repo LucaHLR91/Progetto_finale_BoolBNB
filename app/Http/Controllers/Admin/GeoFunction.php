@@ -11,7 +11,7 @@ class GeoFunction extends Controller
         private $language;
         const URL_SINGLE = "https://api.tomtom.com/search/2/geocode/";
         
-        public function __construct($apiKey, $language = 'en') {
+        public function __construct($apiKey, $language = 'it') {
             $this->apiKey = $apiKey;
             $this->language = $language;
         }
@@ -32,8 +32,14 @@ class GeoFunction extends Controller
            
             $result = file_get_contents($queryUrl);
             $result = json_decode($result, true);
-
-            return $result;
+            $latitude = $result['results'][0]['position']['lat'];
+            $longitude = $result['results'][0]['position']['lon'];
+           
+            return array(
+                'latitude' => $latitude, 
+                'longitude' => $longitude
+            );
+           
 
         }
         

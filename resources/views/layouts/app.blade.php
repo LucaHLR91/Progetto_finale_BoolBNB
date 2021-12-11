@@ -44,8 +44,8 @@
 <body>
     <div id="app">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar fixed-top ">
-            <a class="navbar-brand" href="{{ url('/') }}"><i class="fab fa-airbnb"></i>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar sticky-top ">
+            <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}"><i class="fab fa-airbnb"></i>
                 BoolBnB</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -94,7 +94,7 @@
             </div>
           </nav>
 
-        <main class="pt-4  mt-6">
+        <main class="pt-4 mt-6">
             @yield('content')
 
             <footer class="">

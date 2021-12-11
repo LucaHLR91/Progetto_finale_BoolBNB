@@ -13,6 +13,8 @@ use App\Sponsorship;
 use App\Service;
 use Illuminate\Support\Facades\DB;
 
+use Carbon\Carbon;
+
 use Illuminate\Support\Str;
 
 
@@ -69,26 +71,21 @@ class ApartmentController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $path = $image->storeAs('image_apartments', $filename);
+            Storage::disk('public')->put('image_apartments/' . $filename, file_get_contents($image));
         }
         // Generate a file name with extension
 
+        $completeAddress = $request->address . ', ' . $request->city . ',' . 'Italia';
 
-        $completeAddress = $request->address . ', ' . $request->city;
-        //  $geocoder = new GeoFunction(trim(env('TOMTOM_API_KEY')));
-
-        $geocoder = new GeoFunction('yNgX4mXdpmkOXOoS76g8oRrlZcAmGUPm');
-        $result = $geocoder->geocodeAddress($completeAddress);
-        $latitude = $result['results'][0]['position']['lat'];
-        $longitude = $result['results'][0]['position']['lon'];
-
-
+        $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
+        $coordinates = $geocoder->geocodeAddress($completeAddress);
+        
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
-        $apartment->latitude = $latitude;
+        $apartment->latitude = $coordinates['latitude'];
         $apartment->image = $filename;
-        $apartment->longitude = $longitude;
+        $apartment->longitude = $coordinates['longitude'];
         $apartment->user_id = Auth::id();
 
 

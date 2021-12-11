@@ -13,23 +13,37 @@
                 </div>
             @endif
 
+            @if (session('success_message'))
+                <div class="alert alert-success">
+                    {{ session('success_message') }}
+                </div>
+            @endif
+
+            @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <table class="table text-dark ">
                 <thead >
                   <tr class="">
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Titolo</th>
+                    <th scope="col">Via</th>
+                    <th scope="col">Città</th>
+                    <th scope="col">Azioni</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($apartments as $apartment)
                         <tr>
-                            <td scope="row">{{ $apartment['id'] }}</td>
                             <td>{{ $apartment['title'] }}</td>
                             <td>{{ $apartment['address'] }}</td>
-                            <td>{{ $apartment['city'] }}</td>
+                            <td>{{ ucfirst($apartment['city']) }}</td>
                             <td>
                                 <a href="{{ route('admin.apartments.show', $apartment['id']) }}" class="btn btn-info my-1 my-w">Dettagli</a>
                                 <a href="{{ route('admin.apartments.edit', $apartment['id']) }}" class="btn btn-warning my-1 my-w">Modifica</a>

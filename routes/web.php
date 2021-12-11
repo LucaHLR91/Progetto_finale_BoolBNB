@@ -1,9 +1,18 @@
 <?php
 
 use App\Http\Controllers\Admin\HomeController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SponsorshipController;
+
+use  Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use App\Http\Controllers\BraintreeController;
+=======
+use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+use App\Sponsorship;
+>>>>>>> master
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +29,11 @@ use App\Http\Controllers\BraintreeController;
 Route::get('/', 'HomeController@index')->name('home');
 
 // Rotta ricerca
-Route::post('/search', 'QueryController@index')->name('search');
+
+Route::get('/search', 'QueryController@index')->name('search');
+Route::get('/advancesearch', 'QueryController@search')->name('searchQuery');
+
+
 Route::resource('/messages', 'ApartmentController');
 
 
@@ -38,10 +51,17 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')
     Route::resource('/apartments', 'ApartmentController');
     // ROTTA PER LE SPONSORIZZAZIONI
     Route::resource('/sponsorships', 'SponsorshipController');
+    
     // ROTTA PER I MESSAGGI
     Route::resource('/messages', 'MessageController');
-    // ROTTA PER PAYMENT
-    Route::any('/payment', [BraintreeController::class, 'token'])->name('token');
+
+    // ROTTA PAGAMENTI
+    Route::get('/payments', 'SponsoController@payments')->name('payments');
+  
+
+    // ROTTA PER INVIARE IL PAGAMENTO SU BRAINTREE 
+    Route::post('/checkout', 'SponsoController@checkout' )->name('checkout');
+
     
 });
 

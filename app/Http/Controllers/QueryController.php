@@ -1,66 +1,73 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Apartment;
+use App\Http\Controllers\Admin\GeoFunction;
+use App\Service;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 
 class QueryController extends Controller
 {
-    
     public function index(Request $request)
     {
-        
-        $beds = $request->beds;
-        $rooms = $request->rooms;
-        $city = ucfirst($request->city);
-
-        $parameters = [
-            'beds' => $beds,
-            'rooms' => $rooms,
-            'city' => $city
-        ];
-
-        if (!empty($beds) && !empty($rooms) && !empty($city)) {
-            $apartments = DB::table('apartments')
-                ->where('beds', '>=', $beds)
-                ->where('rooms', '>=', $rooms)
-                ->where('city', '=', $city)
-                ->get();
-        }
-         elseif (!empty($beds) && !empty($city)) {
-            $apartments = DB::table('apartments')
-                ->where('beds', '>=', $beds)
-                ->where('city', '=', $city)
-                ->get();
-        } elseif (!empty($rooms) && !empty($city)) {
-            $apartments = DB::table('apartments')
-                ->where('rooms', '>=', $rooms)
-                ->where('city', '=', $city)
-                ->get();
-        }
-         elseif (!empty($city)) {
-            $apartments = DB::table('apartments')
-                ->where('city', '=', $city)
-                ->get();
-        } else {
-            // Inserire app sponsorizzati
-            $apartments = DB::table('apartments')
-                ->get();
-        }
-
-            // $coordinates = Apartment::all()->pluck('latitude', 'longitude')->all();
-
-        // create an array with latidude and longitude from $apartments
+        $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
+        $coordinates = $geocoder->geocodeAddress($request->city);
+        $geoapartments = Apartment::radius($coordinates['latitude'], $coordinates['longitude'], $request->radius)->get();
+        // Filtro gli appartamenti che soddisfano i filtri
+        $data = $request->except('services');
+        $apartments = Apartment::ignoreRequest(['radius'])->filter($data)->get();
+        // save common apartments in $apartments
+        $apartments = $apartments->intersect($geoapartments);
         $coordinates = array();
+        $id_apartments = array();
         foreach ($apartments as $apartment) {
             $coordinates[] = array(
                 'latitude' => $apartment->latitude,
-                'longitude' => $apartment->longitude
+                'longitude' => $apartment->longitude,
+            );
+            $id_apartments[] = $apartment->id;
+        }
+
+    
+    $services = Service::all();
+
+    return view('guest.home.search', compact('apartments', 'coordinates', 'id_apartments', 'services'));
+    }
+
+    public function search (Request $request){
+        $id_apartments = $request->id_apartments;
+        $id_services = $request->services;
+
+        $results = DB::table('apartment_service')
+            ->select('apartment_id', 'service_id')
+            ->whereIn('apartment_id', $id_apartments)
+            ->whereIn('service_id', $id_services)
+            ->get();
+
+        $coordinates = array();
+        $id_apartments = array();
+
+        foreach ($results as $apartment) {
+            $id_apartments[] = $apartment->apartment_id;
+            $apartment = Apartment::find($apartment->apartment_id);
+            $coordinates[] = array(
+                'latitude' => $apartment["latitude"],
+                'longitude' => $apartment["longitude"],
             );
         }
 
-        return view('guest.home.search', compact('apartments', 'coordinates', 'parameters'));
+        $apartments = Apartment::whereIn('id', $id_apartments)->get();
+        $services = Service::all();
+
+        return view('guest.home.search', compact('apartments', 'coordinates', 'id_apartments', 'services'));
+
     }
+        
+ 
+
+  
+
+
+
 }
