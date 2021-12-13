@@ -185,8 +185,16 @@ class ApartmentController extends Controller
             Storage::disk('public')->put('image_apartments/' . $filename, file_get_contents($image));
         }
         
+        $apartment->title = $form_data['title'];
+        $apartment->beds = $form_data['beds'];
+        $apartment->rooms = $form_data['rooms'];
+        $apartment->bathrooms = $form_data['bathrooms'];
+        $apartment->square_meters = $form_data['square_meters'];
+        $apartment->address = $form_data['address'];
+        $apartment->city = $form_data['city'];
+        $apartment->services()->sync($form_data['services']);
         $apartment->image = $filename;
-        // $apartment->update($form_data);
+        
 
         if ($form_data['title'] != $apartment['title']) {
             // E' STATO MODIFICATO IL TITOLO QUINDI DEVO MODIFICARE LO SLUG
@@ -205,7 +213,7 @@ class ApartmentController extends Controller
             $form_data['slug'] = $slug;
         }
         // QUI SE USO L-ATTACH CREA PROBLEMI, IN QUESTO CASO IL METODO SYNC E' MEGLIO, SYNC SI PREOCCUPA DI RIMUOVERE E AGGIUNGERE LE MODIFICHE, NELL UPDATE E' OBBLIGATORIO IL SYNC
-        $apartment->update($form_data);
+        $apartment->update();
         // UTILIZZO UN METODO PER VERIFICARE SE LA CHIAVE service ESISTE IN FORM DATA PER PREVENIRE UN ERRORE
         if(array_key_exists('services', $form_data)) {
             $apartment->services()->sync($form_data['services']);
