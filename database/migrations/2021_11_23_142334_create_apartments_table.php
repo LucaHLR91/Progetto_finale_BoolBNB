@@ -23,8 +23,8 @@ class CreateApartmentsTable extends Migration
             $table->string('image')->nullable();
             $table->tinyInteger('avaliability');
             $table->string('city');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->string('slug')->unique();
             $table->timestamps();
         });
