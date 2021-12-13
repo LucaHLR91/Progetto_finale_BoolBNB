@@ -29,7 +29,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/search', 'QueryController@index')->name('search');
 Route::get('/advancesearch', 'QueryController@search')->name('searchQuery');
 
-
+Route::resource('/sendMessage', 'MessageController');
 Route::resource('/messages', 'ApartmentController');
 
 

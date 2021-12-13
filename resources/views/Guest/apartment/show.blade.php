@@ -113,7 +113,7 @@
                         <div class="col-lg-12">
                             <div class="col-md-6 mb-4 mb-md-0 mt-4">
                                 <h4>Scrivi al proprietario</h4>
-                                <form action="{{ route('admin.messages.store')}}" method="post">
+                                <form action="{{ route('sendMessage.store')}}" method="post">
                                     @csrf
                                     {{-- CONTROLLI SE L'UTENTE E' PROPRIETARIO O REGISTRATO --}}
                                     @if (Auth::user() == null)
