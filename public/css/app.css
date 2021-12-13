@@ -11105,3 +11105,15 @@ footer {
   width: 25%;
 }
 
+.my-carousel-title {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  z-index: 10;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 5px 7px;
+  border-radius: 25px;
+}
+
