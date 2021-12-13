@@ -79,7 +79,7 @@ class ApartmentController extends Controller
 
         $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
         $coordinates = $geocoder->geocodeAddress($completeAddress);
-        
+
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
@@ -101,11 +101,15 @@ class ApartmentController extends Controller
             $contatore++;
         }
 
+        // PASSO AL NEW POST LE INFORMAZIONI DEI DATA
+       /*  if($apartment->services()->isEmpty){
+            $apartment->services()->attach($form_data['services']);
+        } */
+
+
         $apartment->slug = $slug;
         $apartment->save();
 
-        // PASSO AL NEW POST LE INFORMAZIONI DEI TAG INSERITI
-        $apartment->services()->attach($form_data['services']);
 
         return redirect()->route('admin.apartments.index')->with('success', 'Appartamento aggiunto correttamente');
     }
@@ -220,20 +224,11 @@ class ApartmentController extends Controller
     public function destroy($id)
     {
         $apartment = Apartment::findOrFail($id);
+        $apartment->messages()->delete();
         $apartment->services()->detach();
         $apartment->delete();
         return redirect()->route('admin.apartments.index')->with('status', 'Appartamento eliminato');
     }
 
-    /* public function createSponsorship()
-    {
-        $sponsorType= Sponsorship::all();
-        return view('admin.apartments.sponsorship.create', compact('sponsorType'));
-    } */
-
-    /*  public function storeSponsorship(Request $request, $id){
-        $newApartamentSponsored = DB('')
-
-
-    } */
+    
 }
