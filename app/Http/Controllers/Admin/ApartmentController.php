@@ -171,6 +171,13 @@ class ApartmentController extends Controller
         /* $apartment->save(); */
         $form_data = $request->all();
 
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('public')->put('image_apartments/' . $filename, file_get_contents($image));
+        }
+
+        $apartment->image = $filename;
         $apartment->update($form_data);
 
         if ($form_data['title'] != $apartment['title']) {
