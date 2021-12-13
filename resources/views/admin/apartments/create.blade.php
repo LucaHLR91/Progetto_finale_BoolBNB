@@ -105,11 +105,12 @@
             <div class="form-check form-check-inline">
                 {{-- services[] coterrà tutti i valori che noi selezioneremo --}}
                 <input {{ in_array($service['id'], old('services', [])) ? 'checked' : null }} value="{{ $service['id'] }}"
-                    id="{{ 'tag' . $service['id'] }}" type="checkbox" name="services[]" class="form-check-input">
+                    id="{{ 'tag' . $service['id'] }}" type="checkbox" name="services[]" class="form-check-input  @error('services') is-invalid @enderror">
                 <label for="{{ 'service' . $service['id'] }}"
                     class="form-check-label">{{ $service['service_name'] }}</label>
             </div>
             @endforeach
+            
         </div>
 
         <button type="submit" class="btn btn-primary form-group">Inserisci Appartamento</button>

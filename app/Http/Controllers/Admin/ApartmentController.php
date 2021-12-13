@@ -63,7 +63,7 @@ class ApartmentController extends Controller
             'image' => 'required',
             'address' => 'required',
             'city' => 'required',
-
+            'services' => 'required'
         ]);
 
         // Save image in storage
@@ -87,7 +87,7 @@ class ApartmentController extends Controller
         $apartment->image = $filename;
         $apartment->longitude = $coordinates['longitude'];
         $apartment->user_id = Auth::id();
-
+        
 
         $slug = Str::slug($apartment['title'], '-');
         // VERIFICO SE LO SLUG SIA UNICO NEL SUO GENERE POICHE NEL DATABASE L HO IMPOSTATO COME UNICO
@@ -102,13 +102,11 @@ class ApartmentController extends Controller
         }
 
         // PASSO AL NEW POST LE INFORMAZIONI DEI DATA
-       /*  if($apartment->services()->isEmpty){
-            $apartment->services()->attach($form_data['services']);
-        } */
-
-
+        
+        
         $apartment->slug = $slug;
         $apartment->save();
+        $apartment->services()->attach($form_data['services']);
 
 
         return redirect()->route('admin.apartments.index')->with('success', 'Appartamento aggiunto correttamente');
