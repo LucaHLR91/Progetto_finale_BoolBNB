@@ -72,11 +72,7 @@
                                     <i class="fas fa-plus"></i>
                                     <span class="ms-1 d-none d-sm-inline">Inserisci Appartamento</span> </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link px-0 align-middle">
-                                    <i class="fas fa-search"></i>
-                                    <span class="ms-1 d-none d-sm-inline">Sponsorizzazioni Attive</span> </a>
-                            </li>
+                            
                         </ul>
                         <hr>
 
