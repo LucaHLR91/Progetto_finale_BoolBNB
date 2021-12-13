@@ -29,13 +29,23 @@ class QueryController extends Controller
             $id_apartments[] = $apartment->id;
         }
 
-    
-    $services = Service::all();
+        $apartment_sponsorship = DB::table('apartment_sponsorship')
+            ->select('apartment_id')
+            ->where('end_date', '>=', date('Y-m-d'))
+            ->get();
 
-    return view('guest.home.search', compact('apartments', 'coordinates', 'id_apartments', 'services'));
+        $apartments_id_sponsorship = $apartment_sponsorship->pluck('apartment_id');
+
+        $apartments_id_sponsorship = $apartments_id_sponsorship->intersect($id_apartments);
+        $apartments_sponsorship = Apartment::whereIn('id', $apartments_id_sponsorship)->get();
+
+        $services = Service::all();
+
+        return view('guest.home.search', compact('apartments', 'coordinates', 'id_apartments', 'services', 'apartments_sponsorship'));
     }
 
-    public function search (Request $request){
+    public function search(Request $request)
+    {
         $id_apartments = $request->id_apartments;
         $id_services = $request->services;
 
@@ -63,11 +73,5 @@ class QueryController extends Controller
         return view('guest.home.search', compact('apartments', 'coordinates', 'id_apartments', 'services'));
 
     }
-        
- 
-
-  
-
-
 
 }
