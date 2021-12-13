@@ -2026,7 +2026,7 @@ __webpack_require__.r(__webpack_exports__);
         beds: this.beds,
         radius: this.radius
       });
-      var url = "/search?rooms[operator]=>&rooms[value]=".concat(this.rooms, "&city=").concat(this.city, "&beds[operator]=>&beds[value]=").concat(this.beds, "&radius=").concat(this.radius);
+      var url = "/search?rooms[value]=".concat(this.rooms, "&city=").concat(this.city, "&beds[value]=").concat(this.beds, "&radius=").concat(this.radius);
       window.location.href = url;
     }
   }
@@ -51020,8 +51020,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/famigliaercolino/Desktop/Boolean#39/PHP/LARAVEL/Progetto_finale_BoolBNB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/admin/Desktop/Project/Progetto_finale_BoolBNB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/admin/Desktop/Project/Progetto_finale_BoolBNB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

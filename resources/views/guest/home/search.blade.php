@@ -40,7 +40,8 @@
 
         <div class="row ">
 
-            @if($apartments->isEmpty())
+            @if(count($apartments) < 0)
+              
             <div class="col-12 ">
                 <div class="my-5 text-center ">
                     <h4>Al momento non ci sono appartamenti </h4>

@@ -16,17 +16,52 @@ class QueryController extends Controller
         $geoapartments = Apartment::radius($coordinates['latitude'], $coordinates['longitude'], $request->radius)->get();
         // Filtro gli appartamenti che soddisfano i filtri
         $data = $request->except('services');
-        $apartments = Apartment::ignoreRequest(['radius'])->filter($data)->get();
-        // save common apartments in $apartments
-        $apartments = $apartments->intersect($geoapartments);
-        $coordinates = array();
+        $beds = $request->beds;
+        $rooms = $request->rooms;
+
+
+        if (!empty($beds) && !empty($rooms) ) {
+            $apartments = DB::table('apartments')
+                ->where('beds', '>=', $beds)
+                ->where('rooms', '>=', $rooms)
+                ->get();
+            $apartments = $apartments->sortBy('rooms');
+        }
+         elseif (!empty($beds) ) {
+            $apartments = DB::table('apartments')
+                ->where('beds', '>=', $beds)
+                ->get();
+                $apartments = $apartments->sortBy('beds');
+        } elseif (!empty($rooms) ) {
+            $apartments = DB::table('apartments')
+                ->where('rooms', '>=', $rooms)
+                ->get();
+                $apartments = $apartments->sortBy('rooms');
+        }
+         else {
+            // Inserire app sponsorizzati
+            $apartments = DB::table('apartments')
+                ->get();
+        }
+
         $id_apartments = array();
+        foreach ($apartments as $apartment) {
+           
+            $id_apartments[] = $apartment->id;
+        }
+        
+        $apartments = array();
+        foreach ($geoapartments as $geoapartment) {
+            if (in_array($geoapartment->id, $id_apartments)) {
+                $apartments[] = $geoapartment;
+            }
+        }
+        $coordinates = array();
         foreach ($apartments as $apartment) {
             $coordinates[] = array(
                 'latitude' => $apartment->latitude,
                 'longitude' => $apartment->longitude,
             );
-            $id_apartments[] = $apartment->id;
         }
 
         $apartment_sponsorship = DB::table('apartment_sponsorship')
@@ -49,6 +84,10 @@ class QueryController extends Controller
         $id_apartments = $request->id_apartments;
         $id_services = $request->services;
 
+        if (empty($id_apartments)) {
+            return redirect()->route('home');
+        } 
+
         $results = DB::table('apartment_service')
             ->select('apartment_id', 'service_id')
             ->whereIn('apartment_id', $id_apartments)
@@ -66,6 +105,7 @@ class QueryController extends Controller
                 'longitude' => $apartment["longitude"],
             );
         }
+        
 
         $apartments = Apartment::whereIn('id', $id_apartments)->get();
         $services = Service::all();

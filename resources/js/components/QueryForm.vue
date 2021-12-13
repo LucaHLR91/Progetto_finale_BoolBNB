@@ -70,7 +70,7 @@
 
                 });
 
-                let url = `/search?rooms[operator]=>&rooms[value]=${this.rooms}&city=${this.city}&beds[operator]=>&beds[value]=${this.beds}&radius=${this.radius}`;
+                let url = `/search?rooms[value]=${this.rooms}&city=${this.city}&beds[value]=${this.beds}&radius=${this.radius}`;
 
                 window.location.href = url;
 
