@@ -22,7 +22,7 @@
               
                 <div class="carousel-inner my-rounded max-height d-flex align-items-center" role="listbox">
                   @foreach( $apartments as $apartment )
-                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                     <div class="carousel-item mh-100 {{ $loop->first ? 'active' : '' }}">
                          <img class="d-block w-100" src="{{ asset('storage/image_apartments/' . $apartment->image) }}" alt="{{ $apartment->title }}">
                          <div class="my-carousel-title">
                             <h3 class="m-0">{{ $apartment->title }}</h3>
