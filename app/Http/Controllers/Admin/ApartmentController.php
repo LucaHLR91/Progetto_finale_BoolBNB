@@ -60,7 +60,7 @@ class ApartmentController extends Controller
             'rooms' => 'required',
             'bathrooms' => 'required',
             'square_meters' => 'required',
-            // 'image' => 'required',
+            'image' => 'required',
             'address' => 'required',
             'city' => 'required',
 
@@ -167,7 +167,11 @@ class ApartmentController extends Controller
             'title' => 'required | max: 255',
             'beds' => 'required',
             'rooms' => 'required',
-            'bathrooms' => 'required'
+            'bathrooms' => 'required',
+            'square_meters' => 'required',
+            'image' => 'required',
+            'address' => 'required',
+            'city' => 'required',
 
         ]);
 
@@ -180,9 +184,9 @@ class ApartmentController extends Controller
             $filename = time() . '.' . $image->getClientOriginalExtension();
             Storage::disk('public')->put('image_apartments/' . $filename, file_get_contents($image));
         }
-
+        
         $apartment->image = $filename;
-        $apartment->update($form_data);
+        // $apartment->update($form_data);
 
         if ($form_data['title'] != $apartment['title']) {
             // E' STATO MODIFICATO IL TITOLO QUINDI DEVO MODIFICARE LO SLUG
