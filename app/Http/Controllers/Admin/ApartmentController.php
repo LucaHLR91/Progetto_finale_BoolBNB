@@ -79,7 +79,7 @@ class ApartmentController extends Controller
 
         $geocoder = new GeoFunction(env('TOMTOM_API_KEY'));
         $coordinates = $geocoder->geocodeAddress($completeAddress);
-        
+
         $form_data = $request->all();
         $apartment = new Apartment();
         $apartment->fill($form_data);
@@ -101,11 +101,15 @@ class ApartmentController extends Controller
             $contatore++;
         }
 
+        // PASSO AL NEW POST LE INFORMAZIONI DEI DATA
+       /*  if($apartment->services()->isEmpty){
+            $apartment->services()->attach($form_data['services']);
+        } */
+
+
         $apartment->slug = $slug;
         $apartment->save();
 
-        // PASSO AL NEW POST LE INFORMAZIONI DEI TAG INSERITI
-        $apartment->services()->attach($form_data['services']);
 
         return redirect()->route('admin.apartments.index')->with('success', 'Appartamento aggiunto correttamente');
     }
