@@ -224,20 +224,11 @@ class ApartmentController extends Controller
     public function destroy($id)
     {
         $apartment = Apartment::findOrFail($id);
+        $apartment->messages()->delete();
         $apartment->services()->detach();
         $apartment->delete();
         return redirect()->route('admin.apartments.index')->with('status', 'Appartamento eliminato');
     }
 
-    /* public function createSponsorship()
-    {
-        $sponsorType= Sponsorship::all();
-        return view('admin.apartments.sponsorship.create', compact('sponsorType'));
-    } */
-
-    /*  public function storeSponsorship(Request $request, $id){
-        $newApartamentSponsored = DB('')
-
-
-    } */
+    
 }
