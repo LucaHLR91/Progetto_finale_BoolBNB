@@ -35,11 +35,8 @@
 
                             <div class="col-12 mb-0">
                               <figure class="view overlay rounded z-depth-1 main-img">
-                                {{-- <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
-                                  data-size="710x823">
-                                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
-                                    class="img-fluid z-depth-1"> --}}
-                                </a>
+                                  <img src="{{ asset('storage/image_apartments/' . $apartment->image) }}"
+                                    class="img-fluid z-depth-1"> 
                               </figure>
 
                             </div>
