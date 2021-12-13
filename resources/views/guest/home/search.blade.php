@@ -80,6 +80,8 @@
                                     {{-- effettuare un if per far apparire la disponibilità --}}
                                     @if ($result->avaliability == 1)
                                         <p class=" text-center">Al momento è disponibile</p>
+                                    @else
+                                        <p class=" text-center">Non disponibile</p>
                                     @endif
                                 </div>
                             </div>
